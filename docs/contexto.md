@@ -95,6 +95,9 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-018| Mobile - Visualizar prontuário médico                                                 | ALTA | 
 |RF-019| Mobile – Trocar senha                                                                 | MÉDIA |
 
+
+Os requisitos funcionais de uma API definem as funcionalidades e comportamentos específicos que ela deve oferecer para atender às necessidades dos usuários. Em outras palavras, é uma ponte que facilita a interação e o compartilhamento de dados e funcionalidades entre diferentes sistemas, aplicativos ou plataformas. No referente projeto, engloba todo o conjunto de requisitos destacados no quadro acima.
+
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito                                            |Prioridade |
