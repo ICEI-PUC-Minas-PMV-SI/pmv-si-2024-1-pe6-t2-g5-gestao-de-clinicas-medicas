@@ -120,26 +120,21 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 Descreva aqui todos os serviços que serão disponibilizados pelo seu projeto, detalhando suas características e funcionalidades.
 
 
-
 # Gerenciamento de Projeto
 
-De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar projetos, e que caracterizam a multidisciplinaridade envolvida, são: Integração, Escopo, Cronograma (Tempo), Custos, Qualidade, Recursos, Comunicações, Riscos, Aquisições, Partes Interessadas. Para desenvolver projetos um profissional deve se preocupar em gerenciar todas essas dez áreas. Elas se complementam e se relacionam, de tal forma que não se deve apenas examinar uma área de forma estanque. É preciso considerar, por exemplo, que as áreas de Escopo, Cronograma e Custos estão muito relacionadas. Assim, se eu amplio o escopo de um projeto eu posso afetar seu cronograma e seus custos.
+O tempo é um recurso valioso e limitado, e a capacidade de gerenciá-lo eficientemente é essencial para cumprir prazos, evitar atrasos e maximizar a produtividade. Um cronograma bem estruturado permite uma distribuição adequada das tarefas ao longo do tempo, o que ajuda a evitar sobrecargas e períodos de ociosidade, garantindo um fluxo de trabalho consistente.
+Além disso, o gerenciamento da equipe é crucial para aproveitar ao máximo as habilidades individuais e coletivas dos membros da equipe. Isso inclui a atribuição adequada de funções e responsabilidades, a comunicação eficaz entre os membros da equipe e o estabelecimento de metas claras e alcançáveis. Uma equipe bem gerenciada é mais motivada, engajada e capaz de colaborar de forma eficiente para alcançar os objetivos do projeto.
+
+O gerenciamento de tempo e equipe também contribui para a redução de custos, pois minimiza o retrabalho, atrasos e desperdícios de recursos. Além disso, promove um ambiente de trabalho mais harmonioso e produtivo, o que pode levar a uma maior satisfação dos funcionários e melhores resultados finais.
+Em resumo, o gerenciamento de tempo e equipe é essencial para garantir a eficiência, a qualidade e o sucesso de um projeto, além de contribuir para o crescimento e a reputação positiva da organização.
 
 ## Gerenciamento de Tempo
 
-Com diagramas bem organizados que permitem gerenciar o tempo nos projetos, o gerente de projetos agenda e coordena tarefas dentro de um projeto para estimar o tempo necessário de conclusão.
-
-![Diagrama de rede simplificado notação francesa (método francês)](img/02-diagrama-rede-simplificado.png)
-
-O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utilizada para controlar e gerenciar o cronograma de atividades de um projeto. Com ele, é possível listar tudo que precisa ser feito para colocar o projeto em prática, dividir em atividades e estimar o tempo necessário para executá-las.
-
-![Gráfico de Gantt](img/02-grafico-gantt.png)
+Gráfico gantt
 
 ## Gerenciamento de Equipe
 
-O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados. 
-
-![Simple Project Timeline](img/02-project-timeline.png)
+![Simple Project Timeline](img/gerenc.equipe.png)
 
 # Arquitetura da Solução
 
@@ -148,7 +143,7 @@ O software é estruturado em uma arquitetura modular, composta por diferentes co
 Quanto ao ambiente de hospedagem, optamos por utilizar a AWS (Amazon Web Services) devido à sua confiabilidade e flexibilidade. Essa abordagem nos proporciona um ambiente robusto e seguro para a execução da aplicação, garantindo alta disponibilidade e desempenho otimizado para atender às necessidades dos usuários finais. 
 Para o desenvolvimento do projeto, selecionamos cuidadosamente as tecnologias e ferramentas que atendam aos requisitos, visando eficiência, escalabilidade e facilidade de manutenção.
 
-![Arquitetura da Solução](img/02-mob-arch.png)
+![Arquitetura da Solução](img/arquit.ap.png)
 
 ## Tecnologias Utilizadas
 
