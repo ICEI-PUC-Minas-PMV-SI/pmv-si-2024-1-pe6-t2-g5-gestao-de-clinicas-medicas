@@ -1,15 +1,15 @@
 # Introdução
 
-A ConsulMed é uma Clínica que presta serviços de atendimento médico para pacientes mediante o agendamento de consultas para as especialidades Clínica Geral e Pediatria na cidade de Belo Horizonte MG em uma filial única. 
-Sendo os agendamentos feitos presencialmente ou por telefone, neles as Recepcionistas fazem o preenchimento manual dos dados da consulta em planilhas, que são utilizadas para controle pela equipe Administrativa e os médicos utilizam prontuários dos pacientes manualmente. 
-Para melhorias no agendamento de consultas para pacientes, funcionários e para a gestão da clínica foi solicitado o desenvolvimento de sistemas, para a realização dos agendamentos através da web e também no celular.
+Nos últimos anos, tem ocorrido um aumento significativo na demanda por soluções tecnológicas eficientes na área da saúde, visando melhorar a qualidade dos serviços prestados, a eficiência operacional e a experiência dos pacientes. Atualmente, muitas clínicas enfrentam dificuldades na organização de agendas, no controle de prontuários, na comunicação eficiente entre equipe médica e administrativa, e na análise de dados para tomada de decisões estratégicas. Além disso, a crescente demanda por serviços de saúde requer uma abordagem mais ágil e eficiente na prestação de atendimento aos pacientes. 
+
+Determinamos como objetivo deste projeto, desenvolver um sistema distribuído que integre e automatize os processos de gestão de pequenas clínicas médicas, proporcionando uma solução abrangente que melhore a eficiência operacional, otimize o fluxo de trabalho e promova uma experiência mais satisfatória para pacientes e profissionais de saúde. Ao alavancar as tecnologias mais recentes em sistemas distribuídos, como computação em nuvem e arquitetura de microsserviços, pretendemos oferecer uma plataforma escalável, flexível e confiável que atenda às necessidades específicas de pequenas clínicas de diferentes especialidades médicas. 
 
 ## Problema
 A referente aplicação busca resolver os problemas relacionados à eficiência operacional e gestão de pacientes e consultas, proporcionando uma solução abrangente e integrada para melhorar a qualidade dos serviços de saúde oferecidos por quem há utilizar, podendo ser pequenas clínicas médicas, incluindo consultórios individuais, clínicas especializadas e centros de saúde com uma equipe médica limitada.
 
 ## Objetivos
 
-O objetivo geral do trabalho consiste desenvolver um sistema web para a gestão de consultas médicas, desde o agendamento até o prontuário médico eletrônico, a API para troca de informações e aplicação Mobile para os pacientes, possibilitando o agendamento de consultas e acompanhamento de prontuários pelo celular visando melhoria nos serviços prestados pela clínica. 
+O objetivo geral do trabalho consiste desenvolver um sistema web para a gestão de consultas médicas, desde o agendamento até o prontuário médico eletrônico, a API para troca de informações e aplicação Mobile para os pacientes, possibilitando o agendamento de consultas e acompanhamento de prontuários pelo celular visando melhoria nos serviços prestados pelas clínicas que o utilizarem. 
  
 ## Objetivos específicos
 * O paciente poderá fazer o seu próprio cadastro, agendar, alterar e cancelar consultas médicas e visualizar seu prontuário, através de sistema Web e aplicação Mobile; 
@@ -19,8 +19,7 @@ O objetivo geral do trabalho consiste desenvolver um sistema web para a gestão 
 
 ## Justificativa
 
-Observa-se que houve aumento da procura por consultas médicas por parte dos pacientes da ConsulMed, sendo necessárias melhorias para a prestação de serviços e ampliação na quantidade de consultas para atender a demanda dos(as) pacientes.
-O sistema a ser desenvolvido busca auxiliar pacientes, funcionários e médicos da clínica através da automação no agendamento de consultas com mais facilidade e qualidade. 
+Pequenas clínicas médicas frequentemente enfrentam desafios significativos na organização e gerenciamento de suas operações diárias, devido a recursos limitados e processos manuais muitas vezes complexos e propensos a erros. Nesse contexto, o desenvolvimento de uma aplicação para a gestão dessas clínicas médicas não apenas atende às necessidades específicas dessas organizações, mas também representa um investimento inteligente na melhoria dos cuidados de saúde, na satisfação dos pacientes e na sustentabilidade do negócio.
 
 ## Público-Alvo
 
@@ -42,7 +41,7 @@ Rodrigo Campos tem 46 anos, dono de uma clínica odontológica, casado, possui 3
 
 ### Persona 3 - Funcionária 
 
-Júlia Santos, 25 anos, Recepcionista na ConsulMed há 3 anos, casada, possui 1 filho de 2 anos. É comunicativa, gosta de trabalhar com atendimento com pessoas, sendo considerada atenciosa, gentil e ágil em suas atividades. Ultimamente tem se sentido sobrecarregada com a quantidade de pacientes para agendar e/ou reagendar consultas presencialmente ou por telefone.  Às vezes são marcadas consultas em duplicidade, o que deixa os pacientes revoltados, “eles xingam a gente, em alguns casos até conseguimos encaixar em alguma vaga com um médico, mas nem sempre isso acontece, fica uma situação desagradável”. 
+Júlia Santos, 25 anos, Recepcionista em uma clínica geral há 3 anos, casada, possui 1 filho de 2 anos. É comunicativa, gosta de trabalhar com atendimento com pessoas, sendo considerada atenciosa, gentil e ágil em suas atividades. Ultimamente tem se sentido sobrecarregada com a quantidade de pacientes para agendar e/ou reagendar consultas presencialmente ou por telefone.  Às vezes são marcadas consultas em duplicidade, o que deixa os pacientes revoltados, “eles xingam a gente, em alguns casos até conseguimos encaixar em alguma vaga com um médico, mas nem sempre isso acontece, fica uma situação desagradável”. 
 Além de agendar as consultas em planilha, é necessário separar as pastas de papel com os prontuários dos pacientes e levar para os consultórios para os médicos e ao final do dia é necessário devolver ao arquivo as pastas dos atendimentos feitos naquele dia. 
 
 ### Persona 4 - Paciente 
