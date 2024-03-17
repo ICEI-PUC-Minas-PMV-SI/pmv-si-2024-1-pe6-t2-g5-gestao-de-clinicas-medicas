@@ -86,8 +86,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-009| Web - Cadastrar/Consultar/Alterar/ Excluir dados de agenda dos consultórios           | ALTA | 
 |RF-010| Web - Cadastrar/Consultar/Alterar/ Excluir prontuário médico                          | ALTA |
 |RF-011| Web - Visualização de consulta agendadas para pacientes                               | MÉDIA | 
-|RF-012| Web - Visualização da agenda do médico                                                | BAIXA |
-|RF-013| Web – Trocar senha                                                                    | MÉDIA |
+|RF-012|      Web – Trocar senha                                                               | MÉDIA |
+|RF-013| Web - Visualização da agenda do médico                                                | BAIXA|
 |RF-014| Mobile - Login usuários                                                               | ALTA | 
 |RF-015| Mobile - Logout usuários                                                              | ALTA |
 |RF-016| Mobile - Alterar dados pessoais de pacientes                                          | ALTA | 
@@ -131,13 +131,25 @@ Além disso, o gerenciamento da equipe é crucial para aproveitar ao máximo as 
 O gerenciamento de tempo e equipe também contribui para a redução de custos, pois minimiza o retrabalho, atrasos e desperdícios de recursos. Além disso, promove um ambiente de trabalho mais harmonioso e produtivo, o que pode levar a uma maior satisfação dos funcionários e melhores resultados finais.
 Em resumo, o gerenciamento de tempo e equipe é essencial para garantir a eficiência, a qualidade e o sucesso de um projeto, além de contribuir para o crescimento e a reputação positiva da organização.
 
-## Gerenciamento de Tempo
+Segue abaixo, planilhas e gráficos utilizados para o gerenciamento do projeto:
 
-Gráfico gantt
+## Gerenciamento das tarefas
+![Gerenciamento das tarefas](img/tarefas.png)
 
-## Gerenciamento de Equipe
+## Gerenciamento de custos
+![Gerenciamento de custos](img/custos.png)
 
-![Simple Project Timeline](img/gerenc.equipe.png)
+## Gerenciamento de riscos, partes interessadas e reuniões
+![Gerenciamento de riscos, partes interessadas e reuniões](img/riscos.png)
+
+## Gráficos para análise do andamento do projeto 
+![Análise do andamento do projeto](img/andamento.png)
+
+## Gerenciamento de tempo
+![Gerenciamento de tempo](img/tempo.png)
+
+## Gerenciamento de equipe
+![Simple Project Timeline](img/equipe.png)
 
 # Arquitetura da Solução
 
