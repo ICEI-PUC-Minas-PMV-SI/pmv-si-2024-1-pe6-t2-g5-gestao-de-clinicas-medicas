@@ -119,7 +119,298 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 # Catálogo de Serviços
 
-Descreva aqui todos os serviços que serão disponibilizados pelo seu projeto, detalhando suas características e funcionalidades.
+<table border="1">
+<tr>
+ <th>Usuário</th>
+ <th>Categoria</th>
+ <th>Funcionalidade</th>
+ <th>Web</th>
+ <th>Mobile</th>
+</tr>
+ 
+  <th rowspan="6">Paciente</th>
+  <td>Paciente</td>
+   <td>Cadastrar paciente</td>
+   <td>Sim</td>
+   <td>Sim</td>
+</tr>
+<tr>
+  <td>Paciente</td>
+    <td>Alterar dados cadastrais</td>
+   <td>Sim</td>
+   <td>Sim</td>
+</tr>
+ <tr>
+  <td>Agendamentos</td>
+    <td>Agendar consultas</td>
+   <td>Sim</td>
+   <td>Sim</td>
+</tr>
+  <tr>
+  <td>Agendamentos</td>
+    <td>Alterar dados consulta agendada (com restrições)</td>
+   <td>Sim</td>
+   <td>Sim</td>
+</tr>
+</tr>
+  <tr>
+  <td>Agendamentos</td>
+    <td>Excluir consulta agendada</td>
+   <td>Sim</td>
+   <td>Sim</td>
+</tr>
+</tr>
+  <tr>
+  <td>Prontuário eletrônico </td>
+    <td>Visualizar dados do seu prontuário</td>
+   <td>Sim</td>
+   <td>Sim</td>
+</tr>
+
+
+<tr>
+  <th rowspan="29">Recepcionista</th>
+  <td>Paciente</td>
+   <td>Cadastrar paciente</td>
+   <td>Sim</td>
+   <td>Sim</td>
+<tr>
+ <td>Paciente</td>
+   <td>Editar paciente</td>
+   <td>Sim</td>
+   <td>Sim</td>
+</tr>
+<tr>
+ <td>Paciente</td>
+   <td>Excluir paciente</td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Consultório</td>
+   <td>Cadastrar consultório </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Consultório</td>
+   <td>Editar consultório </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Consultório</td>
+   <td>Excluir consultório </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Médico</td>
+   <td>Cadastrar especialidade médica  </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Médico</td>
+   <td>Alterar especialidade médica  </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Médico</td>
+   <td>Excluir especialidade médica  </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Agendamentos</td>
+   <td>Agendar consultório </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Agendamentos</td>
+   <td>Editar agenda de consultório </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Agendamentos</td>
+   <td>Excluir agenda de consultório </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Agendamentos</td>
+   <td>Cadastrar a agenda dos médicos com datas, horários de atendimento e consultório </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Agendamentos</td>
+   <td>Alterar agenda dos médicos com datas, horários de atendimento e consultório </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Agendamentos</td>
+   <td>Excluir agenda dos médicos com datas, horários de atendimento e consultório </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Agendamentos</td>
+   <td>Agendar consultas para paciente </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Agendamentos</td>
+   <td>Alterar consulta paciente </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Agendamentos</td>
+   <td>Excluir consulta paciente </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Relatórios</td>
+   <td>Agendamentos paciente  </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Relatórios</td>
+   <td>Agendamentos médicos </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Relatórios</td>
+   <td>Agendamentos de consultório </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Relatórios</td>
+   <td>Relatório de consultas agendadas </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Relatórios</td>
+   <td>Relatório de usuários </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Usuário</td>
+   <td>Cadastrar usuário </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Usuário</td>
+   <td>Editar usuário </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Usuário</td>
+   <td>Excluir usuário </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Clínica</td>
+   <td>Cadastrar clínica </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Clínica</td>
+   <td>Alterar clínica </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Painel de dados</td>
+   <td>Painel visual com dados diversos </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+
+<tr>
+  <th rowspan="8">Médico</th>
+  <td>Prontuário eletrônico </td>
+   <td>Cadastrar prontuário </td>
+   <td>Sim</td>
+   <td>Não</td>
+<tr>
+ <td>Prontuário eletrônico</td>
+   <td>Consultar prontuário </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Prontuário eletrônico</td>
+   <td>Editar prontuário </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Prontuário eletrônico</td>
+   <td>Visualizar prontuário </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Prontuário eletrônico</td>
+   <td>Excluir prontuário </td>
+   <td>Sim</td>
+   <td>Não</td>
+</tr>
+<tr>
+ <td>Relatório</td>
+   <td>Relatório de pacientes </td>
+   <td>Sim</td>
+   <td>Sim</td>
+</tr>
+<tr>
+ <td>Relatório</td>
+   <td>Relatório de consultas agendadas</td>
+   <td>Sim</td>
+   <td>Sim</td>
+</tr>
+<tr>
+ <td>Relatório</td>
+   <td>Agenda do médico</td>
+   <td>Sim</td>
+   <td>Sim</td>
+</tr>
+
+<th rowspan="3">Usuários (Paciente, Recepcionista e Médico) </th>
+  <td>Login</td>
+   <td>Login no sistema </td>
+   <td>Sim</td>
+   <td>Sim</td>
+</tr>
+<tr>
+  <td>Logout </td>
+    <td>Finalizar sistema</td>
+   <td>Sim</td>
+   <td>Sim</td>
+</tr>
+<tr>
+  <td>Redefinição de senha</td>
+    <td>Alterar senha cadastrada</td>
+   <td>Sim</td>
+   <td>Sim</td>
+</tr>
+</table>
 
 
 # Gerenciamento de Projeto
