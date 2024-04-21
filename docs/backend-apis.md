@@ -12,13 +12,30 @@ O projeto consiste no desenvolvimento de um sistema web para o gerenciamento de 
 * Recepcionista – permitir o gerenciamento de consultas médicas, através do cadastro, alteração, exclusão, listagem geral e pesquisa de dados de pacientes, médicos, especialidades médicas, horários e consultas médicas. 
 
 ## Arquitetura
+#### Componentes Principais:
+-	Controladores (Controllers): Responsáveis por receber as requisições HTTP, processar os dados e retornar as respostas adequadas.
+-	Rotas (Routes): Definem os endpoints da API e mapeiam as requisições HTTP para os controladores correspondentes.
+-	Modelos (Models): Representam a estrutura de dados da aplicação e interagem com o banco de dados.
+####	Interações entre os Componentes:
+-	As requisições HTTP dos clientes são roteadas para os controladores pelas rotas da API.
+-	Os controladores processam as requisições, acessam os modelos para interação com o banco de dados (CRUD operations) e retornam as respostas HTTP adequadas aos clientes.
+
 Na figura abaixa mostra-se a organização do funcionamento dos compomentes do sistema em relação à API.
 
 ![Arquitetura da API](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/Arquitetura-API.png)
 
 
 ## Modelagem da Aplicação
-O Diagrama de Entendidade Relacionamento, na figura abaixo, mostra a estrutura do banco de dados a ser utilizado pela API e pelo sistema ConsulMed.
+#### Entidades Principais:
+-	Usuarios: Armazena informações dos usuários, como nome, e-mail, senha (criptografada), tipo de usuario, etc.
+-	Consultas:Armazenam informações das consultas, como data, paciente,medico,horarios,status e posicao na fila de espera, senha (criptografada), tipo de usuario, etc.
+-	Horarios: Armazena os horarios disponiveis para agendamento de consultas dos médicos;
+-	Medicos: Armazena os principais dados dos médicos, como nome, especialidades, crm.
+-	Pacientes: Armazena os principais dados dos pacientes, como nome, cpf, data de nascimento, telefone, endereço.
+-	Prontuarios: Armazena informações sobre levantadas pelo médico em relação ao seu paciente, como diagnostico, exames, prescricoes histórico, tratamentos, observações.
+-	acess_token: Registra as sessões dos usuários logados e controle de acesso.
+
+O Diagrama de Entendidade Relacionamento na figura abaixo, mostra a estrutura do banco de dados a ser utilizado pela API e pelo sistema ConsulMed.
 
 ![Diagrama Entidade Relacionamento ](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/diagrama_entidade_relacionamento.jpg)
 
@@ -62,10 +79,12 @@ Para o fluxo de dados será utilizado a API, que processa a solicitação, acess
 Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnologias: 
 
 * Swagger Hub --> Desenvolvimento e documentação dos endpoints da API; 
-* Lumen --> Framework em PHP para desenvolvimento da API;
-* AWS --> Banco de dados;
+* Lumen PHP Framework --> Utilizado para desenvolver a API de forma leve e eficiente;
+* Banco de Dados MySQL --> Para armazenar e gerenciar os dados da aplicação;
+* Eloquent ORM (Object-Relational Mapping) --> Utilizado para mapear os modelos da aplicação com as tabelas do banco de dados, simplificando operações CRUD;
+* Insomnia --> Ferramenta utilizada para testar e a APIs durante o desenvolvimento;
 * Figma --> Desenho da Arquitetura da API; 
-* Lucichart -- > Desenho do Diagrama de Entidade Relacionamento; 
+* Lucichart -- > Desenho do Diagrama de Entidade Relacionamento.
 
 
 ## API Endpoints
@@ -958,11 +977,32 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
 
 ## Considerações de Segurança
 
-Para acesso ao sistema e funcionalidades através das aplicações web e mobile será utilizada autenticação com usuário e senha, sendo que de acordo com o tipo de usuário haverá algumas restrições de acesso a dados e funcionalidades. 
+### Autenticação e Autorização: 
+- Autenticação: Utilizamos um método de autenticação criado pelos nossos desenvolvedores, no qual é enviado um token pelo usuário sempre que forem realizadas solicitações na API para evitar acesso indevido por usuários não autenticados à rotas sensíveis. Esse token é validado e possui tempo de expiração. 
+- Senhas: Armazenamos senhas de forma segura usando técnicas de hashing para proteger contra ataques de força bruta. 
+
+### Proteção contra alguns ataques: 
+- SQL Injection: Utilizamos consultas parametrizadas com ORM (Object-Relational Mapping) para evitar ataques de injeção de SQL. 
+- Cross-Site Request Forgery (CSRF): Implementamos o uso de tokens em todas as requisições a serem feitas na API para prevenir esse tipo de ataque. 
+- HTTPS: Utilizamos conexões HTTPS seguras para criptografar dados transmitidos entre o cliente e o servidor, evitando interceptações por atacantes. 
+- Configuramos firewalls e filtros de tráfego para detectar e bloquear tráfego malicioso de origem desconhecida ou com padrões suspeitos no servidor. 
+- XSS: Utilizamos framework que oferece proteção automática contra XSS, como AngularJS no front-end que conta com medidas de segurança embutidas para dificultar essas ações. 
 
 ## Implantação
 
-Para a implantação da aplicação será utilizada uma Instância AWS com Sistema Operacional Linux versão 20.04, Banco de Dados AWS RDS; a API foi construída utilizando o framework Lumen com linguagem PHP. 
+### Requisitos de Hardware:
+-	Servidor Web: Ainda não definido.
+-	Armazenamento: Ainda não definido.
+-	Memória RAM: 16GB de RAM para lidar com as operações da aplicação.
+-	Processador: Ainda não definido.
+  
+### Requisitos de Software:
+-	Sistema Operacional: Um sistema operacional Linux.
+-	Servidor Web: Servidor web Apache.
+-	PHP 7.4 ou maior.
+-	Banco de Dados: MySQL.
+-	Ambiente de Desenvolvimento vs. Produção: No ambiente de produção, é necessário configurar o PHP e o servidor web de forma otimizada para segurança, desempenho e escalabilidade.
+
 
 ## Testes
 
