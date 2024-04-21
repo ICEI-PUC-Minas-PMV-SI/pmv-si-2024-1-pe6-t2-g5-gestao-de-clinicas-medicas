@@ -103,10 +103,10 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
   ```
 
 - Resposta:
-    - Sucesso (200):
+    - Sucesso (201):
   ```
     {
-        "code": 200,
+        "code": 201,
         "message": "Médico cadastrado com sucesso",
         "data": {
             "id": 1,
@@ -153,7 +153,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
    ```
     {
         "code": 404,
-        "message": "Médico não atualizado",
+        "message": "Médico não encontrado",
     }
    ```
 
@@ -204,7 +204,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
   ```
     {
         "code": 404,
-        "message": "Médico não excluído",
+        "message": "Médico não encontrado",
     }
   ```     
 
@@ -221,10 +221,10 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
     }
   ```
 - Resposta:
-    - Sucesso (200):
+    - Sucesso (201):
    ```
     {
-        "code": 200,
+        "code": 201,
         "message": "Usuário cadastrado com sucesso",
         "data": {
             "id": 1,
@@ -271,7 +271,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
     ```
     {
         "code": 404,
-        "message": "Usuário não atualizado",
+        "message": "Usuário não encontrado",
     }
    ```
 ### Endpoint: Busca todos os usuários
@@ -295,7 +295,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
    ```
     {
         "code": 404,
-        "message": "Usuário não encontrado",
+        "message": "Nenhum usuário encontrado",
     }
    ```
 
@@ -320,7 +320,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
   ```
     {
         "code": 404,
-        "message": "Usuário não excluído",
+        "message": "Usuário não encontrado",
     }
   ```
 
@@ -343,10 +343,10 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
     }
   ```
    - Resposta: 
-        - Sucesso (200):
+        - Sucesso (201):
        ```
      {
-        "code": 200,
+        "code": 201,
         "message": "Paciente cadastrado com sucesso",
         "data": {
             "id": 1,
@@ -620,10 +620,10 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
     ```
 
 - Resposta:
-    - Sucesso (200):
+    - Sucesso (201):
      ```
     {
-    "code": 200,
+    "code": 201;
     "message": "Consulta cadastrada com sucesso",
     "data": {
         "medico": {
@@ -651,7 +651,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
       ```
        {
        "code": 400,
-       "message": "Consulta não cadastrada",
+       "message": "Consulta não encontrada",
       }
       ```
 
@@ -716,11 +716,11 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
              }
             }
       ```
-     - Erro (400):
+     - Erro (404):
       ```
        {
-       "code": 400,
-       "message": "Consulta não atualizada",
+       "code": 404,
+       "message": "Consulta não encontrada",
       }
       ```
 
@@ -729,7 +729,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
 - URL: /consultas
 - Parâmetros: sem parâmetros
 - Resposta:
-    - Sucesso (200 Ok)
+    - Sucesso (200)
      ```
     {
     "code": 200,
@@ -763,7 +763,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
      ```
     - {
     "code": 404,
-    "message": "Consulta não encontrada",
+    "message": "Nenhuma consulta encontrada",
       }
       ```
 
@@ -776,7 +776,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
      ```
     {
     "code": 200,
-    "message": "Usuário excluído com sucesso",
+    "message": "Consulta excluída com sucesso",
     "data": {
         "medico": {
             "nome": "Carlos Roberto Bittencourt",
@@ -806,7 +806,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
       ```
       {
       "code": 404,
-      "message": "Consulta não excluída",
+      "message": "Consulta não encontrada",
        }
       ```
         
@@ -848,7 +848,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
         ```
         {
          "code": 400,
-         "message": "Inválido",
+         "message": "Prontuário não cadastrado",
          }
 
 ### Endpoint: Atualiza prontuário
@@ -911,7 +911,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
       ```
         {
        "code": 200,
-       "message": "Lista prontuário",
+       "message": "Lista de prontuários",
        "data": {
         "id_consulta": 1,
         "data_criacao": "2024-04-21T17:00:57.128Z",
@@ -941,7 +941,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
    - {
     "id_consulta": 1,
     "data_criacao": "2024-04-21T17:00:57.128Z",
-    "diagnostico": "diagnostico",
+    "diagnostico": "iagnostico",
     "exames": "exames",
     "prescricoes": "pescrições",
     "tratamentos": "tratamentos",
@@ -954,7 +954,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
   ```
     {
     "code": 200,
-    "message": "Prontuário cadastrado com sucesso",
+    "message": "Prontuário excluído com sucesso",
     "data": {
         "id_consulta": 1,
         "data_criacao": "2024-04-21T17:00:57.128Z",
@@ -1006,13 +1006,15 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
 
 ## Testes
 
-Para garantir o funcionamento adequado da API, faz-se importante a realização de testes para avaliar possíveis erros para correção, melhorias e o comportamento da API durante a troca de dados com o Banco de Dados. 
-
- Para isso optou-se pela utilização dos testes abaixo: 
-
-**Unidade**– para testar partes isoladas, nesse contexto avaliou-se a API; <br>
-**Integridade** - para avaliar entre as partes, sendo nessa etapa o funcionamento da API integrado ao Back End da aplicação web; <br>
-**Funcionalidade** - para chegar que as funcionalidades definidas no levantamento de requisitos estam funcionando corretamente. <br>
+Para garantir o funcionamento adequado da API, faz-se importante a realização de testes para avaliar possíveis erros para correção, melhorias e o comportamento da API durante a troca de dados com o Banco de Dados. Para isso optou-se pela utilização dos testes abaixo: 
+### Testes Unitários:
+-	Testamos individualmente os métodos dos controladores, modelos e outras funções da aplicação para garantir seu correto funcionamento.
+### Testes de Integração:
+-	Testamos a integração entre os diferentes componentes da aplicação, como rotas, controladores e modelos.
+-	Garantimos que as requisições HTTP sejam tratadas corretamente e que os dados sejam persistidos no banco de dados conforme o esperado.
+-	Ferramentas: Insomnia para testes de integração de API.
+### Testes de Segurança:
+-	Realizamos testes de segurança para identificar vulnerabilidades como injeção de SQL e CSRF na API.
 
 Foram elaborados os seguintes casos de teste para a API:  
  
