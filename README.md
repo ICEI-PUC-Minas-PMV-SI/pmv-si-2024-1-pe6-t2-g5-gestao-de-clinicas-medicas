@@ -35,9 +35,9 @@ Será desenvolvido um sistema de gestão de clínicas médicas tendo como objeti
 
 Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
 
-# Código
+# Código API
 
-<li><a href="src/README.md"> Código Fonte</a></li>
+<li><a href="./api/"> Código Fonte</a></li>
 
 # Apresentação
 
