@@ -5,21 +5,16 @@ O projeto consiste no desenvolvimento de um sistema web para o gerenciamento de 
 ## Objetivos da API
 
 * Possibilitar a troca de informações e funcionalidades entre as aplicações Web, Mobile com o Banco de Dados para o gerenciamento de consultas médicas; 
-
 * Utilização por usuários que podem ser médicos, pacientes e recepcionistas; 
-
 * Usuários (médicos, pacientes e recepcionista) - permitir cadastro, alteração, exclusão de dados para utilização e acesso aos sistemas; 
-
 * Médicos - permitir cadastro, alteração, exclusão, pesquisa e visualização de dados dos prontuários eletrônicos dos pacientes; 
-
 * Pacientes – permitir cadastro, alteração, exclusão de dados no sistema e visualização de dados de prontuário eletrônico; 
-
 * Recepcionista – permitir o gerenciamento de consultas médicas, através do cadastro, alteração, exclusão, listagem geral e pesquisa de dados de pacientes, médicos, especialidades médicas, horários e consultas médicas. 
 
 ## Arquitetura
 Na figura abaixa mostra-se a organização do funcionamento dos compomentes do sistema em relação à API.
 
-![Arquitetura da API]([URL da imagem](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/Arquitetura-API.png))
+![Arquitetura da API](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/Arquitetura-API.png)
 
 
 ## Modelagem da Aplicação
@@ -41,25 +36,35 @@ Para o fluxo de dados será utilizado a API, que processa a solicitação, acess
 
 ## Requisitos Funcionais
 
-[Liste os principais requisitos funcionais da aplicação.]
 
+|ID     | Descrição do Requisito                                                |Prioridade |
+|-------|---------------------------------------------------------------------------|------|
+|RF-001|  Cadastrar dados de médico;<br>Alterar dados de médico; <br> Excluir médico;<br>Listar todos os médicos;<br>Pesquisar dados de médicos por id, nome, CRM e id de especialidade médica. <br>                        | ALTA | 
+|RF-002| Cadastrar dados de paciente; <br>Alterar dados de paciente; <br>Excluir paciente; <br> Listar todos os pacientes; <br>  Pesquisar dados de paciente por id e CPF <br>                              | ALTA |
+|RF-003| Cadastrar dados de usuários; <br>Alterar dados de usuários; <br>Excluir usuários; <br>  Listar todos de usuários; <br> Pesquisar dados de usuários por id e CPF <br>                            | ALTA | 
+|RF-004| Cadastrar dados de consultas médicas; <br>Alterar dados de consultas médicas;<br> Listar todas as consultas médicas; <br> Excluir consulta médica; <br> Pesquisar dados de consultas médicas por id_consulta e por id_médico, id_paciente e por data <br>  | ALTA | 
+|RF-005|Cadastrar dados de prontuários eletrônicos; <br> Alterar dados de prontuários eletrônicos; <br> Listar todos os prontuários eletrônicos; <br>Excluir prontuário eletrônico; <br> Pesquisar dados de prontuário eletrônico por  id_médico,  id_paciente; <br>  | ALTA |
+|RF-006| Cadastrar dados de prontuários eletrônicos; <br> Alterar dados de prontuários eletrônicos; <br> Listar todos os prontuários eletrônicos; <br> Excluir prontuário eletrônico; <br> Pesquisar dados de prontuário eletrônico por  id_médico,  id_paciente; <br>  | ALTA | 
 
 ## Requisitos Não Funcionais
 
-[Liste os principais requisitos não funcionais da aplicação, como desempenho, segurança, escalabilidade, etc.]
+|ID     | Descrição do Requisito                                            |Prioridade |
+|-------|-------------------------------------------------------------------|------|
+|RNF-001| A aplicação deve ter boa usabilidade                              | ALTA | 
+|RNF-002| A aplicação deve ser multiplataforma                              | ALTA |
+|RNF-003| A aplicação deve ter confiabilidade                               |ALTA | 
+|RNF-004| A aplicação deve ser responsiva para rodar em dispositivos móveis | BAIXA | 
+|RNF-005| A aplicação deve processar requisições do usuário em no máximo 3s | BAIXA | 
+
 
 ## Tecnologias Utilizadas
 
 Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnologias: 
 
 * Swagger Hub --> Desenvolvimento e documentação dos endpoints da API; 
-
-* Lumen --> Framework em PHP para desenvolvimento da API. 
-
-* AWS --> Banco de dados 
-
+* Lumen --> Framework em PHP para desenvolvimento da API;
+* AWS --> Banco de dados;
 * Figma --> Desenho da Arquitetura da API; 
-
 * Lucichart -- > Desenho do Diagrama de Entidade Relacionamento; 
 
 
@@ -103,132 +108,129 @@ Para a implantação da aplicação será utilizada uma Instância AWS com Siste
 
 ## Testes
 
-[Descreva a estratégia de teste, incluindo os tipos de teste a serem realizados (unitários, integração, carga, etc.) e as ferramentas a serem utilizadas.]
-
-1. Crie casos de teste para cobrir todos os requisitos funcionais e não funcionais da aplicação.
-2. Implemente testes unitários para testar unidades individuais de código, como funções e classes.
-3. Realize testes de integração para verificar a interação correta entre os componentes da aplicação.
-4. Execute testes de carga para avaliar o desempenho da aplicação sob carga significativa.
-5. Utilize ferramentas de teste adequadas, como frameworks de teste e ferramentas de automação de teste, para agilizar o processo de teste.
-
 Para garantir o funcionamento adequado da API, faz-se importante a realização de testes para avaliar possíveis erros para correção, melhorias e o comportamento da API durante a troca de dados com o Banco de Dados. 
 
- 
+ Para isso optou-se pela utilização dos testes abaixo: 
 
-Para isso optou-se pela utilização dos testes abaixo: 
-
-**Unidade** – para testar partes isoladas, nesse contexto avaliou-se a API; 
-
-**Integridade** – para avaliar entre as partes, sendo nessa etapa o funcionamento da API integrado ao Back End da aplicação web; 
-
-**Funcionalidade** - para chegar que as funcionalidades definidas no levantamento de requisitos estam funcionando corretamente. 
+**Unidade**– para testar partes isoladas, nesse contexto avaliou-se a API; <br>
+**Integridade** - para avaliar entre as partes, sendo nessa etapa o funcionamento da API integrado ao Back End da aplicação web; <br>
+**Funcionalidade** - para chegar que as funcionalidades definidas no levantamento de requisitos estam funcionando corretamente. <br>
 
 Foram elaborados os seguintes casos de teste para a API:  
  
-**Caso de teste: 1**
-**Resumo: Cadastrar Médico**
-**Requisito: RF-001**
-Prioridade: Alta 
-Pré-condição: Estar logado no Sistema. 
-Passos:  
-1.Preencher com os dados do médico 
-2.Salvar alterações 
-Resultado Esperado: Exibir mensagem “Operação bem sucedida” 
-Observações: Necessário preencher todos os dados do médico para efetuar cadastro, mensagem código 200 para cadastro efetuado, 400 Entrada inválida e 422 Exceção erro de validação 
-Comentários: 
+**Caso de teste: 1** <br>
+Resumo: Cadastrar Médico <br>
+Requisito: RF-001 <br>
+Prioridade: Alta <br>
+Pré-condição: Estar logado no Sistema.<br>
+Passos:
+1. Preencher com os dados do médico <br>
+2. Salvar alterações <br>
 
- 
+Resultado Esperado: Exibir mensagem “Operação bem sucedida” <br>
+Observações: Necessário preencher todos os dados do médico para efetuar cadastro, mensagem código 200 para cadastro efetuado, 400 Entrada inválida e 422 Exceção erro de validação <br>
+Comentários: <br><br>
 
-Caso de teste: 2 
-Resumo: Excluir Paciente 
-Requisito: RF-002 
-Prioridade: Média    
-Pré-condição: Estar logado no Sistema. 
+**Caso de teste: 2** <br>
+Resumo: Excluir Paciente <br>
+Requisito: RF-002 <br>
+Prioridade: Média   <br> 
+Pré-condição: Estar logado no Sistema. <br>
 Passos:  
-Informar o id_paciente 
-Selecionar paciente 
-Confirmar exclusão dos dados do paciente 
+1. Informar o id_paciente 
+2. Selecionar paciente 
+3. Confirmar exclusão dos dados do paciente 
+
 Resultado Esperado: Exibir mensagem “Operação bem sucedida” 
 Observações: código 200 para cadastro excluído, 400 Id fornecido inválido e 404 Paciente não encontrado 
-Comentários: 
+Comentários:<br><br> 
 
+**Caso de teste: 3** <br>
+Resumo: Alterar usuário <br>
+Requisito: RF-003 <br>
+Prioridade: Média   <br> 
+Pré-condição: o usuário deverá estar logada no Sistema. <br>
+Passos: 
+1. Informar o id do usuário <br>
+2. Digitar nova senha <br>
+3. Confirmar alteração 
+
+Resultado Esperado: Exibir mensagem “Operação bem  sucedida” <br>
+Observações:  Código 200 para alteração feita, 404 não encontrado, 422 Exceção da validação <br>
+Comentários: <br><br>
+ 
+**Caso de teste: 4** <br>
+Resumo: Alterar Consulta <br>
+Requisito: RF-004 <br>
+Prioridade: Média    <br>
+Pré-condição: a Recepcionista Estar logada no Sistema. <br>
+Passos: 
+1. Informar o id da consulta <br>
+2. Verificar dados do paciente <br>
+3. Verificar dados do médico <br>
+4. Verificar data da consulta <br>
+5. Confirmar alteração
+
+Resultado Esperado: Exibir mensagem “Operação bem sucedida” <br>
+Observações: <br>
+Comentários: <br><br>
+ 
+**Caso de teste: 5**  <br>
+Excluir Prontuário <br>
+Requisito: RF-005 <br>
+Prioridade: Média    <br>
+Pré-condição: O médico deverá estar logado no Sistema. <br>
+Passos:  
+1. Informar o  id do prontuário <br>
+2. Verificar dados <br>
+3. Confirmar exclusão
+  
+Resultado Esperado: Exibir mensagem “Operação bem sucedida” <br>
+Observações: Código 200 para Exclusão feita e 400 Valor informado inválido <br>
+Comentários: <br><br>
+ 
+**Caso de teste:   6**  <br>
+Excluir horário de consulta  <br>
+Requisito: RF-006 <br>
+Prioridade: Média    <br>
+Pré-condição: A Recepcionista deverá estar logada no Sistema. <br>
+Passos:  
+1. Informar id do horário  <br>
+2. Verificar dados <br>
+3. Confirmar exclusão
+   
+Resultado Esperado: Exibir mensagem “Operação bem sucedida” <br>
+Observações: Código 200 para horário excluído e 400 para horário inválido <br>
+Comentários: <br><br>
  
 
-Caso de teste: 3 
-Resumo: Alterar usuário 
-Requisito: RF-003 
-Prioridade: Média    
-Pré-condição: o usuário deverá estar logada no Sistema. 
-Passos:  
-Informar o id do usuário 
-Digitar nova senha 
-Confirmar alteração 
-Resultado Esperado: Exibir mensagem “Operação bem  sucedida” 
-Observações:  Código 200 para alteração feita, 404 não encontrado, 422 Exceção da validação 
-Comentários: 
+**Caso de teste:   7** <br>
+Tempo de resposta cadastro de novo Paciente <br>
+Requisito : RNF-005 <br>
+Prioridade: Média    <br>
+Pré-condição: A Recepcionista deverá estar logada no sistema <br>
+Passos:  <br>
+1. Informar CPF do Paciente <br>
+2. Verificar dados <br>
+3. Preencher dados <br>
+4. Salvar alteração
 
- 
-Caso de teste: 4 
-Resumo: Alterar Consulta 
-Requisito: RF-004 
-Prioridade: Média    
-Pré-condição: a Recepcionista Estar logada no Sistema. 
-Passos:  
-Informar o id da consulta 
-Verificar dados do paciente 
-Verificar dados do médico 
-Verificar data da consulta 
-Confirmar alteração 
-Resultado Esperado: Exibir mensagem “Operação bem sucedida” 
-Observações: 
-Comentários: 
-
- 
-Caso de teste: 5  
-Excluir Prontuário 
-Requisito: RF-005 
-Prioridade: Média    
-Pré-condição: O médico deverá estar logado no Sistema. 
-Passos:  
-Informar o  id do prontuário 
-Verificar dados 
-Confirmar exclusão 
-Resultado Esperado: Exibir mensagem “Operação bem sucedida” 
-Observações: Código 200 para Exclusão feita e 400 Valor informado inválido 
-Comentários: 
-
- 
-
-Caso de teste:   6  
-Excluir horário de consulta  
-Requisito: RF-006 
-Prioridade: Média    
-Pré-condição: A Recepcionista deverá estar logada no Sistema. 
-Passos:  
-Informar id do horário  
-Verificar dados 
-Confirmar exclusão 
-Resultado Esperado: Exibir mensagem “Operação bem sucedida” 
-Observações: Código 200 para horário excluído e 400 para horário inválido 
-Comentários: 
-
- 
-
-**Caso de teste:   7**
-**Tempo de resposta cadastro de novo Paciente**
-**Requisito : RNF-005** 
-Prioridade: Média    
-Pré-condição: A Recepcionista deverá estar logada no sistema 
-Passos:  
-Informar CPF do Paciente 
-1.Verificar dados 
-2.Preencher dados 
-3.Salvar alteração 
-4.Resultado Esperado: Exibir mensagem “Operação bem sucedida” 
-Observações: Código 200 cadastro efetuado e 400 entrada inválida e 422 erro 
-Comentários: 
-
+Resultado Esperado: Exibir mensagem “Operação bem sucedida” <br>
+Observações: Código 200 cadastro efetuado e 400 entrada inválida e 422 erro <br>
+Comentários: <br><br>
 
 # Referências
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
+https://miro.com/pt/diagrama/o-que-e-diagrama-fluxo-dados/ 
+
+https://www.lucidchart.com/blog/pt/diagrama-de-fluxo-de-dados-tutorial 
+
+https://pt.wikipedia.org/wiki/Diagrama_de_fluxo_de_dados 
+
+https://app.creately.com/d/create?templateId=injsddx94 
+
+https://awari.com.br/estrategias-de-teste-de-software-abordagens-e-taticas-em-testes-de-software/?utm_source=blog&utm_campaign=projeto+blog&utm_medium=Estrat%C3%A9gias%20de%20Teste%20de%20Software:%20Abordagens%20e%20T%C3%A1ticas%20em%20Testes%20de%20Software&utm_content=data+science 
+
+https://testingcompany.com.br/blog/casos-de-teste-entenda-a-importancia-e-porque-sao-fundamentais-para-a-area-de-qa 
+
+https://www.flaticon.com/br/
