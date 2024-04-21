@@ -72,7 +72,43 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
 
 [Liste os principais endpoints da API, incluindo as operações disponíveis, os parâmetros esperados e as respostas retornadas.]
 
-### Endpoint 1
+### Endpoint: Cadastrar um novo médico
+- Método : POST
+- URL: /medicos/{id}
+- Parâmetros:
+ - sem parâmetros
+- Corpo da requisição:
+  ```
+    {
+        "nome": "Carlos Roberto Bittencourt",
+        "especialidade": "CARDIOLOGIA",
+        "crm": "7845",
+    }
+  ```
+
+- Resposta:
+    - Sucesso (201 OK):
+  ```
+    {
+        "code": 201,
+        "message": "Médico cadastrado com sucesso",
+        "data": {
+            "id": 1,
+            "nome": "Carlos Roberto Bittencourt",
+            "especialidade": "CARDIOLOGIA",
+            "crm": "7845",
+        }
+    }
+    ```
+    - Erro (400):
+  ```
+    {
+        "code": 400,
+        "message": "Médico não cadastrado",
+    }
+  ```
+
+Endpoint 1
 - Método: GET
 - URL: /endpoint1
 - Parâmetros:
