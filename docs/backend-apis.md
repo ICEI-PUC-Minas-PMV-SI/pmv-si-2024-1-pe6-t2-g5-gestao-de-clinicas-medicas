@@ -70,13 +70,10 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
 
 ## API Endpoints
 
-[Liste os principais endpoints da API, incluindo as operações disponíveis, os parâmetros esperados e as respostas retornadas.]
-
-### Endpoint: Cadastrar um novo médico
+### Endpoint: Cadastra um novo médico
 - Método : POST
 - URL: /medicos/{id}
-- Parâmetros:
- - sem parâmetros
+- Parâmetros: sem parâmetros
 - Corpo da requisição:
   ```
     {
@@ -87,17 +84,16 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
   ```
 
 - Resposta:
-    - Sucesso (201 OK):
+    - Sucesso (200):
   ```
     {
-        "code": 201,
+        "code": 200,
         "message": "Médico cadastrado com sucesso",
         "data": {
             "id": 1,
             "nome": "Carlos Roberto Bittencourt",
             "especialidade": "CARDIOLOGIA",
-            "crm": "7845",
-        }
+            "crm": "7845",}
     }
     ```
     - Erro (400):
@@ -108,31 +104,857 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
     }
   ```
 
-Endpoint 1
-- Método: GET
-- URL: /endpoint1
-- Parâmetros:
-  - param1: [descrição]
+### Endpoint: Atualiza um médico
+- Método : PUT
+- URL: /medicos/{id}
+- Parâmetros: sem parâmetros
+- Corpo da requisição:
+  ```
+    {
+        "id": 1,
+        "nome": "Carlos Roberto Bittencourt",
+        "especialidade": "CARDIOLOGIA",
+        "crm": "7845",
+    }
+  ```
 - Resposta:
-  - Sucesso (200 OK)
-    ```
+    - Sucesso (200):
+   ```
     {
-      "message": "Success",
-      "data": {
-        ...
-      }
+        "code": 200,
+        "message": "Médico atualizado com sucesso",
+        "data": {
+            "id": 1,
+            "nome": "Carlos Roberto Bittencourt",
+            "especialidade": "CARDIOLOGIA",
+            "crm": "7845",}
+    }
+     ```
+    - Erro (404):
+   ```
+    {
+        "code": 404,
+        "message": "Médico não atualizado",
+    }
+   ```
+
+### Endpoint: Busca todos os médicos
+- Método : GET
+- URL: /medicos
+- Parâmetros: sem parâmetros
+- Resposta:
+    - Sucesso (200)
+   ```
+    {
+        "code": 200,
+        "message": "Médico encontrado",
+        "data": {
+            "id": 1,
+            "nome": "Carlos Roberto Bittencourt",
+            "especialidade": "CARDIOLOGIA",
+            "crm": "7845",}
     }
     ```
-  - Erro (4XX, 5XX)
+    - Erro (404):
+   ```
+    {
+        "code": 404,
+        "message": "Nenhum médico encontrado",
+    }
+   ```
+
+### Endpoint: Exclui um médico
+- Método : DELETE
+- URL: /medicos/{id}
+- Parâmetros: id: {id}
+- Resposta:
+    - Sucesso (200)
+     ```
+    {
+        "code": 200,
+        "message": "Médico excluído com sucesso",
+        "data": {
+            "id": 1,
+            "nome": "Carlos Roberto Bittencourt",
+            "especialidade": "CARDIOLOGIA",
+            "crm": "7845",}
+    }
+     ```
+
+    - Erro (404):
+  ```
+    {
+        "code": 404,
+        "message": "Médico não excluído",
+    }
+  ```     
+
+ ### Endpoint: Cadastra um novo usuário
+- Método : POST
+- URL: /usuarios
+- Parâmetros: sem parâmetros
+- Corpo da requisição:
+  ```
+    {
+        "email": "jaquelinelpereira@consulmed.com",
+        "tipo": "FUNCIONARIA",
+        "senha": "1234",
+    }
+  ```
+- Resposta:
+    - Sucesso (200):
+   ```
+    {
+        "code": 200,
+        "message": "Usuário cadastrado com sucesso",
+        "data": {
+            "id": 1,
+            "email": "jaquelinelpereira@consulmed.com",
+            "tipo": "FUNCIONARIA",
+            "senha": "1234",}
+    }
+   ```
+    - Erro (400):
+  ```
+    {
+        "code": 400,
+        "message": "Usuário não cadastrado",
+    }
+  ```
+
+### Endpoint: Atualiza usuário
+- Método : PUT
+- URL: /usuarios
+- Parâmetros: sem parâmetros
+- Corpo da requisição:
+  ```
+    {
+        "id": 1,
+        "email": "jaquelinelpereira@consulmed.com",
+        "tipo": "FUNCIONARIA",
+        "senha": "1234",
+    }
+    ```
+- Resposta:
+    - Sucesso (200):
     ```
     {
-      "message": "Error",
-      "error": {
-        ...
-      }
+        "code": 200,
+        "message": "Usuário atualizado com sucesso",
+        "data": {
+            "id": 1,
+            "email": "jaquelinelpereira@consulmed.com",
+            "tipo": "FUNCIONARIA",
+            "senha": "1234",}
     }
+    ```
+    - Erro (404):
+    ```
+    {
+        "code": 404,
+        "message": "Usuário não atualizado",
+    }
+   ```
+### Endpoint: Busca todos os usuários
+- Método : GET
+- URL: /usuarios
+- Parâmetros: sem parâmetros
+- Resposta:
+    - Sucesso (200)
+   ```
+    {
+        "code": 200,
+        "message": "Usuário encontrado",
+        "data": {
+            "id": 1,
+            "email": "jaquelinelpereira@consulmed.com",
+            "tipo": "FUNCIONARIA",
+            "senha": "1234",}
+    }
+   ```
+    - Erro (404):
+   ```
+    {
+        "code": 404,
+        "message": "Usuário não encontrado",
+    }
+   ```
+
+### Endpoint: Exclui um usuário
+- Método : DELETE
+- URL: /usuarios/{id}
+- Parâmetros: id: {id}
+- Resposta:
+    - Sucesso (200)
+    ```
+    {
+        "code": 200,
+        "message": "Usuário excluído com sucesso",
+        "data": {
+            "id": 1,
+            "email": "jaquelinelpereira@consulmed.com",
+            "tipo": "FUNCIONARIA",
+            "senha": "1234",}
+    }
+     ```
+    - Erro (404):
+  ```
+    {
+        "code": 404,
+        "message": "Usuário não excluído",
+    }
+  ```
+
+ ### Endpoint: Cadastra novo paciente
+   - Método: POST
+   - URL: pacientes/
+   - Parâmetros: sem parâmetros
+   - Corpo da requisição:
+  ```
+   {
+        "id": 1,
+        "nome": "Marcelo Fernando da Silva",
+        "data_nascimento": ,
+        "cpf": "10000000000",
+        "telefone": "31990000000",
+        "logradouro": "Rua Paulo de Oliveira Santos",
+        "numero": 554,
+        "bairro": "Tirol (Barreiro)",
+        "cidade": "Belo Horizonte"
+    }
+  ```
+   - Resposta: 
+        - Sucesso (200):
+       ```
+     {
+        "code": 200,
+        "message": "Paciente cadastrado com sucesso",
+        "data": {
+            "id": 1,
+            "nome": "Marcelo Fernando da Silva",
+            "data_nascimento": ,
+            "cpf": "10000000000",
+            "telefone": "31990000000",
+            "logradouro": "Rua Paulo de Oliveira Santos",
+            "numero": 554,
+            "bairro": "Tirol (Barreiro)",
+            "cidade": "Belo Horizonte-MG"}
+       }
+       ```
+     - Erro (400):
+     ```
+     {
+        "code": 400,
+        "message": "Inválido"
+     }
+       ```
+
+  ### Endpoint: Atualiza um paciente
+   - Método: PUT
+   - URL: pacientes/{id}
+   - Parâmetros: sem parâmetros
+   - Corpo da requisição:
+     ```
+     {
+        "id": 1,
+        "nome": "Marcelo Fernando da Silva",
+        "data_nascimento": ,
+        "cpf": "10000000000",
+        "telefone": "31990000000",
+        "logradouro": "Rua Paulo de Oliveira Santos",
+        "numero": 554,
+        "bairro": "Tirol (Barreiro)",
+        "cidade": "Belo Horizonte"
+     }
+   
+   - Resposta: 
+        - Sucesso (200):
+     ```
+       {
+        "code": 200,
+        "message": "Paciente atualizado com sucesso",
+        "data": {
+            "id": 1,
+            "nome": "Marcelo Fernando da Silva",
+            "data_nascimento": ,
+            "cpf": "10000000000",
+            "telefone": "31999000000",
+            "logradouro": "Rua Paulo de Oliveira Santos",
+            "numero": 212,
+            "bairro": "Tirol (Barreiro)",
+            "cidade": "Belo Horizonte-MG"}
+        }
+      ```
+
+        - Erro (400):
+            ```
+            {
+             "code": 400,
+             "message": "Paciente inválido"
+            }
+            ```
+        - Erro (404):
+            ```
+            {
+             "code": 404,
+             "message": "Paciente não encontrado"
+            }
+            ```
+
+### Endpoint: Busca todos os pacientes
+   - Método: GET
+   - URL: pacientes/pacientes
+   - Parâmetros: sem parâmetros
+   - Resposta:
+     - Sucesso (200):
+   ```
+      {
+      "code": 200,
+        "message": "Paciente encontrado",
+        "data": {
+            "id": 1,
+            "nome": "Marcelo Fernando da Silva",
+            "data_nascimento": ,
+            "cpf": "10000000000",
+            "telefone": "31999000000",
+            "logradouro": "Rua Paulo de Oliveira Santos",
+            "numero": 212,
+            "bairro": "Tirol (Barreiro)",
+            "cidade": "Belo Horizonte-MG"}
+       }
+   ```
+   - Erro (404):
+      ```
+        {
+        "code": 404,
+        "message": "Nenhum paciente encontrado",
+        }
+        ```
+
+### Endpoint: Exclui um paciente
+   - Método: DELETE
+   - URL: pacientes/{id}
+   - Parâmetros: id: {id} 
+   - Resposta: 
+        - Sucesso (200):
+     ```
+     {
+        "code": 200,
+        "message": "Paciente excluido com sucesso",
+     }
+     ```
+        - Erro (404):
+       ```
+       {
+        "code": 404,
+        "message": "Paciente não encontrado",
+       }
+       ```
+### Endpoint: Cadastra novo horário
+   - Método: POST
+   - URL: horarios/
+   - Parâmetros: sem parâmetros
+   - Corpo da requisição:
+      ```
+        {
+        "dia": "SEGUNDA",
+        "horario_inicio": "2024-04-21T15:03:39.395Z",
+        "horario_fim": "2024-04-21T15:03:39.395Z",
+        "id_medico": 1,
+        } 
+       ```
+   - Resposta: 
+        - Sucesso (201):
+        ```
+         {
+         "code": 201,
+         "message": "Horário cadastrado com sucesso",
+         "data": {
+             "dia": "SEGUNDA",
+             "horario_inicio": "2024-04-21T15:03:39.395Z",
+             "horario_fim": "2024-04-21T15:03:39.395Z",
+             "id_medico": 1,}
+            }
+        ```
+        - Erro (400):
+     ```
+        {
+        "code": 400,
+        "message": "Inválido",
+         }
+     ```
+
+### Endpoint: Atualiza horário
+   - Método: PUT
+   - URL: horarios/{id}
+   - Parâmetros: sem parâmetros
+   - Corpo da requisição:
+     ```
+     {
+        "dia": "SEGUNDA",
+        "horario_inicio": "2024-04-21T15:03:39.395Z",
+        "horario_fim": "2024-04-21T15:03:39.395Z",
+        "id_medico": 1,
+     }
+     ```
+   - Resposta: 
+        - Sucesso (200):
+       ```
+        {
+        "code": 200,
+        "message": "Horário atualizado com sucesso",
+        "data": {
+            "dia": "SEGUNDA",
+            "horario_inicio": "2024-04-21T15:03:39.395Z",
+            "horario_fim": "2024-04-21T15:03:39.395Z",
+            "id_medico": 1,}
+         }
+       ```
+        - Erro (400):
+     ```
+          {
+        "code": 400,
+        "message": "Inválido",
+          }
+     ``` 
+        - Erro (404):
+        ```
+          {
+        "code": 404,
+        "message": "Horário não encontrado"
+           }
+        ```
+
+### Endpoint: Busca horários
+   - Método: GET
+   - URL: horarios/
+   - Parâmetros: sem parâmetros 
+   - Resposta: 
+        - Sucesso (200):
+        ```
+       {
+          "code": 200,
+          "message": "Horário encontrado",
+          "data": {
+              "dia": "SEGUNDA",
+              "horario_inicio": "2024-04-21T15:03:39.395Z",
+              "horario_fim": "2024-04-21T15:03:39.395Z",
+              "id_medico": 1,}
+        }
+        ```
+        - Erro (404):
+        ```
+          {
+        "code": 404,
+        "message": "Horário não encontrado"
+           }
+        ```
+### Endpoint: Exclui horário
+   - Método: DELETE
+   - URL: horarios/{id}
+   - Parâmetros: id: {id}
+   - Resposta: 
+        - Sucesso (200):
+        ```
+        {
+        "code": 200,
+        "message": "Horário excluído com sucesso",
+        }
+        ```
+       - Erro (404):
+        ```
+         {
+        "code": 404,
+        "message": "Horário não encontrado",
+        }
+        ```
+
+### Endpoint: Cadastra uma nova consulta
+- Método : POST
+- URL: /consultas
+- Parâmetros: sem parâmetros
+- Corpo da requisição:
+  ```
+  {
+    "medico": {
+        "nome": "Carlos Roberto Bittencourt",
+        "especialidade": "CARDIOLOGIA",
+        "crm": "7845",
+    },
+    "paciente": {
+        "nome": "Sandra da Silva Fonseca",
+        "data_nascimento": "01/01/1982",
+        "cpf": "98234476092",
+        "telefone": "31988742130",
+        "logradouro": "Rua X",
+        "numero": 10,
+        "bairro": "Centro",
+        "cidade": "Belo Horizonte",
+        "uf": "MG"
+    },
+    "dia": "2024-04-21",
+    "horario_inicio": "2024-04-21T16:33:01.920Z",
+    "horario_fim": "2024-04-21T16:33:01.920Z",
+    "posicao": 1,
+    "status": "CONCLUIDO",
+   }
     ```
 
+- Resposta:
+    - Sucesso (200):
+     ```
+    {
+    "code": 200,
+    "message": "Consulta cadastrada com sucesso",
+    "data": {
+        "medico": {
+            "nome": "Carlos Roberto Bittencourt",
+            "especialidade": "CARDIOLOGIA",
+            "crm": "7845"},
+        "paciente": {
+            "nome": "Sandra da Silva Fonseca",
+            "data_nascimento": "01/01/1982",
+            "cpf": "98234476092",
+            "telefone": "31988742130",
+            "logradouro": "Rua X",
+            "numero": 10,
+            "bairro": "Centro",
+            "cidade": "Belo Horizonte",
+            "uf": "MG"},
+        "dia": "2024-04-21",
+        "horario_inicio": "2024-04-21T16:33:01.920Z",
+        "horario_fim": "2024-04-21T16:33:01.920Z",
+        "posicao": 1,
+        "status": "CONCLUIDO",
+    }
+  ```
+    - Erro (400):
+      ```
+       {
+       "code": 400,
+       "message": "Consulta não cadastrada",
+      }
+      ```
+
+### Endpoint: Atualiza consulta
+- Método : PUT
+- URL: /consultas/{id}
+- Parâmetros: sem parâmetros
+- Corpo da requisição:
+ ```
+  {
+    "medico": {
+        "nome": "Carlos Roberto Bittencourt",
+        "especialidade": "CARDIOLOGIA",
+        "crm": "7845",
+    },
+    "paciente": {
+        "nome": "Sandra da Silva Fonseca",
+        "data_nascimento": "01/01/1982",
+        "cpf": "98234476092",
+        "telefone": "31988742130",
+        "logradouro": "Rua X",
+        "numero": 10,
+        "bairro": "Centro",
+        "cidade": "Belo Horizonte",
+        "uf": "MG"
+    },
+    "dia": "2024-04-21",
+    "horario_inicio": "2024-04-21T16:33:01.920Z",
+    "horario_fim": "2024-04-21T16:33:01.920Z",
+    "posicao": 1,
+    "status": "CONCLUIDO",
+   }
+ ```
+   - Resposta:
+     - Sucesso (200):
+     ```
+          {
+          "code": 200,
+          "message": "Consulta atualizada com sucesso",
+          "data": {
+              "medico": {
+                  "nome": "Carlos Roberto Bittencourt",
+                  "especialidade": "CARDIOLOGIA",
+                  "crm": "7845",
+              },
+              "paciente": {
+                  "nome": "Sandra da Silva Fonseca",
+                  "data_nascimento": "01/01/1982",
+                  "cpf": "98234476092",
+                  "telefone": "31988742130",
+                  "logradouro": "Rua X",
+                  "numero": 10,
+                  "bairro": "Centro",
+                  "cidade": "Belo Horizonte",
+                  "uf": "MG"
+              },
+              "dia": "2024-04-21",
+              "horario_inicio": "2024-04-21T16:33:01.920Z",
+              "horario_fim": "2024-04-21T16:33:01.920Z",
+              "posicao": 1,
+              "status": "CONCLUIDO",
+             }
+            }
+      ```
+     - Erro (400):
+      ```
+       {
+       "code": 400,
+       "message": "Consulta não atualizada",
+      }
+      ```
+
+### Endpoint: Busca todas as consultas
+- Método : GET
+- URL: /consultas
+- Parâmetros: sem parâmetros
+- Resposta:
+    - Sucesso (200 Ok)
+     ```
+    {
+    "code": 200,
+    "message": "Consulta encontrada",
+    "data": {
+        "medico": {
+            "nome": "Carlos Roberto Bittencourt",
+            "especialidade": "CARDIOLOGIA",
+            "crm": "7845",
+        },
+        "paciente": {
+            "nome": "Sandra da Silva Fonseca",
+            "data_nascimento": "01/01/1982",
+            "cpf": "98234476092",
+            "telefone": "31988742130",
+            "logradouro": "Rua X",
+            "numero": 10,
+            "bairro": "Centro",
+            "cidade": "Belo Horizonte",
+            "uf": "MG"
+        },
+        "dia": "2024-04-21",
+        "horario_inicio": "2024-04-21T16:33:01.920Z",
+        "horario_fim": "2024-04-21T16:33:01.920Z",
+        "posicao": 1,
+        "status": "CONCLUIDO",
+    }
+  }
+   ```
+    - Erro (404):
+     ```
+    - {
+    "code": 404,
+    "message": "Consulta não encontrada",
+      }
+      ```
+
+### Endpoint: Exclui uma consulta
+- Método : DELETE
+- URL: /consultas/{id}
+- Parâmetros: id: {id}
+- Resposta:
+    - Sucesso (200)
+     ```
+    {
+    "code": 200,
+    "message": "Usuário excluído com sucesso",
+    "data": {
+        "medico": {
+            "nome": "Carlos Roberto Bittencourt",
+            "especialidade": "CARDIOLOGIA",
+            "crm": "7845",
+        },
+        "paciente": {
+            "nome": "Sandra da Silva Fonseca",
+            "data_nascimento": "01/01/1982",
+            "cpf": "98234476092",
+            "telefone": "31988742130",
+            "logradouro": "Rua X",
+            "numero": 10,
+            "bairro": "Centro",
+            "cidade": "Belo Horizonte",
+            "uf": "MG"
+        },
+        "dia": "2024-04-21",
+        "horario_inicio": "2024-04-21T16:33:01.920Z",
+        "horario_fim": "2024-04-21T16:33:01.920Z",
+        "posicao": 1,
+        "status": "CONCLUIDO",
+    }
+   }
+   ```
+    - Erro (404):
+      ```
+      {
+      "code": 404,
+      "message": "Consulta não excluída",
+       }
+      ```
+        
+### Endpoint: Cadastra prontuário
+  - Método: POST
+  - URL: prontuarios/
+  - Parâmetros: sem parâmetros 
+  - Corpo da requisição:
+      ```
+      {
+      "id_consulta": 1,
+      "data_criacao": "2024-04-21T17:00:57.128Z",
+      "diagnostico": "diagnostico",
+      "exames": "exames",
+      "prescricoes": "pescrições",
+      "tratamentos": "tratamentos",
+      "observacoes": "observações",
+      "hash_medico": "string",
+      }
+      ```
+  - Resposta: 
+    - Sucesso (201):
+      ```
+       {
+        "code": 201,
+        "message": "Prontuário cadastrado com sucesso",
+        "data": {
+        "id_consulta": 1,
+        "data_criacao": "2024-04-21T17:00:57.128Z",
+        "diagnostico": "diagnostico",
+        "exames": "exames",
+        "prescricoes": "pescrições",
+        "tratamentos": "tratamentos",
+        "observacoes": "observações",
+        "hash_medico": "string",
+        }
+        ```
+    - Erro (400):
+        ```
+        {
+         "code": 400,
+         "message": "Inválido",
+         }
+
+### Endpoint: Atualiza prontuário
+  - Método: PUT
+  - URL: prontuarios/
+  - Parâmetros: sem parâmetros 
+  - Corpo da requisição:
+   ```
+     {
+      "id_consulta": 1,
+      "data_criacao": "2024-04-21T17:00:57.128Z",
+      "diagnostico": "diagnostico",
+      "exames": "exames",
+      "prescricoes": "pescrições",
+      "tratamentos": "tratamentos",
+      "observacoes": "observações",
+      "hash_medico": "string",
+       }
+ ```
+   - Resposta: 
+        - Sucesso (201):
+     ```
+     {
+      "code": 201,
+      "message": "Prontuário cadastrado com sucesso",
+      "data": {
+         "id_consulta": 1,
+         "data_criacao": "2024-04-21T17:00:57.128Z",
+         "diagnostico": "diagnostico",
+         "exames": "exames",
+         "prescricoes": "pescrições",
+         "tratamentos": "tratamentos",
+         "observacoes": "observações",
+         "hash_medico": "string",
+           }
+      }
+       ```
+        - Erro (400):
+     ```
+          {
+            "code": 400,
+            "message": "Inválido",
+           }
+     ```
+  
+       - Erro (404):
+     ```
+          {
+         "code": 404,
+         "message": "Prontuário não encontrado",
+           }
+     ```
+         
+ ### Endpoint: Busca todos prontuários
+  - Método: GET
+  - URL: prontuarios/{id}
+  - Parâmetros: sem parâmetros 
+    - Resposta: 
+      -Sucesso (200):
+      ```
+        {
+       "code": 200,
+       "message": "Lista prontuário",
+       "data": {
+        "id_consulta": 1,
+        "data_criacao": "2024-04-21T17:00:57.128Z",
+        "diagnostico": "diagnostico",
+        "exames": "exames",
+        "prescricoes": "pescrições",
+        "tratamentos": "tratamentos",
+        "observacoes": "observações",
+        "hash_medico": "string",
+       }
+      }
+       ```
+       - Erro (404):
+       ```
+       {
+       "code": 404,
+       "message": "Nenhum prontuário encontrado",
+       }
+       ```
+
+### Endpoint: Exclui prontuário
+- Método: DELETE
+- URL: prontuarios/{id}
+- Parâmetros: sem parâmetros 
+   - Corpo da requisição:
+   ```
+   - {
+    "id_consulta": 1,
+    "data_criacao": "2024-04-21T17:00:57.128Z",
+    "diagnostico": "diagnostico",
+    "exames": "exames",
+    "prescricoes": "pescrições",
+    "tratamentos": "tratamentos",
+    "observacoes": "observações",
+    "hash_medico": "string",
+     }
+  ```
+  - Resposta: 
+    - Sucesso (200):
+  ```
+    {
+    "code": 200,
+    "message": "Prontuário cadastrado com sucesso",
+    "data": {
+        "id_consulta": 1,
+        "data_criacao": "2024-04-21T17:00:57.128Z",
+        "diagnostico": "diagnostico",
+        "exames": "exames",
+        "prescricoes": "pescrições",
+        "tratamentos": "tratamentos",
+        "observacoes": "observações",
+        "hash_medico": "string",
+      }
+     }
+   ```
+    - Erro (404):
+    ```
+    - {
+    "code": 404,
+    "message": "Prontuário não encontrado",
+     }
+    ```
 
 ## Considerações de Segurança
 
