@@ -1127,16 +1127,10 @@ CONDON, Fergus (2020). Tecnologia é prioridade diante do aumento da demanda. Gr
 
 CAMARGO, Robson (2019). Conheça as 10 áreas de conhecimento do PMBOK. Robson Camargo. Disponível em: <https://robsoncamargo.com.br/blog/areas-de-conhecimento-do-PMBOK> Acesso em: 06 de mar. de 2024. 
 
-https://miro.com/pt/diagrama/o-que-e-diagrama-fluxo-dados/ 
+MIRO (2024). Diagrama de fluxo de dados. Miro. Disponível em: <https://miro.com/pt/diagrama/o-que-e-diagrama-fluxo-dados/> Acesso em: 03 de abril de 2024.
 
-https://www.lucidchart.com/blog/pt/diagrama-de-fluxo-de-dados-tutorial 
+LUCIDCHART (2024). Símbolos, tipos e dicas de diagramas de fluxo de dados. Lucidchart. Disponível em: <https://www.lucidchart.com/blog/pt/diagrama-de-fluxo-de-dados-tutorial> Acesso em: 03 de abril de 2024.
 
-https://pt.wikipedia.org/wiki/Diagrama_de_fluxo_de_dados 
+AWARI (2023). Estratégias de Teste de Software: Abordagens e Táticas em Testes de Software. Awary by Fluency. Disponível em: <https://awari.com.br/estrategias-de-teste-de-software-abordagens-e-taticas-em-testes-de-software/> Acesso em: 08 de abril de 2024.
 
-https://app.creately.com/d/create?templateId=injsddx94 
-
-https://awari.com.br/estrategias-de-teste-de-software-abordagens-e-taticas-em-testes-de-software/?utm_source=blog&utm_campaign=projeto+blog&utm_medium=Estrat%C3%A9gias%20de%20Teste%20de%20Software:%20Abordagens%20e%20T%C3%A1ticas%20em%20Testes%20de%20Software&utm_content=data+science 
-
-https://testingcompany.com.br/blog/casos-de-teste-entenda-a-importancia-e-porque-sao-fundamentais-para-a-area-de-qa 
-
-https://www.flaticon.com/br/
+BAUMGARTNER, Cristiano (2023). Casos de Teste: Entenda a importância e porque são fundamentais para a área de QA. Testing Company. Disponível em: <https://testingcompany.com.br/blog/casos-de-teste-entenda-a-importancia-e-porque-sao-fundamentais-para-a-area-de-qa> Acesso em: 08 de abril de 2024.
