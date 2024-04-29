@@ -1,0 +1,5 @@
+export enum EspecialidadeEnum {
+  CARDIOLOGIA = 'CARDIOLOGIA',
+  ORTOPEDIA = 'ORTOPEDIA',
+  CLINICO_GERAL = 'CLINICO GERAL',
+}
