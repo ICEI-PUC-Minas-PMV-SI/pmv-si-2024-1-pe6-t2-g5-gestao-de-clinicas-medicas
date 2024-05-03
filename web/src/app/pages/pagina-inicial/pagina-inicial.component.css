@@ -1,0 +1,42 @@
+.box-title, .body {
+  display: flex;
+  justify-content: center;
+}
+
+.box-title h1 {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+.box-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px;
+}
+
+.card {
+  width: 190px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 1px solid #007954;
+  border-radius: 3px;
+  padding: 15px;
+}
+
+.icon-card {
+  color: #007954;
+  width: 40px;
+}
+
+.card p {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}

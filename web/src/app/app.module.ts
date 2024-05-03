@@ -1,5 +1,5 @@
-import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { FormsModule } from '@angular/forms';
@@ -10,10 +10,10 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './common/components/sidenav/sidenav.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { PaginaInicialComponent } from './pages/pagina-inicial/pagina-inicial.component';
 
 @NgModule({
-  declarations: [AppComponent, SidenavComponent, DashboardComponent],
+  declarations: [AppComponent, SidenavComponent, PaginaInicialComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

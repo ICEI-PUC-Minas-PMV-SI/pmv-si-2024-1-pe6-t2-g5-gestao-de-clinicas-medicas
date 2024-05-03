@@ -3,6 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () =>
+      import('./pages/pagina-inicial/pagina-inicial.module').then(
+        (m) => m.PaginaInicialModule
+      ),
+  },
+  {
     path: 'login',
     loadChildren: () =>
       import('./pages/login/login.module').then((m) => m.LoginModule),
@@ -13,6 +20,11 @@ const routes: Routes = [
       import('./pages/dashboard/dashboard.module').then(
         (m) => m.DashboardModule
       ),
+  },
+  {
+    path: 'clinica',
+    loadChildren: () =>
+      import('./pages/clinica/clinica.module').then((m) => m.ClinicaModule),
   },
   {
     path: 'medico',
