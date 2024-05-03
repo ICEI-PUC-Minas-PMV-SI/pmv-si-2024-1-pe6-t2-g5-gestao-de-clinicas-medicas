@@ -1,0 +1,16 @@
+.nav {
+  background-color: #007954;
+  height: 72px;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.flex-align-center {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+mat-icon {
+  color: #FFFFFF;
+}

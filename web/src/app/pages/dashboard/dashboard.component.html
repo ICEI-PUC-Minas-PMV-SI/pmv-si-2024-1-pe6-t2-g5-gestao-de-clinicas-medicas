@@ -1,2 +1,13 @@
-<p>dashboard works!</p>
-<button (click)="linkTo('/medico/cadastro')">Página cadastro de médico</button>
+<div style="padding: 30px">
+  <div class="box-title">
+    <h1>O que você precisa?</h1>
+  </div>
+  <div class="body">
+    <div class="box-cards">
+      <div class="card" *ngFor="let card of cards" (click)="linkTo(card.url)">
+        <img src="{{ card.icon }}" class="icon-card" />
+        <p>{{ card.title }}</p>
+      </div>
+    </div>
+  </div>
+</div>
