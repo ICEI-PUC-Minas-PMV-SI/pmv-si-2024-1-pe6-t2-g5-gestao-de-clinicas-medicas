@@ -188,20 +188,20 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 </tr>
 <tr>
  <td>Consultório</td>
-   <td>Cadastrar consultório </td>
+   <td>Cadastrar clínica </td>
    <td>Sim</td>
    <td>Não</td>
 </tr>
 <tr>
  <td>Consultório</td>
-   <td>Editar consultório </td>
+   <td>Editar dados da clínica </td>
    <td>Sim</td>
    <td>Não</td>
 </tr>
 <tr>
  <td>Consultório</td>
-   <td>Excluir consultório </td>
-   <td>Sim</td>
+   <td>Excluir dados da clínica </td>
+   <td>Não</td>
    <td>Não</td>
 </tr>
 <tr>
@@ -224,37 +224,19 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 </tr>
 <tr>
  <td>Agendamentos</td>
-   <td>Agendar consultório </td>
+   <td>Cadastrar a agenda dos médicos com datas e horários de atendimento </td>
    <td>Sim</td>
    <td>Não</td>
 </tr>
 <tr>
  <td>Agendamentos</td>
-   <td>Editar agenda de consultório </td>
+   <td>Alterar agenda dos médicos com datas e horários de atendimento </td>
    <td>Sim</td>
    <td>Não</td>
 </tr>
 <tr>
  <td>Agendamentos</td>
-   <td>Excluir agenda de consultório </td>
-   <td>Sim</td>
-   <td>Não</td>
-</tr>
-<tr>
- <td>Agendamentos</td>
-   <td>Cadastrar a agenda dos médicos com datas, horários de atendimento e consultório </td>
-   <td>Sim</td>
-   <td>Não</td>
-</tr>
-<tr>
- <td>Agendamentos</td>
-   <td>Alterar agenda dos médicos com datas, horários de atendimento e consultório </td>
-   <td>Sim</td>
-   <td>Não</td>
-</tr>
-<tr>
- <td>Agendamentos</td>
-   <td>Excluir agenda dos médicos com datas, horários de atendimento e consultório </td>
+   <td>Excluir agenda dos médicos com datas e horários de atendimento </td>
    <td>Sim</td>
    <td>Não</td>
 </tr>
@@ -266,37 +248,37 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 </tr>
 <tr>
  <td>Agendamentos</td>
-   <td>Alterar consulta paciente </td>
+   <td>Alterar consulta de pacientes </td>
    <td>Sim</td>
    <td>Não</td>
 </tr>
 <tr>
  <td>Agendamentos</td>
-   <td>Excluir consulta paciente </td>
+   <td>Excluir consultas de pacientes </td>
    <td>Sim</td>
    <td>Não</td>
 </tr>
 <tr>
  <td>Relatórios</td>
-   <td>Agendamentos paciente  </td>
+   <td>Agendamentos de pacientes  </td>
    <td>Sim</td>
    <td>Não</td>
 </tr>
 <tr>
  <td>Relatórios</td>
-   <td>Agendamentos médicos </td>
+   <td>Pacientes cadastrados </td>
    <td>Sim</td>
    <td>Não</td>
 </tr>
 <tr>
  <td>Relatórios</td>
-   <td>Agendamentos de consultório </td>
+   <td>Relatório de consultas agendadas por médico </td>
    <td>Sim</td>
    <td>Não</td>
 </tr>
 <tr>
  <td>Relatórios</td>
-   <td>Relatório de consultas agendadas </td>
+   <td>Relatório de consultas agendadas por cliente </td>
    <td>Sim</td>
    <td>Não</td>
 </tr>
@@ -321,18 +303,6 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 <tr>
  <td>Usuário</td>
    <td>Excluir usuário </td>
-   <td>Sim</td>
-   <td>Não</td>
-</tr>
-<tr>
- <td>Clínica</td>
-   <td>Cadastrar clínica </td>
-   <td>Sim</td>
-   <td>Não</td>
-</tr>
-<tr>
- <td>Clínica</td>
-   <td>Alterar clínica </td>
    <td>Sim</td>
    <td>Não</td>
 </tr>
@@ -375,19 +345,19 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 </tr>
 <tr>
  <td>Relatório</td>
-   <td>Relatório de pacientes </td>
+   <td>Pacientes cadastrados </td>
    <td>Sim</td>
    <td>Sim</td>
 </tr>
 <tr>
  <td>Relatório</td>
-   <td>Relatório de consultas agendadas</td>
+   <td>Relatório de consultas agendadas por médico </td>
    <td>Sim</td>
    <td>Sim</td>
 </tr>
 <tr>
  <td>Relatório</td>
-   <td>Agenda do médico</td>
+   <td>Relatório de consultas agendadas por cliente </td>
    <td>Sim</td>
    <td>Sim</td>
 </tr>
