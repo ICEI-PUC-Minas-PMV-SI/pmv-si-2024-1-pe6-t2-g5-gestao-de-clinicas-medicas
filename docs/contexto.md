@@ -358,7 +358,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 <tr>
  <td>Prontuário eletrônico</td>
    <td>Editar prontuário </td>
-   <td>Sim</td>
+   <td>Não</td>
    <td>Não</td>
 </tr>
 <tr>
@@ -370,7 +370,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 <tr>
  <td>Prontuário eletrônico</td>
    <td>Excluir prontuário </td>
-   <td>Sim</td>
+   <td>Não</td>
    <td>Não</td>
 </tr>
 <tr>
