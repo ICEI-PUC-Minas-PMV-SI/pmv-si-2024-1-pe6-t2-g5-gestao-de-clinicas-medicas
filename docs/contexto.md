@@ -167,9 +167,8 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
    <td>Sim</td>
 </tr>
 
-
 <tr>
-  <th rowspan="29">Recepcionista</th>
+  <th rowspan="24">Recepcionista</th>
   <td>Paciente</td>
    <td>Cadastrar paciente</td>
    <td>Sim</td>
