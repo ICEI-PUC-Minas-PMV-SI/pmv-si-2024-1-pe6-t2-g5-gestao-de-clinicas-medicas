@@ -4,27 +4,28 @@
 
 ## Tecnologias Utilizadas
 
-Tecnologias:
-API - Flask (Python)
-MOBILE - React Native (Javascript)
-WEB - Angular (Java), Typescript, Bootstrap
-Bibliotecas:
-Angular Material
-Ferramentas:
-Figma
-VS CODE
-Expo
-Github
-AWS
-Jira(Gerenciar desenvolvimento)
-Draw.io
-DrawSQL
-Workbench
-Amazon RDS
-Word
-Android Studio
-Altair Autentique (Requisições Online)
+### Tecnologias: 
+* API -  Flask (Python) 
+* MOBILE - React Native (Javascript) 
+* WEB - Angular (Java), Typescript, Bootstrap 
 
+### Bibliotecas: 
+* Angular Material 
+
+### Ferramentas: 
+* Figma 
+* VS CODE 
+* Expo 
+* Github 
+* AWS 
+* Jira(Gerenciar desenvolvimento) 
+* Draw.io 
+* DrawSQL 
+* Workbench 
+* Amazon RDS 
+* Word 
+* Android Studio 
+* Altair Autentique (Requisições Online) 
 ## Arquitetura
 
 [Descrição da arquitetura das aplicação web, incluindo os componentes e suas interações.]
