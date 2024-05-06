@@ -3,7 +3,27 @@
 [Inclua uma breve descrição do projeto e seus objetivos.]
 
 ## Tecnologias Utilizadas
-[Lista das tecnologias principais que serão utilizadas no projeto.]
+
+Tecnologias:
+API - Flask (Python)
+MOBILE - React Native (Javascript)
+WEB - Angular (Java), Typescript, Bootstrap
+Bibliotecas:
+Angular Material
+Ferramentas:
+Figma
+VS CODE
+Expo
+Github
+AWS
+Jira(Gerenciar desenvolvimento)
+Draw.io
+DrawSQL
+Workbench
+Amazon RDS
+Word
+Android Studio
+Altair Autentique (Requisições Online)
 
 ## Arquitetura
 
