@@ -57,11 +57,12 @@ Para o fluxo de dados será utilizado a API, que processa a solicitação, acess
 |ID     | Descrição do Requisito                                                |Prioridade |
 |-------|---------------------------------------------------------------------------|------|
 |RF-001|  Cadastrar dados de médico;<br>Alterar dados de médico; <br> Excluir médico;<br>Listar todos os médicos;<br>Pesquisar dados de médicos por id, nome, CRM e id de especialidade médica. <br>                        | ALTA | 
-|RF-002| Cadastrar dados de paciente; <br>Alterar dados de paciente; <br>Excluir paciente; <br> Listar todos os pacientes; <br>  Pesquisar dados de paciente por id e CPF <br>                              | ALTA |
-|RF-003| Cadastrar dados de usuários; <br>Alterar dados de usuários; <br>Excluir usuários; <br>  Listar todos de usuários; <br> Pesquisar dados de usuários por id e CPF <br>                            | ALTA | 
-|RF-004| Cadastrar dados de consultas médicas; <br>Alterar dados de consultas médicas;<br> Listar todas as consultas médicas; <br> Excluir consulta médica; <br> Pesquisar dados de consultas médicas por id_consulta e por id_médico, id_paciente e por data <br>  | ALTA | 
-|RF-005|Cadastrar dados de prontuários eletrônicos; <br> Alterar dados de prontuários eletrônicos; <br> Listar todos os prontuários eletrônicos; <br>Excluir prontuário eletrônico; <br> Pesquisar dados de prontuário eletrônico por  id_médico,  id_paciente; <br>  | ALTA |
-|RF-006| Cadastrar dados de prontuários eletrônicos; <br> Alterar dados de prontuários eletrônicos; <br> Listar todos os prontuários eletrônicos; <br> Excluir prontuário eletrônico; <br> Pesquisar dados de prontuário eletrônico por  id_médico,  id_paciente; <br>  | ALTA | 
+|RF-002| Cadastrar dados de paciente; <br>Alterar dados de paciente; <br>Excluir paciente; <br> Listar todos os pacientes; <br>  Pesquisar dados de paciente por id e CPF. <br>                              | ALTA |
+|RF-003| Cadastrar dados de usuários; <br>Alterar dados de usuários; <br>Excluir usuários; <br>  Listar todos de usuários; <br> Pesquisar dados de usuários por id e CPF. <br>                            | ALTA | 
+|RF-004| Cadastrar dados de consultas médicas; <br>Alterar dados de consultas médicas;<br> Listar todas as consultas médicas; <br> Excluir consulta médica; <br> Pesquisar dados de consultas médicas por id_consulta e por id_médico, id_paciente e por data. <br>  | ALTA | 
+|RF-005|Cadastrar dados de prontuários eletrônicos; <br> Alterar dados de prontuários eletrônicos; <br> Listar todos os prontuários eletrônicos; <br>Excluir prontuário eletrônico; <br> Pesquisar dados de prontuário eletrônico por  id_médico,  id_paciente. <br>  | ALTA |
+|RF-006| Cadastrar dados da clínica; <br> Alterar dados da clínica. <br>  | ALTA | 
+|RF-007| Emitir relatório de pacientes cadastrados; <br> Emitir relatório de usuários cadastrados; <br> Emitir relatório de consultas agendadas por médico; <br> Emitir relatório de consultas agendadas por paciente. | ALTA | 
 
 ## Requisitos Não Funcionais
 
@@ -340,6 +341,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
         "numero": 554,
         "bairro": "Tirol (Barreiro)",
         "cidade": "Belo Horizonte"
+        "uf": "MG"
     }
   ```
    - Resposta: 
@@ -357,7 +359,8 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
             "logradouro": "Rua Paulo de Oliveira Santos",
             "numero": 554,
             "bairro": "Tirol (Barreiro)",
-            "cidade": "Belo Horizonte-MG"}
+            "cidade": "Belo Horizonte"}
+            "uf": "MG"
        }
        ```
      - Erro (400):
@@ -384,6 +387,7 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
         "numero": 554,
         "bairro": "Tirol (Barreiro)",
         "cidade": "Belo Horizonte"
+        "uf": "MG"
      }
    
    - Resposta: 
@@ -401,7 +405,8 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
             "logradouro": "Rua Paulo de Oliveira Santos",
             "numero": 212,
             "bairro": "Tirol (Barreiro)",
-            "cidade": "Belo Horizonte-MG"}
+            "cidade": "Belo Horizonte"}
+            "uf": "MG"
         }
       ```
 
@@ -439,7 +444,8 @@ Para o desenvolvimento do projeto, até o momento utilizamos as seguintes tecnol
             "logradouro": "Rua Paulo de Oliveira Santos",
             "numero": 212,
             "bairro": "Tirol (Barreiro)",
-            "cidade": "Belo Horizonte-MG"}
+            "cidade": "Belo Horizonte"}
+            "uf": "MG"
        }
    ```
    - Erro (404):
