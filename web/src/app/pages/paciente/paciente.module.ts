@@ -9,6 +9,10 @@ const routes: Routes = [
     path: '',
     component: PacienteComponent,
   },
+  {
+    path: 'cadastro',
+    component: CadastroComponent,
+  },
 ];
 
 @NgModule({
