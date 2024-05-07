@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -19,6 +20,7 @@ import { PaginaInicialComponent } from './pages/pagina-inicial/pagina-inicial.co
     AppRoutingModule,
     RouterModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
     MatSidenavModule,
