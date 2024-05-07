@@ -28,9 +28,6 @@ A arquitetura da aplicação web segue o padrão de arquitetura cliente-servidor
 
 O servidor, implementado com Flask em Python, oferece uma API RESTful para comunicação entre o front-end e o banco de dados. Ele gerencia as requisições dos clientes, processa operações solicitadas e retorna os dados correspondentes. O servidor se comunica com o banco de dados MySQL para recuperar e armazenar informações sobre consultas, pacientes, médicos e outras entidades.
 
-## Modelagem da Aplicação
-[Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
-
 ## Projeto da Interface Web
 [Descreva o projeto da interface Web da aplicação, incluindo o design visual, layout das páginas, interações do usuário e outros aspectos relevantes.]
 
@@ -45,27 +42,6 @@ O servidor, implementado com Flask em Python, oferece uma API RESTful para comun
 
 ### Interações do Usuário
 [Descreva as interações do usuário na interface, como animações, transições entre páginas e outras interações.]
-
-## Fluxo de Dados
-
-[Diagrama ou descrição do fluxo de dados na aplicação.]
-
-## Requisitos Funcionais
-
-[Liste os principais requisitos funcionais da aplicação.]
-
-## Requisitos Não Funcionais
-
-[Liste os principais requisitos não funcionais da aplicação, como desempenho, segurança, escalabilidade, etc.]
-
-
-## Considerações de Segurança
-
-[Discuta as considerações de segurança relevantes para a aplicação distribuída, como autenticação, autorização, proteção contra ataques, etc.]
-
-## Implantação
-
-[Instruções para implantar a aplicação distribuída em um ambiente de produção.]
 
 1. Defina os requisitos de hardware e software necessários para implantar a aplicação em um ambiente de produção.
 2. Escolha uma plataforma de hospedagem adequada, como um provedor de nuvem ou um servidor dedicado.
