@@ -1,12 +1,11 @@
 # Front-end Web
 
-[Inclua uma breve descrição do projeto e seus objetivos.]
+O projeto consiste em uma aplicação web para gestão de consultas médicas em clínicas, focada em otimizar o agendamento, registro de prontuários e comunicação entre pacientes e profissionais de saúde. Seu objetivo principal é melhorar a eficiência operacional e proporcionar uma experiência satisfatória para todos os usuários envolvidos, visando aprimorar a qualidade dos serviços de saúde oferecidos.
 
 ## Tecnologias Utilizadas
 
 ### Tecnologias: 
-* API -  Flask (Python) 
-* MOBILE - React Native (Javascript) 
+* API -  Flask (Python)  
 * WEB - Angular (Java), Typescript, Bootstrap 
 
 ### Bibliotecas: 
@@ -17,15 +16,12 @@
 * VS CODE 
 * Expo 
 * Github 
-* AWS 
-* Jira(Gerenciar desenvolvimento) 
-* Draw.io 
+* AWS
 * DrawSQL 
 * Workbench 
 * Amazon RDS 
-* Word 
-* Android Studio 
-* Altair Autentique (Requisições Online) 
+* Altair Autentique (Requisições Online)
+  
 ## Arquitetura
 
 [Descrição da arquitetura das aplicação web, incluindo os componentes e suas interações.]
