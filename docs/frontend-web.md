@@ -24,7 +24,9 @@ O projeto consiste em uma aplicação web para gestão de consultas médicas em 
   
 ## Arquitetura
 
-[Descrição da arquitetura das aplicação web, incluindo os componentes e suas interações.]
+A arquitetura da aplicação web segue o padrão de arquitetura cliente-servidor. No cliente, o front-end é desenvolvido em Angular, utilizando TypeScript e Bootstrap para a criação de componentes de interface de usuário. O front-end interage com o servidor por meio de requisições HTTP para acessar e manipular dados do back-end.
+
+O servidor, implementado com Flask em Python, oferece uma API RESTful para comunicação entre o front-end e o banco de dados. Ele gerencia as requisições dos clientes, processa operações solicitadas e retorna os dados correspondentes. O servidor se comunica com o banco de dados MySQL para recuperar e armazenar informações sobre consultas, pacientes, médicos e outras entidades.
 
 ## Modelagem da Aplicação
 [Descreva a modelagem da aplicação, incluindo a estrutura de dados, diagramas de classes ou entidades, e outras representações visuais relevantes.]
