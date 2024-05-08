@@ -46,38 +46,38 @@ O servidor, implementado com Flask em Python, oferece uma API RESTful para comun
 
 ### Design Visual
 
-## Colors:
-#007954
-#FFFFFF
-#000000
-#00815A
-#666666
-#F1F1F1
-#505050
-#282828
-#BADDC0 60%
-#FFD6D6 60%
+### Colors:
+* #007954
+* #FFFFFF
+* #000000
+* #00815A
+* #666666
+* #F1F1F1
+* #505050
+* #282828
+* #BADDC0 60%
+* #FFD6D6 60%
 
-## Font:
-Roboto Flex
+### Font:
+* Roboto Flex
 
-## Icons:
-notification
-perfil
-bar-chart-line-fill 1
-hospital-fill 1
-clipboard2-check-fill 1
-file-earmark-text-fill 1
-people-fill 1
-person-vcard 1
-person-fill-add 1
-arrow-left-circle 1
-pencil-fill 1
-trash3-fill 1
-
-
-
-[Descreva o estilo visual da interface, incluindo paleta de cores, tipografia, ícones e outros elementos gráficos.]
+### Icons:
+* notification
+* perfil
+* bar-chart-line-fill 1
+* hospital-fill 1
+* clipboard2-check-fill 1
+* file-earmark-text-fill 1
+* people-fill 1
+* person-vcard 1
+* person-fill-add 1
+* arrow-left-circle 1
+* pencil-fill 1
+* trash3-fill 1
+* search 1
+* calendar 2
+* caret-down-fill 1
+* eye 1
 
 ### Layout Responsivo
 [Discuta como a interface será adaptada para diferentes tamanhos de tela e dispositivos.]
