@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MedicoVO } from 'src/app/model/vo/MedicoVO';
 
 @Injectable({
   providedIn: 'root',
@@ -11,16 +12,33 @@ export class MedicoService {
   constructor(private http: HttpClient) {}
 
   buscarTodosMedicos() {
-    localStorage.setItem('token', '704fe323637760855e7015b0c2eafed281c6899c');
-    const token = localStorage.getItem('token');
+    // localStorage.setItem('token', '1dc7eb018f7bc41ba81ede6cfb0bf715036d16b1');
+    // const token = localStorage.getItem('token');
 
-    this.tokenAPI = 'Bearer ' + token;
-    let httpOptions = {
-      headers: new HttpHeaders({
-        Authorization: this.tokenAPI,
-      }),
-    };
+    // this.tokenAPI = 'Bearer ' + token;
+    // let httpOptions = {
+    //   headers: new HttpHeaders({
+    //     Authorization: this.tokenAPI,
+    //   }),
+    // };
 
-    return this.http.get(this.API, httpOptions);
+    // return this.http.get(this.API, httpOptions);
+    return this.http.get(this.API);
+  }
+
+  buscarMedicoPorId(id: number) {
+    return this.http.get(`${this.API}/${id}`);
+  }
+
+  cadastrar(medico: MedicoVO) {
+    return this.http.post(this.API, medico);
+  }
+
+  atualizar(id: number, medico: MedicoVO) {
+    return this.http.put(`${this.API}/${id}`, medico);
+  }
+
+  excluir(id: number) {
+    return this.http.delete(`${this.API}/${id}`);
   }
 }

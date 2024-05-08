@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +27,7 @@ import { PaginaInicialComponent } from './pages/pagina-inicial/pagina-inicial.co
     MatSidenavModule,
     MatIconModule,
     MatCardModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
