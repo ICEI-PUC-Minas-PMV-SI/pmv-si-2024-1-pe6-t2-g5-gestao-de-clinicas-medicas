@@ -45,6 +45,38 @@ O servidor, implementado com Flask em Python, oferece uma API RESTful para comun
 ![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/76ae47ae-4a72-4099-9d2f-ac35c47c9000)
 
 ### Design Visual
+
+## Colors:
+#007954
+#FFFFFF
+#000000
+#00815A
+#666666
+#F1F1F1
+#505050
+#282828
+#BADDC0 60%
+#FFD6D6 60%
+
+## Font:
+Roboto Flex
+
+## Icons:
+notification
+perfil
+bar-chart-line-fill 1
+hospital-fill 1
+clipboard2-check-fill 1
+file-earmark-text-fill 1
+people-fill 1
+person-vcard 1
+person-fill-add 1
+arrow-left-circle 1
+pencil-fill 1
+trash3-fill 1
+
+
+
 [Descreva o estilo visual da interface, incluindo paleta de cores, tipografia, ícones e outros elementos gráficos.]
 
 ### Layout Responsivo
