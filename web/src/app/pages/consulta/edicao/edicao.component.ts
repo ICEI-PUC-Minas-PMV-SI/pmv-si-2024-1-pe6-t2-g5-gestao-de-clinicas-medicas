@@ -6,17 +6,18 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { StatusConsultaEnum } from 'src/app/model/enum/StatusConsulta.enum';
+import { ConsultaVO } from 'src/app/model/vo/ConsultaVO';
 import { ConsultaService } from '../consulta.service';
 import { UtilService } from './../../../common/util.service';
-import { ConsultaVO } from 'src/app/model/vo/ConsultaVO';
-import { StatusConsultaEnum } from 'src/app/model/enum/StatusConsulta.enum';
 
 @Component({
-  selector: 'app-cadastro',
-  templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css'],
+  selector: 'app-edicao',
+  templateUrl: './edicao.component.html',
+  styleUrls: ['./edicao.component.css'],
 })
-export class CadastroComponent implements OnInit {
+export class EdicaoComponent implements OnInit {
+  public idConsulta!: number;
   public consultaForm!: FormGroup;
 
   constructor(
@@ -27,7 +28,14 @@ export class CadastroComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.initForm();
+    this.buscarConsulta();
+  }
+
+  buscarConsulta() {
+    this.consultaService.buscarPorId(this.idConsulta).subscribe((rs) => {
+      console.log('BUSCA CONSULTA POR ID', rs);
+      //this.initForm(rs.data);
+    });
   }
 
   initForm() {
@@ -35,9 +43,13 @@ export class CadastroComponent implements OnInit {
       idMedico: new FormControl(1, [Validators.required]),
       idPaciente: new FormControl(2, [Validators.required]),
       data: new FormControl(new Date(), [Validators.required]),
-      horario_inicio: new FormControl(new Date(), [Validators.required]),
-      horario_fim: new FormControl(new Date(), [Validators.required]),
-      posicao: new FormControl('1', [Validators.required]),
+      horario_inicio: new FormControl({ hours: 10, minutes: 0 }, [
+        Validators.required,
+      ]),
+      horario_fim: new FormControl({ hours: 10, minutes: 30 }, [
+        Validators.required,
+      ]),
+      posicao: new FormControl(1, [Validators.required]),
       status: new FormControl(StatusConsultaEnum.CONFIRMADA, [
         Validators.required,
       ]),

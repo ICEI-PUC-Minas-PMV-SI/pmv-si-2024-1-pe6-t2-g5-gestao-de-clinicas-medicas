@@ -1,4 +1,4 @@
-export enum EspecialidadeEnum {
+export enum StatusConsultaEnum {
   CONFIRMADA = 'CONFIRMADA',
   PENDENTE = 'PENDENTE',
   CANCELADA = 'CANCELADA',
