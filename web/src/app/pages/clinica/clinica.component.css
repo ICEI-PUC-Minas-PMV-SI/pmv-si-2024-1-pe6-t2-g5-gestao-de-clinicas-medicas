@@ -1,0 +1,112 @@
+.two-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3em 0;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: 600;
+    /* text-align: center; */
+}
+
+.back-button {
+    margin-left: 2%;
+}
+
+.main-box {
+    display: grid;
+    grid-template-columns: 85% 15%;
+    margin: 0 2em;
+    padding: 1em;
+    border: 2px solid #007954;
+    border-radius: 8px;
+}
+
+.fields {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.2em;
+    row-gap: 1.5em;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    row-gap: .4em;
+}
+
+.razao-field {
+    width: 23em;
+}
+
+.cnpj-field {
+    width: 18em;
+}
+
+.address-field {
+    width: 20em;
+}
+
+.number-field {
+    width: 4em;
+}
+
+.uf-field {
+    width: 3em;
+}
+
+.inputs {
+    border: none;
+    border-radius: 10px;
+    background-color: #F1F1F1;
+    height: 2em;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1em;
+}
+
+.button {
+    border: none;
+    border-radius: 10px;
+    width: 4em;
+    padding: 1em 1em;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.save-button {
+    background-color: #BADDC099;
+    color: #303030;
+}
+
+.save-button:hover {
+    background-color: #007954;
+    color: white;
+}
+
+.edit-button {
+    background-color: #F1F1F1;
+    color: #303030;
+}
+
+.edit-button:hover {
+    background-color: #d3cdcd;
+}
+
+.cancel-button {
+    background-color: rgba(255, 214, 214, 0.6);
+    color: #303030;
+}
+
+.cancel-button:hover {
+    background-color: #c01717;
+    color: white;
+}
