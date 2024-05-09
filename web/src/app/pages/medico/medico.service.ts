@@ -11,7 +11,7 @@ export class MedicoService {
 
   constructor(private http: HttpClient) {}
 
-  buscarTodosMedicos() {
+  buscarTodos() {
     // localStorage.setItem('token', '1dc7eb018f7bc41ba81ede6cfb0bf715036d16b1');
     // const token = localStorage.getItem('token');
 
@@ -26,7 +26,7 @@ export class MedicoService {
     return this.http.get(this.API);
   }
 
-  buscarMedicoPorId(id: number) {
+  buscarPorId(id: number) {
     return this.http.get(`${this.API}/${id}`);
   }
 

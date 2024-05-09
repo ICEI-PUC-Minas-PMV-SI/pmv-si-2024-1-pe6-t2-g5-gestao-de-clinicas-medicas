@@ -16,14 +16,14 @@ export class MedicoComponent implements OnInit {
 
   buscarMedicos() {
     this.medicoService
-      .buscarTodosMedicos()
-      .subscribe((rs) => console.log('BUSCA', rs));
+      .buscarTodos()
+      .subscribe((rs) => console.log('BUSCA MEDICO', rs));
   }
 
   excluirMedico() {
     this.medicoService
       .excluir(17)
-      .subscribe((rs) => console.log('EXCLUSAO', rs));
+      .subscribe((rs) => console.log('EXCLUSAO MEDICO', rs));
   }
 
   linkTo(path: string) {

@@ -29,8 +29,8 @@ export class EdicaoComponent implements OnInit {
   }
 
   buscarMedico() {
-    this.medicoService.buscarMedicoPorId(this.idMedico).subscribe((rs) => {
-      console.log('BUSCA POR ID', rs);
+    this.medicoService.buscarPorId(this.idMedico).subscribe((rs) => {
+      console.log('BUSCA MEDICO POR ID', rs);
       //this.initForm(rs.data);
     });
   }
@@ -47,7 +47,7 @@ export class EdicaoComponent implements OnInit {
     });
   }
 
-  atualizarMedico() {
+  atualizar() {
     if (this.medicoForm.valid) {
       const medico: MedicoVO = {
         id: this.medicoForm.get('id')?.value,
@@ -59,7 +59,7 @@ export class EdicaoComponent implements OnInit {
       if (medico.id != null) {
         this.medicoService
           .atualizar(medico.id, medico)
-          .subscribe((rs) => console.log('CADASTRO', rs));
+          .subscribe((rs) => console.log('EDICAO MEDICO', rs));
       } else {
         const message = 'MÉDICO NÃO ENCONTRADO';
         const action = 'OK';

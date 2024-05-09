@@ -50,7 +50,7 @@ export class CadastroComponent implements OnInit {
 
       this.medicoService
         .cadastrar(medico)
-        .subscribe((rs) => console.log('CADASTRO', rs));
+        .subscribe((rs) => console.log('CADASTRO MEDICO', rs));
     } else {
       const message = 'PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR';
       const action = 'OK';

@@ -5,53 +5,56 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
 import { UtilService } from 'src/app/common/util.service';
 import { PacienteVO } from 'src/app/model/vo/PacienteVO';
 import { PacienteService } from '../paciente.service';
 
 @Component({
-  selector: 'app-cadastro',
-  templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css'],
+  selector: 'app-edicao',
+  templateUrl: './edicao.component.html',
+  styleUrls: ['./edicao.component.css'],
 })
-export class CadastroComponent implements OnInit {
+export class EdicaoComponent implements OnInit {
+  public idPaciente!: number;
   public pacienteForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private pacienteService: PacienteService,
-    private utilService: UtilService,
-    private router: Router
+    private utilService: UtilService
   ) {}
 
   ngOnInit(): void {
-    this.initForm();
+    this.buscarPaciente();
+  }
+
+  buscarPaciente() {
+    this.pacienteService.buscarPorId(this.idPaciente).subscribe((rs) => {
+      console.log('BUSCA PACIENTE POR ID', rs);
+      //this.initForm(rs.data);
+    });
   }
 
   initForm() {
     this.pacienteForm = this.formBuilder.group({
-      nome: new FormControl('TESTE', [
+      nome: new FormControl('', [
         Validators.required,
         Validators.maxLength(45),
       ]),
-      dataNascimento: new FormControl(new Date(), [Validators.required]),
-      cpf: new FormControl('2434', [
+      dataNascimento: new FormControl('', [Validators.required]),
+      telefone: new FormControl('', [
         Validators.required,
         Validators.maxLength(11),
       ]),
-      telefone: new FormControl('3523552', [
-        Validators.required,
-        Validators.maxLength(11),
-      ]),
-      logradouro: new FormControl('TESTE', [Validators.required]),
-      numero: new FormControl('1', [Validators.required]),
-      bairro: new FormControl('TESTE', [Validators.required]),
-      cidade: new FormControl('TESTE', [Validators.required]),
+      cpf: new FormControl('', [Validators.required, Validators.maxLength(11)]),
+      logradouro: new FormControl('', [Validators.required]),
+      numero: new FormControl('', [Validators.required]),
+      bairro: new FormControl('', [Validators.required]),
+      cidade: new FormControl('', [Validators.required]),
     });
   }
 
-  salvar() {
+  atualizar() {
     if (this.pacienteForm.valid) {
       const paciente: PacienteVO = {
         nome: this.pacienteForm.get('nome')?.value,
@@ -64,17 +67,19 @@ export class CadastroComponent implements OnInit {
         cidade: this.pacienteForm.get('cidade')?.value,
       };
 
-      this.pacienteService
-        .cadastrar(paciente)
-        .subscribe((rs) => console.log('CADASTRO PACIENTE', rs));
+      if (paciente.id != null) {
+        this.pacienteService
+          .cadastrar(paciente)
+          .subscribe((rs) => console.log('EDICAO PACIENTE', rs));
+      } else {
+        const message = 'PACIENTE NÃO ENCONTRADO';
+        const action = 'OK';
+        this.utilService.openSnackBar(message, action);
+      }
     } else {
       const message = 'PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR';
       const action = 'OK';
       this.utilService.openSnackBar(message, action);
     }
-  }
-
-  linkTo(path: string) {
-    this.router.navigateByUrl(path);
   }
 }
