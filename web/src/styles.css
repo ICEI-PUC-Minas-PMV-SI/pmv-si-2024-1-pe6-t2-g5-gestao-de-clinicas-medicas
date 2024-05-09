@@ -2,3 +2,12 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif }
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: gray;
+}
+
+.mat-form-field-label {
+  color: black;
+  font-size: 18px !important;
+}
