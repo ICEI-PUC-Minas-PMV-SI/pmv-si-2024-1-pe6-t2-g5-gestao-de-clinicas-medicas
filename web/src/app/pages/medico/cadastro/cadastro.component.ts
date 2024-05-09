@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MedicoVO } from 'src/app/model/vo/MedicoVO';
 import { MedicoService } from '../medico.service';
 import { UtilService } from './../../../common/util.service';
@@ -20,7 +21,8 @@ export class CadastroComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private medicoService: MedicoService,
-    private utilService: UtilService
+    private utilService: UtilService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -54,5 +56,9 @@ export class CadastroComponent implements OnInit {
       const action = 'OK';
       this.utilService.openSnackBar(message, action);
     }
+  }
+
+  linkTo(path: string) {
+    this.router.navigateByUrl(path);
   }
 }
