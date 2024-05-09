@@ -23,7 +23,7 @@ export class PacienteComponent implements OnInit {
       .subscribe((rs) => console.log('BUSCA PACIENTE', rs));
   }
 
-  excluirMedico() {
+  excluirPaciente() {
     this.pacienteService
       .excluir(17)
       .subscribe((rs) => console.log('EXCLUSAO PACIENTE', rs));

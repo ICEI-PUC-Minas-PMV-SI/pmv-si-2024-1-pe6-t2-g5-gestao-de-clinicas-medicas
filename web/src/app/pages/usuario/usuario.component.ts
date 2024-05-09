@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PacienteService } from '../paciente/paciente.service';
+import { UsuarioService } from './usuario.service';
 
 @Component({
   selector: 'app-usuario',
@@ -7,9 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./usuario.component.css'],
 })
 export class UsuarioComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private usuarioService: UsuarioService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.buscarUsuarios();
+  }
+
+  buscarUsuarios() {
+    this.usuarioService
+      .buscarTodos()
+      .subscribe((rs) => console.log('BUSCA USUARIO', rs));
+  }
+
+  excluirUsuario() {
+    this.usuarioService
+      .excluir(25)
+      .subscribe((rs) => console.log('EXCLUSAO USUARIO', rs));
+  }
 
   linkTo(path: string) {
     this.router.navigateByUrl(path);
