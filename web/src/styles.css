@@ -11,3 +11,25 @@ body { margin: 0; font-family: 'Roboto', sans-serif }
   color: black;
   font-size: 18px !important;
 }
+
+table {
+  width: 100%;
+}
+
+.mat-table {
+  background: #FFFFFF;
+}
+
+.mat-header-cell, .mat-cell {
+  color: #000000;
+}
+
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
+  border-bottom-color: #000000;
+}
+
+.mat-dialog-container {
+  background: #ffffff;
+  color: #000000;
+}
+

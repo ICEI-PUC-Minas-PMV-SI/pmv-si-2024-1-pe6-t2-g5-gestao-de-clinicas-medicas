@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ConsultaService } from './consulta.service';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-consulta',
@@ -32,7 +31,7 @@ export class ConsultaComponent implements OnInit {
   buscarConsultas() {
     this.consultaService.buscarTodos().subscribe((rs: any) => {
       this.dataSource = new MatTableDataSource<ConsultaTable>(rs.data);
-      console.log('DATA', this.dataSource);
+      console.log('DATA CONSULTAS', this.dataSource);
     });
   }
 

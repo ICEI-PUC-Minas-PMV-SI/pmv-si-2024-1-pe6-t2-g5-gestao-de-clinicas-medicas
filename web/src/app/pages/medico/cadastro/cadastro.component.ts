@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MedicoVO } from 'src/app/model/vo/MedicoVO';
 import { MedicoService } from '../medico.service';
 import { UtilService } from './../../../common/util.service';
@@ -19,10 +19,11 @@ export class CadastroComponent implements OnInit {
   public medicoForm!: FormGroup;
 
   constructor(
+    public dialogRef: MatDialogRef<any>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private medicoService: MedicoService,
-    private utilService: UtilService,
-    private router: Router
+    private utilService: UtilService
   ) {}
 
   ngOnInit(): void {
@@ -48,9 +49,10 @@ export class CadastroComponent implements OnInit {
         especialidade: this.medicoForm.get('especialidade')?.value,
       };
 
-      this.medicoService
-        .cadastrar(medico)
-        .subscribe((rs) => console.log('CADASTRO MEDICO', rs));
+      this.medicoService.cadastrar(medico).subscribe((rs) => {
+        console.log('CADASTRO MEDICO', rs);
+        location.reload();
+      });
     } else {
       const message = 'PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR';
       const action = 'OK';
@@ -58,7 +60,7 @@ export class CadastroComponent implements OnInit {
     }
   }
 
-  linkTo(path: string) {
-    this.router.navigateByUrl(path);
+  closeModal() {
+    this.dialogRef.close();
   }
 }

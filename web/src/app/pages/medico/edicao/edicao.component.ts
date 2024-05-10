@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -8,6 +8,7 @@ import {
 import { UtilService } from 'src/app/common/util.service';
 import { MedicoVO } from 'src/app/model/vo/MedicoVO';
 import { MedicoService } from '../medico.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edicao',
@@ -15,35 +16,45 @@ import { MedicoService } from '../medico.service';
   styleUrls: ['./edicao.component.css'],
 })
 export class EdicaoComponent implements OnInit {
-  public idMedico!: number;
   public medicoForm!: FormGroup;
 
   constructor(
+    public dialogRef: MatDialogRef<any>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private medicoService: MedicoService,
     private utilService: UtilService
   ) {}
 
   ngOnInit(): void {
-    this.buscarMedico();
+    this.initForm();
+    this.buscarMedico(this.data.idMedico);
   }
 
-  buscarMedico() {
-    this.medicoService.buscarPorId(this.idMedico).subscribe((rs) => {
-      console.log('BUSCA MEDICO POR ID', rs);
-      //this.initForm(rs.data);
+  buscarMedico(id: number) {
+    this.medicoService.buscarPorId(id).subscribe((rs: any) => {
+      this.preencherForm(rs.data[0]);
     });
   }
 
-  initForm(data: any) {
+  initForm() {
     this.medicoForm = this.formBuilder.group({
-      id: new FormControl(data.id),
-      nome: new FormControl(data.nome, [
+      id: new FormControl(''),
+      nome: new FormControl('', [
         Validators.required,
         Validators.maxLength(45),
       ]),
-      crm: new FormControl(data.crm, [Validators.required]),
-      especialidade: new FormControl(data.especialidade, [Validators.required]),
+      crm: new FormControl('', [Validators.required]),
+      especialidade: new FormControl('', [Validators.required]),
+    });
+  }
+
+  preencherForm(data: any) {
+    this.medicoForm.patchValue({
+      id: data.id,
+      nome: data.nome,
+      crm: data.crm,
+      especialidade: data.especialidade,
     });
   }
 
@@ -57,9 +68,10 @@ export class EdicaoComponent implements OnInit {
       };
 
       if (medico.id != null) {
-        this.medicoService
-          .atualizar(medico.id, medico)
-          .subscribe((rs) => console.log('EDICAO MEDICO', rs));
+        this.medicoService.atualizar(medico.id, medico).subscribe((rs) => {
+          console.log('EDICAO MEDICO', rs);
+          location.reload();
+        });
       } else {
         const message = 'MÉDICO NÃO ENCONTRADO';
         const action = 'OK';
@@ -70,5 +82,9 @@ export class EdicaoComponent implements OnInit {
       const action = 'OK';
       this.utilService.openSnackBar(message, action);
     }
+  }
+
+  closeModal() {
+    this.dialogRef.close();
   }
 }

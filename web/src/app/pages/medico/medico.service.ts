@@ -27,7 +27,7 @@ export class MedicoService {
   }
 
   buscarPorId(id: number) {
-    return this.http.get(`${this.API}/${id}`);
+    return this.http.get(`${this.API}/id/${id}`);
   }
 
   cadastrar(medico: MedicoVO) {

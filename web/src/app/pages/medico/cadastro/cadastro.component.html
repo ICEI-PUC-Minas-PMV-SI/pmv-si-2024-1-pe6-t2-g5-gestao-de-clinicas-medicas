@@ -1,5 +1,34 @@
-<p>cadastro works!</p>
-<button (click)="salvar()">salvar medico</button>
-<div>
-  <img src="assets/icon/back.svg" (click)="linkTo('/medico')" />
+<div class="body">
+  <div class="flex-between">
+    <div>
+      <h1>Novo Médico</h1>
+    </div>
+    <div>
+      <button (click)="closeModal()">Fechar</button>
+    </div>
+  </div>
+  <div [formGroup]="medicoForm">
+    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" placeholder="Digite o nome" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+      <mat-label>Especialidade</mat-label>
+      <input
+        matInput
+        formControlName="especialidade"
+        placeholder="Digite a especialidade"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+      <mat-label>CRM</mat-label>
+      <input matInput formControlName="crm" placeholder="Digite o crm" />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <button (click)="salvar()">Salvar</button>
+  </div>
 </div>

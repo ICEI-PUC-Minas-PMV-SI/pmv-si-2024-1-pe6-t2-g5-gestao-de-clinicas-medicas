@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
@@ -26,7 +25,6 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatPaginatorModule,
   ],
 })
 export class ConsultaModule {}
