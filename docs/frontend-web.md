@@ -29,9 +29,16 @@ A arquitetura da aplicação web segue o padrão de arquitetura cliente-servidor
 O servidor, implementado com Flask em Python, oferece uma API RESTful para comunicação entre o front-end e o banco de dados. Ele gerencia as requisições dos clientes, processa operações solicitadas e retorna os dados correspondentes. O servidor se comunica com o banco de dados MySQL para recuperar e armazenar informações sobre consultas, pacientes, médicos e outras entidades.
 
 ## Projeto da Interface Web
-[Descreva o projeto da interface Web da aplicação, incluindo o design visual, layout das páginas, interações do usuário e outros aspectos relevantes.]
 
-### Wireframes
+O projeto foi desenvolvido com foco na usabilidade, eficiência e experiência do usuário. O design visual da aplicação é limpo, moderno e profissional, com uma paleta de cores predominantemente verde e branco, proporcionando uma sensação de tranquilidade associada ao ambiente médico. O contraste com preto e cinza é usado para destacar informações importantes e elementos de navegação. Layout das Páginas As páginas da aplicação foram organizadas de forma lógica e intuitiva, facilitando a navegação e o acesso às funcionalidades principais. 
+
+Página de Login - Permite que os usuários façam login na aplicação utilizando suas credenciais. Página Principal - Apresenta um resumo das próximas consultas agendadas e fornece acesso rápido às funcionalidades mais utilizadas.
+Página de Agendamento de Consultas - Permite que os usuários agendem novas consultas selecionando o médico, dados e horários desejados.
+Página de Perfil do Paciente - Exibe informações fornecidas sobre o paciente, como histórico médico, consultas agendadas e medicamentos prescritos.
+Página de Registro de Prontuários - Permite que os profissionais de saúde registrem informações fornecidas sobre o atendimento e tratamento de um paciente.
+Página de Relatórios e Estatísticas - Apresenta relatórios dos dados gerenciais das clinicas.
+
+## Wireframes
 
 ![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/4354172c-aed1-406d-a411-8c88ee56aa9d)
 ![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/4bd9e388-26fa-411e-b55b-a37efb583945)
@@ -44,7 +51,7 @@ O servidor, implementado com Flask em Python, oferece uma API RESTful para comun
 ![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/6aef3a69-f840-454c-a5b1-b4ddf3012dbe)
 ![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/76ae47ae-4a72-4099-9d2f-ac35c47c9000)
 
-### Design Visual
+## Design Visual
 
 ### Colors:
 * #007954
