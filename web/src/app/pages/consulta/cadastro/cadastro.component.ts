@@ -31,14 +31,22 @@ export class CadastroComponent implements OnInit {
   }
 
   initForm() {
+    let dataOriginal = new Date();
+    let data = `${dataOriginal.getFullYear()}-${dataOriginal.getMonth()}-${dataOriginal.getDay()}`;
+    let horarioInicio = `${dataOriginal.getHours()}:${dataOriginal.getMinutes()}`;
+    let horarioFim = `${
+      dataOriginal.getHours() + 1
+    }:${dataOriginal.getMinutes()}`;
+    let dataHorario = data + ' ' + horarioInicio;
+
     this.consultaForm = this.formBuilder.group({
       idMedico: new FormControl(1, [Validators.required]),
       idPaciente: new FormControl(2, [Validators.required]),
-      data: new FormControl(new Date(), [Validators.required]),
-      horario_inicio: new FormControl(new Date(), [Validators.required]),
-      horario_fim: new FormControl(new Date(), [Validators.required]),
+      data: new FormControl(dataHorario, [Validators.required]),
+      horario_inicio: new FormControl(horarioInicio, [Validators.required]),
+      horario_fim: new FormControl(horarioFim, [Validators.required]),
       posicao: new FormControl('1', [Validators.required]),
-      status: new FormControl(StatusConsultaEnum.CONFIRMADA, [
+      status: new FormControl(StatusConsultaEnum.CONCLUIDO, [
         Validators.required,
       ]),
     });
@@ -47,8 +55,8 @@ export class CadastroComponent implements OnInit {
   salvar() {
     if (this.consultaForm.valid) {
       const consulta: ConsultaVO = {
-        idMedico: this.consultaForm.get('idMedico')?.value,
-        idPaciente: this.consultaForm.get('idPaciente')?.value,
+        idmedico: this.consultaForm.get('idMedico')?.value,
+        idpaciente: this.consultaForm.get('idPaciente')?.value,
         data: this.consultaForm.get('data')?.value,
         horario_inicio: this.consultaForm.get('horario_inicio')?.value,
         horario_fim: this.consultaForm.get('horario_fim')?.value,
@@ -56,6 +64,7 @@ export class CadastroComponent implements OnInit {
         status: this.consultaForm.get('status')?.value,
       };
 
+      console.log('CONSULTA', consulta);
       this.consultaService
         .cadastrar(consulta)
         .subscribe((rs) => console.log('CADASTRO CONSULTA', rs));

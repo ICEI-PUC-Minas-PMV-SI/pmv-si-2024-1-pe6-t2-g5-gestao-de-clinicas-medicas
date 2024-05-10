@@ -17,7 +17,7 @@ export class MedicoComponent implements OnInit {
   buscarMedicos() {
     this.medicoService
       .buscarTodos()
-      .subscribe((rs) => console.log('BUSCA MEDICO', rs));
+      .subscribe((rs) => console.log('BUSCA MEDICOS', rs));
   }
 
   excluirMedico() {

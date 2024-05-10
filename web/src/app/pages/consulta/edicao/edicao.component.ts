@@ -50,7 +50,7 @@ export class EdicaoComponent implements OnInit {
         Validators.required,
       ]),
       posicao: new FormControl(1, [Validators.required]),
-      status: new FormControl(StatusConsultaEnum.CONFIRMADA, [
+      status: new FormControl(StatusConsultaEnum.CONCLUIDO, [
         Validators.required,
       ]),
     });
@@ -59,8 +59,8 @@ export class EdicaoComponent implements OnInit {
   salvar() {
     if (this.consultaForm.valid) {
       const consulta: ConsultaVO = {
-        idMedico: this.consultaForm.get('idMedico')?.value,
-        idPaciente: this.consultaForm.get('idPaciente')?.value,
+        idmedico: this.consultaForm.get('idMedico')?.value,
+        idpaciente: this.consultaForm.get('idPaciente')?.value,
         data: this.consultaForm.get('data')?.value,
         horario_inicio: this.consultaForm.get('horario_inicio')?.value,
         horario_fim: this.consultaForm.get('horario_fim')?.value,

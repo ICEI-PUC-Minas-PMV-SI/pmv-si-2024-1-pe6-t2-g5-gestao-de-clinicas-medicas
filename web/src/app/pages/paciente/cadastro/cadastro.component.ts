@@ -30,12 +30,15 @@ export class CadastroComponent implements OnInit {
   }
 
   initForm() {
+    let data: any = new Date();
+    data = `${data.getFullYear()}-${data.getMonth()}-${data.getDay()}`;
+
     this.pacienteForm = this.formBuilder.group({
       nome: new FormControl('TESTE', [
         Validators.required,
         Validators.maxLength(45),
       ]),
-      dataNascimento: new FormControl(new Date(), [Validators.required]),
+      dataNascimento: new FormControl(data, [Validators.required]),
       cpf: new FormControl('2434', [
         Validators.required,
         Validators.maxLength(11),
@@ -64,6 +67,7 @@ export class CadastroComponent implements OnInit {
         cidade: this.pacienteForm.get('cidade')?.value,
       };
 
+      console.log('PACIENTE', paciente);
       this.pacienteService
         .cadastrar(paciente)
         .subscribe((rs) => console.log('CADASTRO PACIENTE', rs));
