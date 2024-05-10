@@ -69,7 +69,6 @@ export class EdicaoComponent implements OnInit {
 
       if (medico.id != null) {
         this.medicoService.atualizar(medico.id, medico).subscribe((rs) => {
-          console.log('EDICAO MEDICO', rs);
           location.reload();
         });
       } else {

@@ -28,19 +28,17 @@ export class MedicoComponent implements OnInit {
   buscarMedicos() {
     this.medicoService.buscarTodos().subscribe((rs: any) => {
       this.dataSource = new MatTableDataSource<MedicoTable>(rs.data);
-      console.log('DATA MEDICOS', this.dataSource);
     });
   }
 
   excluirMedico(id: number) {
     this.medicoService.excluir(id).subscribe((rs) => {
-      console.log('EXCLUSAO MEDICO', rs);
       location.reload();
     });
   }
 
   filtrarMedicos(value: string) {
-    console.log('INPUT PESQUISA', value);
+    // console.log('INPUT PESQUISA', value);
   }
 
   openModalCadastro() {
@@ -60,12 +58,8 @@ export class MedicoComponent implements OnInit {
     });
   }
 
-  linkTo(path: string, id?: number) {
-    if (id) {
-      this.router.navigateByUrl(`${path}/${id}`);
-    } else {
-      this.router.navigateByUrl(path);
-    }
+  linkTo(path: string) {
+    this.router.navigateByUrl(path);
   }
 }
 

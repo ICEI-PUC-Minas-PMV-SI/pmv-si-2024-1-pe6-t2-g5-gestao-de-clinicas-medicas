@@ -50,7 +50,6 @@ export class CadastroComponent implements OnInit {
       };
 
       this.medicoService.cadastrar(medico).subscribe((rs) => {
-        console.log('CADASTRO MEDICO', rs);
         location.reload();
       });
     } else {
