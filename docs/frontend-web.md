@@ -87,7 +87,10 @@ Página de Relatórios e Estatísticas - Apresenta relatórios dos dados gerenci
 * eye 1
 
 ### Layout Responsivo
-[Discuta como a interface será adaptada para diferentes tamanhos de tela e dispositivos.]
+
+* Médidas padrão para SmartPhones: max-width: 768px
+* Médidas padrão para Tablet: min-width: 768px, max-width: 992px
+* Médidas padrão para Computadores e Televisores: min-width: 992px
 
 ### Interações do Usuário
 [Descreva as interações do usuário na interface, como animações, transições entre páginas e outras interações.]
