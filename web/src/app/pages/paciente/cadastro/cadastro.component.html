@@ -1,68 +1,48 @@
-<button (click)="salvar()">salvar paciente</button>
-
-<div class="box_subtitle">
-  <button class="back_button">voltar</button>
-  <h2 class="subtitle">Novo cadastro</h2>
+<div class="body">
+  <div class="flex-between">
+    <div>
+      <h1>Novo Paciente</h1>
+    </div>
+    <div>
+      <button (click)="closeModal()">Fechar</button>
+    </div>
+  </div>
+  <div [formGroup]="pacienteForm">
+    <div class="field">
+        <label for="" class="razao-field">Razão Social</label>
+        <input class="inputs" type="text">
+    </div>
+    <div class="field">
+        <label for="" class="cnpj-field">CNPJ</label>
+        <input class="inputs" type="text">
+    </div>
+    <div class="field">
+        <label for="">Telefone</label>
+        <input class="inputs" type="text">
+    </div>
+    <div class="field">
+        <label for="" class="address-field">Endereço</label>
+        <input class="inputs" type="text">
+    </div>
+    <div class="field number-field">
+        <label for="">N°</label>
+        <input class="inputs" type="text">
+    </div>
+    <div class="field">
+        <label for="">Bairro</label>
+        <input class="inputs" type="text">
+    </div>
+    <div class="field">
+        <label for="">Cidade</label>
+        <input class="inputs" type="text">
+    </div>
+    <div class="field uf-field">
+        <label for="">UF</label>
+        <input class="inputs" type="text">
+    </div>
 </div>
 
-<div class="main_box">
-  <div class="pessoais">
-    <h3>Dados pessoais</h3>
-    <div class="first-row">
-      <div>
-        <label for="">Nome</label>
-        <input type="text" />
-      </div>
-
-      <div>
-        <label for="">CPF</label>
-        <input type="text" />
-      </div>
-
-      <div>
-        <label for="">Data de nascimento</label>
-        <input type="date" />
-      </div>
-
-      <div>
-        <label for="">Telefone</label>
-        <input type="text" />
-      </div>
-    </div>
-
-    <div class="second-row">
-      <div>
-        <label for="">Endereço</label>
-        <input type="text" />
-      </div>
-
-      <div>
-        <label for="">N°</label>
-        <input type="text" />
-      </div>
-
-      <div>
-        <label for="">Bairro</label>
-        <input type="text" />
-      </div>
-
-      <div>
-        <label for="">Cidade</label>
-        <input type="text" />
-      </div>
-
-      <div>
-        <label for="">UF</label>
-        <input type="text" />
-      </div>
-    </div>
-  </div>
-  <div class="login">
-    <h3>Dados para login</h3>
-  </div>
-  <div class="botao">
-    <a href="#">Salvar</a>
-    <a href="#">Editar</a>
-    <a href="#">Excluir</a>
+  <div>
+    <button (click)="salvar()">Salvar</button>
   </div>
 </div>

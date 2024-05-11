@@ -1,26 +1,5 @@
-.box_subtitle {
+.flex-between {
     display: flex;
-    justify-content: center;
-}
-
-.main_box {
-    display: grid;
-    grid-template-columns: 80% 20%;
-    grid-template-rows: repeat(2, 50%);
-}
-
-.pessoais {
-    grid-area: 1 / 1 / 2 / 2;
-}
-
-.login {
-    grid-area: 3 / 1 / 4 / 2;
-}
-
-.first-row, .second-row {
-    display: flex;
-    column-gap: 1em;
-    margin: 1em 0;
-}
-
-
+    justify-content: space-between;
+  }
+  

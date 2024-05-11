@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   FormBuilder,
   FormControl,
@@ -14,7 +15,10 @@ import {
 export class ClinicaComponent implements OnInit {
   public clinicaForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -35,5 +39,9 @@ export class ClinicaComponent implements OnInit {
 
   form() {
     console.log('FORM', this.clinicaForm);
+  }
+
+  linkTo(path: string) {
+    this.router.navigateByUrl(path);
   }
 }

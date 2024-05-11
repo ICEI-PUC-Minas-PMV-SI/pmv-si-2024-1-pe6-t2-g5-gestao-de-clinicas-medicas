@@ -1,34 +1,36 @@
-<div class="body">
+<div class="body" style="position: relative;">
   <div class="flex-between">
     <div>
-      <h1>Novo Médico</h1>
+      <h1 class="title">Novo Médico</h1>
     </div>
     <div>
-      <button (click)="closeModal()">Fechar</button>
+      <button (click)="closeModal()" class="close-button">X</button>
     </div>
   </div>
-  <div [formGroup]="medicoForm">
-    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-      <mat-label>Nome</mat-label>
-      <input matInput formControlName="nome" placeholder="Digite o nome" />
-    </mat-form-field>
 
-    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-      <mat-label>Especialidade</mat-label>
-      <input
-        matInput
-        formControlName="especialidade"
-        placeholder="Digite a especialidade"
-      />
-    </mat-form-field>
+  <div class="form-button">
+    <div [formGroup]="medicoForm" class="fields">
+      <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" placeholder="Digite o nome" />
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-      <mat-label>CRM</mat-label>
-      <input matInput formControlName="crm" placeholder="Digite o crm" />
-    </mat-form-field>
+      <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+        <mat-label>Especialidade</mat-label>
+        <input matInput formControlName="especialidade" placeholder="Digite a especialidade" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+        <mat-label>CRM</mat-label>
+        <input matInput formControlName="crm" placeholder="Digite o crm" />
+      </mat-form-field>
+    </div>
+
+    <div class="buttons">
+      <button (click)="salvar()" class="button save-button">Salvar</button>
+      <button class="button edit-button">Editar</button>
+    </div>
   </div>
 
-  <div>
-    <button (click)="salvar()">Salvar</button>
-  </div>
+
 </div>

@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
-import { UtilService } from 'src/app/common/util.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { PacienteVO } from 'src/app/model/vo/PacienteVO';
 import { PacienteService } from '../paciente.service';
+import { UtilService } from './../../../common/util.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -19,10 +19,11 @@ export class CadastroComponent implements OnInit {
   public pacienteForm!: FormGroup;
 
   constructor(
+    public dialogRef: MatDialogRef<any>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private pacienteService: PacienteService,
     private utilService: UtilService,
-    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -78,7 +79,7 @@ export class CadastroComponent implements OnInit {
     }
   }
 
-  linkTo(path: string) {
-    this.router.navigateByUrl(path);
+  closeModal() {
+    this.dialogRef.close();
   }
 }
