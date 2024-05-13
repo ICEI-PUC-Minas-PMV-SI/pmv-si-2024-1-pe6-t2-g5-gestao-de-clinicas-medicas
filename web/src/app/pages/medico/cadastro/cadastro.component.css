@@ -1,24 +1,13 @@
 .close-button {
+  max-width: 100%;
   position: absolute;
-  /* Posicionamento absoluto em relação ao modal */
   top: -5px;
-  /* Distância do topo */
   right: -5px;
-  /* Distância da direita */
-  background-color: transparent;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 0;
+  padding: .1em .2em;
   transform: translate(50%, -50%);
 
   &:hover {
-    background-color: #d87b7b;
-    border-radius: 8px;
-    color: #fff;
-    opacity: 0.8;
-    padding: 6px;
-
+    cursor: pointer;
   }
 }
 
@@ -51,15 +40,6 @@
   }
 }
 
-.edit-button {
-  background-color: #F1F1F1;
-  color: #303030;
-
-  &:hover {
-    background-color: #d3cdcd;
-  }
-}
-
 .title {
   font-size: 20px;
   font-weight: 500;
@@ -73,7 +53,7 @@
 
 .form-button {
   display: grid;
-  grid-template-columns: 85% 15%;
+  grid-template-columns: 80% 20%;
 }
 
 .fields {
@@ -93,7 +73,7 @@ mat-form-field:nth-child(1) {
 }
 
 mat-form-field:nth-child(2) {
-  width: 55%;
+  width: 60%;
 }
 
 mat-form-field:nth-child(3) {

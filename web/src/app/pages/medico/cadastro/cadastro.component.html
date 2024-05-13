@@ -3,8 +3,9 @@
     <div>
       <h1 class="title">Novo Médico</h1>
     </div>
+
     <div>
-      <button (click)="closeModal()" class="close-button">X</button>
+      <img src="../../../../assets/icon/x-square.svg" alt="botão fechar" (click)="closeModal()" class="close-button">
     </div>
   </div>
 
@@ -12,7 +13,7 @@
     <div [formGroup]="medicoForm" class="fields">
       <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
         <mat-label>Nome</mat-label>
-        <input matInput formControlName="nome" placeholder="Digite o nome" />
+        <input matInput formControlName="nome" placeholder="Digite o nome" class="inputs" />
       </mat-form-field>
 
       <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
@@ -28,7 +29,6 @@
 
     <div class="buttons">
       <button (click)="salvar()" class="button save-button">Salvar</button>
-      <button class="button edit-button">Editar</button>
     </div>
   </div>
 
