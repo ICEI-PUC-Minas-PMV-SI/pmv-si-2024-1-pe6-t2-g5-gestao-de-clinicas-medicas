@@ -23,7 +23,7 @@ export class CadastroComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private pacienteService: PacienteService,
-    private utilService: UtilService,
+    private utilService: UtilService
   ) {}
 
   ngOnInit(): void {
@@ -35,23 +35,21 @@ export class CadastroComponent implements OnInit {
     data = `${data.getFullYear()}-${data.getMonth()}-${data.getDay()}`;
 
     this.pacienteForm = this.formBuilder.group({
-      nome: new FormControl('TESTE', [
+      nome: new FormControl('', [
         Validators.required,
         Validators.maxLength(45),
       ]),
-      dataNascimento: new FormControl(data, [Validators.required]),
-      cpf: new FormControl('2434', [
+      cpf: new FormControl('', [Validators.required, Validators.maxLength(11)]),
+      dataNascimento: new FormControl('', [Validators.required]),
+      telefone: new FormControl('', [
         Validators.required,
         Validators.maxLength(11),
       ]),
-      telefone: new FormControl('3523552', [
-        Validators.required,
-        Validators.maxLength(11),
-      ]),
-      logradouro: new FormControl('TESTE', [Validators.required]),
-      numero: new FormControl('1', [Validators.required]),
-      bairro: new FormControl('TESTE', [Validators.required]),
-      cidade: new FormControl('TESTE', [Validators.required]),
+      logradouro: new FormControl('', [Validators.required]),
+      numero: new FormControl('', [Validators.required]),
+      bairro: new FormControl('', [Validators.required]),
+      cidade: new FormControl('', [Validators.required]),
+      // uf: new FormControl('', [Validators.required]),
     });
   }
 
@@ -59,13 +57,14 @@ export class CadastroComponent implements OnInit {
     if (this.pacienteForm.valid) {
       const paciente: PacienteVO = {
         nome: this.pacienteForm.get('nome')?.value,
-        data_nascimento: this.pacienteForm.get('dataNascimento')?.value,
         cpf: this.pacienteForm.get('cpf')?.value,
+        data_nascimento: this.pacienteForm.get('dataNascimento')?.value,
         telefone: this.pacienteForm.get('telefone')?.value,
         logradouro: this.pacienteForm.get('logradouro')?.value,
         numero: this.pacienteForm.get('numero')?.value,
         bairro: this.pacienteForm.get('bairro')?.value,
         cidade: this.pacienteForm.get('cidade')?.value,
+        // uf: this.pacienteForm.get('uf')?.value,
       };
 
       console.log('PACIENTE', paciente);

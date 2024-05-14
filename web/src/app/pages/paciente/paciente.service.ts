@@ -15,7 +15,7 @@ export class PacienteService {
   }
 
   buscarPorId(id: number) {
-    return this.http.get(`${this.API}/${id}`);
+    return this.http.get(`${this.API}/id/${id}`);
   }
 
   cadastrar(paciente: PacienteVO) {

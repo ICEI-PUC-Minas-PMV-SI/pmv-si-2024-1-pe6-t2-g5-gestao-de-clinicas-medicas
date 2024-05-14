@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -8,6 +8,7 @@ import {
 import { UtilService } from 'src/app/common/util.service';
 import { PacienteVO } from 'src/app/model/vo/PacienteVO';
 import { PacienteService } from '../paciente.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edicao',
@@ -15,23 +16,24 @@ import { PacienteService } from '../paciente.service';
   styleUrls: ['./edicao.component.css'],
 })
 export class EdicaoComponent implements OnInit {
-  public idPaciente!: number;
   public pacienteForm!: FormGroup;
 
   constructor(
+    public dialogRef: MatDialogRef<any>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private pacienteService: PacienteService,
     private utilService: UtilService
   ) {}
 
   ngOnInit(): void {
-    this.buscarPaciente();
+    this.initForm();
+    this.buscarPaciente(this.data.idPaciente);
   }
 
-  buscarPaciente() {
-    this.pacienteService.buscarPorId(this.idPaciente).subscribe((rs) => {
-      console.log('BUSCA PACIENTE POR ID', rs);
-      //this.initForm(rs.data);
+  buscarPaciente(id: number) {
+    this.pacienteService.buscarPorId(id).subscribe((rs: any) => {
+      this.preencherForm(rs.data[0]);
     });
   }
 
@@ -41,36 +43,56 @@ export class EdicaoComponent implements OnInit {
         Validators.required,
         Validators.maxLength(45),
       ]),
+      cpf: new FormControl('', [Validators.required, Validators.maxLength(11)]),
       dataNascimento: new FormControl('', [Validators.required]),
       telefone: new FormControl('', [
         Validators.required,
         Validators.maxLength(11),
       ]),
-      cpf: new FormControl('', [Validators.required, Validators.maxLength(11)]),
       logradouro: new FormControl('', [Validators.required]),
       numero: new FormControl('', [Validators.required]),
       bairro: new FormControl('', [Validators.required]),
       cidade: new FormControl('', [Validators.required]),
+      // uf: new FormControl('', [Validators.required]),
+    });
+  }
+
+  preencherForm(data: any) {
+    this.pacienteForm.patchValue({
+      id: data.id,
+      nome: data.nome,
+      cpf: data.cpf,
+      dataNascimento: data.dataNascimento,
+      telefone: data.telefone,
+      logradouro: data.logradouro,
+      numero: data.numero,
+      bairro: data.bairro,
+      cidade: data.cidade,
+      // uf: data.uf,
     });
   }
 
   atualizar() {
     if (this.pacienteForm.valid) {
       const paciente: PacienteVO = {
+        id: this.pacienteForm.get('id')?.value,
         nome: this.pacienteForm.get('nome')?.value,
-        data_nascimento: this.pacienteForm.get('dataNascimento')?.value,
         cpf: this.pacienteForm.get('cpf')?.value,
+        data_nascimento: this.pacienteForm.get('dataNascimento')?.value,
         telefone: this.pacienteForm.get('telefone')?.value,
         logradouro: this.pacienteForm.get('logradouro')?.value,
         numero: this.pacienteForm.get('numero')?.value,
         bairro: this.pacienteForm.get('bairro')?.value,
         cidade: this.pacienteForm.get('cidade')?.value,
+        // uf: this.pacienteForm.get('uf')?.value,
       };
 
       if (paciente.id != null) {
         this.pacienteService
-          .cadastrar(paciente)
-          .subscribe((rs) => console.log('EDICAO PACIENTE', rs));
+          .atualizar(paciente.id, paciente)
+          .subscribe((rs) => {
+            location.reload();
+          });
       } else {
         const message = 'PACIENTE NÃO ENCONTRADO';
         const action = 'OK';
@@ -81,5 +103,9 @@ export class EdicaoComponent implements OnInit {
       const action = 'OK';
       this.utilService.openSnackBar(message, action);
     }
+  }
+
+  closeModal() {
+    this.dialogRef.close();
   }
 }

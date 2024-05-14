@@ -1,48 +1,121 @@
-<div class="body">
+<div class="body" style="position: relative">
   <div class="flex-between">
     <div>
-      <h1>Novo Paciente</h1>
+      <h1 class="title">Novo Paciente</h1>
     </div>
     <div>
-      <button (click)="closeModal()">Fechar</button>
+      <button (click)="closeModal()" class="close-button">X</button>
     </div>
   </div>
-  <div [formGroup]="pacienteForm">
-    <div class="field">
-        <label for="" class="razao-field">Razão Social</label>
-        <input class="inputs" type="text">
-    </div>
-    <div class="field">
-        <label for="" class="cnpj-field">CNPJ</label>
-        <input class="inputs" type="text">
-    </div>
-    <div class="field">
-        <label for="">Telefone</label>
-        <input class="inputs" type="text">
-    </div>
-    <div class="field">
-        <label for="" class="address-field">Endereço</label>
-        <input class="inputs" type="text">
-    </div>
-    <div class="field number-field">
-        <label for="">N°</label>
-        <input class="inputs" type="text">
-    </div>
-    <div class="field">
-        <label for="">Bairro</label>
-        <input class="inputs" type="text">
-    </div>
-    <div class="field">
-        <label for="">Cidade</label>
-        <input class="inputs" type="text">
-    </div>
-    <div class="field uf-field">
-        <label for="">UF</label>
-        <input class="inputs" type="text">
-    </div>
-</div>
+  <div class="form-button">
+    <div [formGroup]="pacienteForm" class="fields">
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+      >
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" placeholder="Digite o nome" />
+      </mat-form-field>
 
-  <div>
-    <button (click)="salvar()">Salvar</button>
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+      >
+        <mat-label>CPF</mat-label>
+        <input matInput formControlName="cpf" placeholder="Digite o CPF" />
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+      >
+        <mat-label>Data de Nascimento</mat-label>
+        <input
+          matInput
+          formControlName="dataNascimento"
+          placeholder="Digite a data de nascimento"
+        />
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+      >
+        <mat-label>Telefone</mat-label>
+        <input
+          matInput
+          formControlName="telefone"
+          placeholder="Digite o telefone"
+        />
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+      >
+        <mat-label>Logradouro</mat-label>
+        <input
+          matInput
+          formControlName="logradouro"
+          placeholder="Digite o logradouro"
+        />
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+      >
+        <mat-label>Número</mat-label>
+        <input
+          matInput
+          formControlName="numero"
+          placeholder="Digite o número"
+        />
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+      >
+        <mat-label>Bairro</mat-label>
+        <input
+          matInput
+          formControlName="bairro"
+          placeholder="Digite o bairro"
+        />
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+      >
+        <mat-label>Cidade</mat-label>
+        <input
+          matInput
+          formControlName="cidade"
+          placeholder="Digite a cidade"
+        />
+      </mat-form-field>
+
+      <!-- <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+      >
+        <mat-label>UF</mat-label>
+        <input matInput formControlName="uf" placeholder="Digite a UF" />
+      </mat-form-field> -->
+    </div>
+    <div>
+      <button (click)="salvar()" class="button save-button">Salvar</button>
+    </div>
   </div>
 </div>

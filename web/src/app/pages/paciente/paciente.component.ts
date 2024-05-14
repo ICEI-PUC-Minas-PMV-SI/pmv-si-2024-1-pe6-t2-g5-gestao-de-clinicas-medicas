@@ -11,17 +11,15 @@ import { EdicaoComponent } from './edicao/edicao.component';
   templateUrl: './paciente.component.html',
   styleUrls: ['./paciente.component.css'],
 })
-
 export class PacienteComponent implements OnInit {
-
-  displayedColumns: string[] = ['nome', 'cpf', 'telefone'];
+  displayedColumns: string[] = ['nome', 'cpf', 'telefone', 'acao'];
   dataSource = new MatTableDataSource<PacienteTable>();
 
   constructor(
     private pacienteService: PacienteService,
     private router: Router,
-    public dialog: MatDialog,
-  ) { }
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.buscarPacientes();
@@ -34,11 +32,9 @@ export class PacienteComponent implements OnInit {
   }
 
   excluirPaciente(id: number) {
-    this.pacienteService
-      .excluir(id)
-      .subscribe((rs) => {
-        location.reload();
-      });
+    this.pacienteService.excluir(id).subscribe((rs) => {
+      location.reload();
+    });
   }
 
   filtrarMedicos(value: string) {
@@ -48,14 +44,14 @@ export class PacienteComponent implements OnInit {
   openModalCadastro() {
     this.dialog.open(CadastroComponent, {
       width: '50%',
-      height: '50%',
+      height: '70%',
     });
   }
 
   openModalEdicao(idPaciente: number) {
     this.dialog.open(EdicaoComponent, {
       width: '50%',
-      height: '50%',
+      height: '70%',
       data: {
         idPaciente: idPaciente,
       },
@@ -72,5 +68,3 @@ export interface PacienteTable {
   cpf: string;
   telefone: string;
 }
-
-
