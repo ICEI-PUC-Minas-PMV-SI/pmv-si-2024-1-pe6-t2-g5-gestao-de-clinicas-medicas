@@ -1,3 +1,51 @@
-<button (click)="linkTo('prontuario/visualizacao')">
-  VISUALIZAR PRONTUARIO
-</button>
+<div class="body">
+  <div class="flex-center">
+    <div class="back-button">
+      <img src="assets/icon/back.svg" (click)="linkTo('')" />
+    </div>
+    <div>
+      <h1>Prontuários</h1>
+    </div>
+  </div>
+
+  <div class="flex-between">
+    <div>
+      <input type="text" placeholder="Digite aqui para pesquisar" #inputPesquisa />
+      <button (click)="filtrarProntuarios(inputPesquisa.value)">Pesquisar</button>
+    </div>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" sort>
+      <ng-container matColumnDef="paciente">
+        <th mat-header-cell *matHeaderCellDef>Paciente</th>
+        <td mat-cell *matCellDef="let element">{{ element?.paciente }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="telefone">
+        <th mat-header-cell *matHeaderCellDef>Telefone</th>
+        <td mat-cell *matCellDef="let element">{{ element?.telefone }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="medico">
+        <th mat-header-cell *matHeaderCellDef>Médico</th>
+        <td mat-cell *matCellDef="let element">{{ element?.medico }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="especialidade">
+        <th mat-header-cell *matHeaderCellDef>Especialidade</th>
+        <td mat-cell *matCellDef="let element">{{ element?.especialidade }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="acao">
+        <th mat-header-cell *matHeaderCellDef>Ação</th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="openModalVisualizacao(element.id)">Visualizar</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>

@@ -28,7 +28,6 @@ export class UsuarioComponent implements OnInit {
   buscarUsuarios() {
     this.usuarioService.buscarTodos().subscribe((rs: any) => {
       this.dataSource = new MatTableDataSource<UsuarioTable>(rs.data);
-      console.log(this.dataSource);
     });
   }
 

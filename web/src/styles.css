@@ -3,13 +3,25 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif }
 
-.mat-form-field-appearance-outline .mat-form-field-outline {
+.mat-form-field-appearance-outline .mat-form-field-outline, .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
   color: gray;
 }
 
-.mat-form-field-label {
+.mat-form-field-disabled .mat-form-field-outline {
+  background-color: rgb(231, 231, 231);
+}
+
+.mat-form-field-label, .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-label {
   color: black;
   font-size: 18px !important;
+}
+
+.mat-input-element:disabled, .mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after {
+  color: black;
+}
+
+.mat-button.mat-primary.mat-button-disabled, .mat-button.mat-accent.mat-button-disabled, .mat-button.mat-warn.mat-button-disabled, .mat-button.mat-button-disabled.mat-button-disabled, .mat-icon-button.mat-primary.mat-button-disabled, .mat-icon-button.mat-accent.mat-button-disabled, .mat-icon-button.mat-warn.mat-button-disabled, .mat-icon-button.mat-button-disabled.mat-button-disabled, .mat-stroked-button.mat-primary.mat-button-disabled, .mat-stroked-button.mat-accent.mat-button-disabled, .mat-stroked-button.mat-warn.mat-button-disabled, .mat-stroked-button.mat-button-disabled.mat-button-disabled {
+  color: rgb(197, 197, 197);
 }
 
 table {

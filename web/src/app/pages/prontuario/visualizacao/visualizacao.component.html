@@ -1,1 +1,120 @@
-<p>visualizacao works!</p>
+<div class="body" style="position: relative;">
+  <div class="flex-between">
+    <div>
+      <h1 class="title">Visualização do Prontuário</h1>
+    </div>
+
+    <div>
+      <img src="../../../../assets/icon/x-square.svg" alt="botão fechar" (click)="closeModal()" class="close-button">
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <h1 class="title">Dados do Paciente</h1>
+    </div>
+    <div class="form-button">
+      <div [formGroup]="pacienteForm" class="fields">
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="nome" class="inputs" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+          <mat-label>CPF</mat-label>
+          <input matInput formControlName="cpf" class="inputs" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+          <mat-label>Data de Nascimento</mat-label>
+          <input matInput formControlName="dataNascimento" class="inputs" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+          <mat-label>Telefone</mat-label>
+          <input matInput formControlName="telefone" class="inputs" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+          <mat-label>Logradouro</mat-label>
+          <input matInput formControlName="logradouro" class="inputs" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+          <mat-label>Nº</mat-label>
+          <input matInput formControlName="numero" class="inputs" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+          <mat-label>Bairro</mat-label>
+          <input matInput formControlName="bairro" class="inputs" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+          <mat-label>Cidade</mat-label>
+          <input matInput formControlName="cidade" class="inputs" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+          <mat-label>UF</mat-label>
+          <input matInput formControlName="uf" class="inputs" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <h1 class="title">Prontuário</h1>
+      </div>
+      <div class="form-button">
+        <div [formGroup]="prontuarioForm" class="fields">
+          <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Data</mat-label>
+            <input matInput [matDatepicker]="dp1" formControlName="data" class="inputs" />
+            <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+            <mat-datepicker #dp1></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Médico</mat-label>
+            <input matInput formControlName="medico" class="inputs" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Especialidade</mat-label>
+            <input matInput formControlName="especialidade" class="inputs" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Histórico Médico</mat-label>
+            <input matInput formControlName="historicoMedico" class="inputs" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Diagnóstico</mat-label>
+            <input matInput formControlName="diagnostico" class="inputs" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Exames</mat-label>
+            <input matInput formControlName="exames" class="inputs" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Prescrições</mat-label>
+            <input matInput formControlName="prescricoes" class="inputs" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Tratamentos</mat-label>
+            <input matInput formControlName="tratamentos" class="inputs" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Observações</mat-label>
+            <input matInput formControlName="observacoes" class="inputs" />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -15,7 +15,7 @@ export class ConsultaService {
   }
 
   buscarPorId(id: number) {
-    return this.http.get(`${this.API}/${id}`);
+    return this.http.get(`${this.API}/id/${id}`);
   }
 
   cadastrar(consulta: ConsultaVO) {

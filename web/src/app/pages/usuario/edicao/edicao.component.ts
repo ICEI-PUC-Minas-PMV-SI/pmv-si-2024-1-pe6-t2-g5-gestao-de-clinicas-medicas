@@ -43,16 +43,15 @@ export class EdicaoComponent implements OnInit {
   buscarUsuario(id: number) {
     this.usuarioService.buscarPorId(id).subscribe((rs: any) => {
       this.preencherForm(rs.data[0]);
-      console.log('rs', rs);
     });
   }
 
-  preencherForm(data: any) {
+  preencherForm(dados: any) {
     this.usuarioForm.patchValue({
-      id: data.id,
-      email: data.email,
-      senha: data.senha,
-      tipo: data.tipo.toLowerCase(),
+      id: dados.id,
+      email: dados.email,
+      senha: dados.senha,
+      tipo: dados.tipo.toLowerCase(),
     });
   }
 
