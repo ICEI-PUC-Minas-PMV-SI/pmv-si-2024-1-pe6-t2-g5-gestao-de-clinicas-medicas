@@ -5,9 +5,9 @@ export interface ConsultaVO {
   id?: number;
   idmedico: number;
   idpaciente: number;
-  data: Date;
-  horario_inicio: Date;
-  horario_fim: Date;
-  posicao: number;
+  data: string;
+  horario_inicio: string;
+  horario_fim: string;
+  posicao: string;
   status: StatusConsultaEnum;
 }

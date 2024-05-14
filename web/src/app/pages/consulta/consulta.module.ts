@@ -1,6 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
@@ -12,10 +18,6 @@ const routes: Routes = [
     path: '',
     component: ConsultaComponent,
   },
-  {
-    path: 'cadastro',
-    component: CadastroComponent,
-  },
 ];
 
 @NgModule({
@@ -24,7 +26,14 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     CommonModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatTableModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
   ],
+  providers: [MatDatepickerModule, MatNativeDateModule],
 })
 export class ConsultaModule {}

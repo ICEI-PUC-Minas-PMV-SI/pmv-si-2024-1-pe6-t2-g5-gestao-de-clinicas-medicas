@@ -5,11 +5,12 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
+import { ConsultaVO } from 'src/app/model/vo/ConsultaVO';
+import { PacienteService } from '../../paciente/paciente.service';
 import { ConsultaService } from '../consulta.service';
 import { UtilService } from './../../../common/util.service';
-import { ConsultaVO } from 'src/app/model/vo/ConsultaVO';
-import { StatusConsultaEnum } from 'src/app/model/enum/StatusConsulta.enum';
+import { MedicoService } from '../../medico/medico.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -18,56 +19,71 @@ import { StatusConsultaEnum } from 'src/app/model/enum/StatusConsulta.enum';
 })
 export class CadastroComponent implements OnInit {
   public consultaForm!: FormGroup;
+  public pacientes: any[] = [];
+  public medicos: any[] = [];
 
   constructor(
+    public dialogRef: MatDialogRef<any>,
     private formBuilder: FormBuilder,
     private consultaService: ConsultaService,
     private utilService: UtilService,
-    private router: Router
+    private pacienteService: PacienteService,
+    private medicoService: MedicoService
   ) {}
 
   ngOnInit(): void {
     this.initForm();
+    this.buscarPacientes();
+    this.buscarMedicos();
   }
 
   initForm() {
-    let dataOriginal = new Date();
-    let data = `${dataOriginal.getFullYear()}-${dataOriginal.getMonth()}-${dataOriginal.getDay()}`;
-    let horarioInicio = `${dataOriginal.getHours()}:${dataOriginal.getMinutes()}`;
-    let horarioFim = `${
-      dataOriginal.getHours() + 1
-    }:${dataOriginal.getMinutes()}`;
-    let dataHorario = data + ' ' + horarioInicio;
-
     this.consultaForm = this.formBuilder.group({
-      idMedico: new FormControl(1, [Validators.required]),
-      idPaciente: new FormControl(2, [Validators.required]),
-      data: new FormControl(dataHorario, [Validators.required]),
-      horario_inicio: new FormControl(horarioInicio, [Validators.required]),
-      horario_fim: new FormControl(horarioFim, [Validators.required]),
-      posicao: new FormControl('1', [Validators.required]),
-      status: new FormControl(StatusConsultaEnum.CONCLUIDO, [
-        Validators.required,
-      ]),
+      medico: new FormControl('', [Validators.required]),
+      paciente: new FormControl('', [Validators.required]),
+      data: new FormControl('', [Validators.required]),
+      horarioInicio: new FormControl('', [Validators.required]),
+      horarioFim: new FormControl('', [Validators.required]),
+      // posicao: new FormControl('', [Validators.required]),
+      status: new FormControl('', [Validators.required]),
+    });
+  }
+
+  buscarPacientes() {
+    this.pacienteService.buscarTodos().subscribe((rs: any) => {
+      this.pacientes = rs.data;
+    });
+  }
+
+  buscarMedicos() {
+    this.medicoService.buscarTodos().subscribe((rs: any) => {
+      this.medicos = rs.data;
     });
   }
 
   salvar() {
     if (this.consultaForm.valid) {
+      const dataConsulta = this.consultaForm.get('data')?.value;
+      const dataConsultaFormatada: string =
+        this.utilService.formataDataPadraoBanco(dataConsulta) +
+        ' ' +
+        '00:00:00';
+      const horarioInicio = `08:00`;
+      const horarioFim = `09:00`;
+
       const consulta: ConsultaVO = {
-        idmedico: this.consultaForm.get('idMedico')?.value,
-        idpaciente: this.consultaForm.get('idPaciente')?.value,
-        data: this.consultaForm.get('data')?.value,
-        horario_inicio: this.consultaForm.get('horario_inicio')?.value,
-        horario_fim: this.consultaForm.get('horario_fim')?.value,
-        posicao: this.consultaForm.get('posicao')?.value,
+        idmedico: this.consultaForm.get('medico')?.value,
+        idpaciente: this.consultaForm.get('paciente')?.value,
+        data: dataConsultaFormatada,
+        horario_inicio: horarioInicio,
+        horario_fim: horarioFim,
+        posicao: '1',
         status: this.consultaForm.get('status')?.value,
       };
 
-      console.log('CONSULTA', consulta);
-      this.consultaService
-        .cadastrar(consulta)
-        .subscribe((rs) => console.log('CADASTRO CONSULTA', rs));
+      this.consultaService.cadastrar(consulta).subscribe((rs) => {
+        location.reload();
+      });
     } else {
       const message = 'PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR';
       const action = 'OK';
@@ -75,7 +91,7 @@ export class CadastroComponent implements OnInit {
     }
   }
 
-  linkTo(path: string) {
-    this.router.navigateByUrl(path);
+  closeModal() {
+    this.dialogRef.close();
   }
 }

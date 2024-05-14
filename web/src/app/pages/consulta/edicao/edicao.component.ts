@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
-import { StatusConsultaEnum } from 'src/app/model/enum/StatusConsulta.enum';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ConsultaVO } from 'src/app/model/vo/ConsultaVO';
+import { MedicoService } from '../../medico/medico.service';
+import { PacienteService } from '../../paciente/paciente.service';
 import { ConsultaService } from '../consulta.service';
 import { UtilService } from './../../../common/util.service';
 
@@ -17,60 +18,120 @@ import { UtilService } from './../../../common/util.service';
   styleUrls: ['./edicao.component.css'],
 })
 export class EdicaoComponent implements OnInit {
-  public idConsulta!: number;
   public consultaForm!: FormGroup;
+  public pacientes: any[] = [];
+  public medicos: any[] = [];
 
   constructor(
+    public dialogRef: MatDialogRef<any>,
+    @Inject(MAT_DIALOG_DATA) public dados: any,
     private formBuilder: FormBuilder,
     private consultaService: ConsultaService,
     private utilService: UtilService,
-    private router: Router
+    private pacienteService: PacienteService,
+    private medicoService: MedicoService
   ) {}
 
-  ngOnInit(): void {
-    this.buscarConsulta();
-  }
-
-  buscarConsulta() {
-    this.consultaService.buscarPorId(this.idConsulta).subscribe((rs) => {
-      console.log('BUSCA CONSULTA POR ID', rs);
-      //this.initForm(rs.data);
-    });
+  async ngOnInit(): Promise<void> {
+    this.initForm();
+    this.pacientes = await this.buscarPacientes();
+    this.medicos = await this.buscarMedicos();
+    this.buscarConsulta(this.dados.idConsulta);
   }
 
   initForm() {
     this.consultaForm = this.formBuilder.group({
-      idMedico: new FormControl(1, [Validators.required]),
-      idPaciente: new FormControl(2, [Validators.required]),
-      data: new FormControl(new Date(), [Validators.required]),
-      horario_inicio: new FormControl({ hours: 10, minutes: 0 }, [
-        Validators.required,
-      ]),
-      horario_fim: new FormControl({ hours: 10, minutes: 30 }, [
-        Validators.required,
-      ]),
-      posicao: new FormControl(1, [Validators.required]),
-      status: new FormControl(StatusConsultaEnum.CONCLUIDO, [
-        Validators.required,
-      ]),
+      id: new FormControl('', [Validators.required]),
+      medico: new FormControl('', [Validators.required]),
+      paciente: new FormControl('', [Validators.required]),
+      data: new FormControl('', [Validators.required]),
+      horarioInicio: new FormControl('', [Validators.required]),
+      horarioFim: new FormControl('', [Validators.required]),
+      posicao: new FormControl('', [Validators.required]),
+      status: new FormControl('', [Validators.required]),
     });
   }
 
-  salvar() {
+  buscarConsulta(id: number) {
+    this.consultaService.buscarPorId(id).subscribe((rs: any) => {
+      this.preencherForm(rs.data[0]);
+    });
+  }
+
+  buscarPacientes(): Promise<any[]> {
+    return new Promise((resolve, reject) => {
+      this.pacienteService.buscarTodos().subscribe((rs: any) => {
+        if (rs.data) {
+          resolve(rs.data);
+        } else {
+          reject();
+        }
+      });
+    });
+  }
+
+  buscarMedicos(): Promise<any[]> {
+    return new Promise((resolve, reject) => {
+      this.medicoService.buscarTodos().subscribe((rs: any) => {
+        if (rs.data) {
+          resolve(rs.data);
+        } else {
+          reject();
+        }
+      });
+    });
+  }
+
+  preencherForm(dados: any) {
+    console.log('DADOS', dados);
+    this.consultaForm.patchValue({
+      id: dados.id,
+      medico: this.getObjectMedico(dados.idmedico).id,
+      paciente: this.getObjectPaciente(dados.idpaciente).id,
+      data: new Date(dados.data),
+      horarioInicio: dados.horario_inicio,
+      horarioFim: dados.horario_fim,
+      posicao: dados.posicao,
+      status: dados.status,
+    });
+  }
+
+  getObjectMedico(id: number) {
+    return this.medicos.filter((medico) => medico.id == id)[0];
+  }
+
+  getObjectPaciente(id: number) {
+    return this.pacientes.filter((paciente) => paciente.id == id)[0];
+  }
+
+  atualizar() {
     if (this.consultaForm.valid) {
+      const dataConsulta = this.consultaForm.get('data')?.value;
+      const dataConsultaFormatada: string =
+        this.utilService.formataDataPadraoBanco(dataConsulta) +
+        ' ' +
+        '00:00:00';
+      const horarioInicio = `08:00`;
+      const horarioFim = `09:00`;
+
       const consulta: ConsultaVO = {
-        idmedico: this.consultaForm.get('idMedico')?.value,
-        idpaciente: this.consultaForm.get('idPaciente')?.value,
-        data: this.consultaForm.get('data')?.value,
-        horario_inicio: this.consultaForm.get('horario_inicio')?.value,
-        horario_fim: this.consultaForm.get('horario_fim')?.value,
-        posicao: this.consultaForm.get('posicao')?.value,
+        id: this.consultaForm.get('id')?.value,
+        idmedico: this.consultaForm.get('medico')?.value,
+        idpaciente: this.consultaForm.get('paciente')?.value,
+        data: dataConsultaFormatada,
+        horario_inicio: horarioInicio,
+        horario_fim: horarioFim,
+        posicao: this.consultaForm.get('posicao')?.value.toString(),
         status: this.consultaForm.get('status')?.value,
       };
 
-      this.consultaService
-        .cadastrar(consulta)
-        .subscribe((rs) => console.log('CADASTRO CONSULTA', rs));
+      if (consulta.id != null) {
+        this.consultaService
+          .atualizar(consulta.id, consulta)
+          .subscribe((rs) => {
+            location.reload();
+          });
+      }
     } else {
       const message = 'PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR';
       const action = 'OK';
@@ -78,7 +139,7 @@ export class EdicaoComponent implements OnInit {
     }
   }
 
-  linkTo(path: string) {
-    this.router.navigateByUrl(path);
+  closeModal() {
+    this.dialogRef.close();
   }
 }

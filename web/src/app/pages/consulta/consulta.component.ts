@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { CadastroComponent } from './cadastro/cadastro.component';
 import { ConsultaService } from './consulta.service';
+import { EdicaoComponent } from './edicao/edicao.component';
 
 @Component({
   selector: 'app-consulta',
@@ -16,12 +19,14 @@ export class ConsultaComponent implements OnInit {
     'especialidade',
     'paciente',
     'status',
+    'acao',
   ];
   dataSource = new MatTableDataSource<ConsultaTable>();
 
   constructor(
     private consultaService: ConsultaService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -31,14 +36,30 @@ export class ConsultaComponent implements OnInit {
   buscarConsultas() {
     this.consultaService.buscarTodos().subscribe((rs: any) => {
       this.dataSource = new MatTableDataSource<ConsultaTable>(rs.data);
-      console.log('DATA CONSULTAS', this.dataSource);
     });
   }
 
-  excluirConsulta() {
-    this.consultaService
-      .excluir(10)
-      .subscribe((rs) => console.log('EXCLUSAO CONSULTA', rs));
+  excluirConsulta(id: number) {
+    this.consultaService.excluir(id).subscribe((rs) => {
+      location.reload();
+    });
+  }
+
+  openModalCadastro() {
+    this.dialog.open(CadastroComponent, {
+      width: '60%',
+      height: '70%',
+    });
+  }
+
+  openModalEdicao(idConsulta: number) {
+    this.dialog.open(EdicaoComponent, {
+      width: '50%',
+      height: '70%',
+      data: {
+        idConsulta: idConsulta,
+      },
+    });
   }
 
   linkTo(path: string) {

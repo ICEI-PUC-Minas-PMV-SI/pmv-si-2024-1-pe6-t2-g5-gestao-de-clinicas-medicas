@@ -1,0 +1,45 @@
+.body {
+  padding: 20px;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mat-column-data {
+  width: 15%;
+}
+
+.mat-column-horario {
+  width: 15%;
+}
+
+.mat-column-medico {
+  width: 15%;
+}
+
+.mat-column-especialidade {
+  width: 15%;
+}
+.mat-column-paciente {
+  width: 15%;
+}
+
+.mat-column-status {
+  width: 15%;
+}
+
+.mat-column-acao {
+  width: 10%;
+}
+
+th.mat-header-cell.mat-column-acao {
+  text-align: center;
+}
+

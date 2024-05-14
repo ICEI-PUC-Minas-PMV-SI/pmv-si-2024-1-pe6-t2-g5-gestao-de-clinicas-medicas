@@ -20,6 +20,10 @@ body { margin: 0; font-family: 'Roboto', sans-serif }
   color: black;
 }
 
+.mat-select-placeholder {
+  color: rgb(196, 196, 196);
+}
+
 .mat-button.mat-primary.mat-button-disabled, .mat-button.mat-accent.mat-button-disabled, .mat-button.mat-warn.mat-button-disabled, .mat-button.mat-button-disabled.mat-button-disabled, .mat-icon-button.mat-primary.mat-button-disabled, .mat-icon-button.mat-accent.mat-button-disabled, .mat-icon-button.mat-warn.mat-button-disabled, .mat-icon-button.mat-button-disabled.mat-button-disabled, .mat-stroked-button.mat-primary.mat-button-disabled, .mat-stroked-button.mat-accent.mat-button-disabled, .mat-stroked-button.mat-warn.mat-button-disabled, .mat-stroked-button.mat-button-disabled.mat-button-disabled {
   color: rgb(197, 197, 197);
 }
@@ -58,5 +62,9 @@ td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
 }
 
 .mat-option.mat-active {
+  color: #007954;
+}
+
+.mat-select-arrow {
   color: #007954;
 }
