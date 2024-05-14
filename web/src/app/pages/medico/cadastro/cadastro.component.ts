@@ -21,7 +21,6 @@ export class CadastroComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private medicoService: MedicoService,
     private utilService: UtilService

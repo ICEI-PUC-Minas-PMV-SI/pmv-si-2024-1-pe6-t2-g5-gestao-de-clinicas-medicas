@@ -21,7 +21,7 @@ export class EdicaoComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public dados: any,
     private formBuilder: FormBuilder,
     private medicoService: MedicoService,
     private utilService: UtilService
@@ -29,7 +29,7 @@ export class EdicaoComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.buscarMedico(this.data.idMedico);
+    this.buscarMedico(this.dados.idMedico);
     this.getEspecialidades();
   }
 
@@ -51,12 +51,12 @@ export class EdicaoComponent implements OnInit {
     });
   }
 
-  preencherForm(data: any) {
+  preencherForm(dados: any) {
     this.medicoForm.patchValue({
-      id: data.id,
-      nome: data.nome,
-      crm: data.crm,
-      especialidade: data.especialidade,
+      id: dados.id,
+      nome: dados.nome,
+      crm: dados.crm,
+      especialidade: dados.especialidade,
     });
   }
 
