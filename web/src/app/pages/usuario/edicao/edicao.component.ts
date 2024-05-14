@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -8,6 +8,7 @@ import {
 import { UtilService } from 'src/app/common/util.service';
 import { UsuarioService } from '../usuario.service';
 import { UsuarioVO } from 'src/app/model/vo/UsuarioVO';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edicao',
@@ -15,46 +16,59 @@ import { UsuarioVO } from 'src/app/model/vo/UsuarioVO';
   styleUrls: ['./edicao.component.css'],
 })
 export class EdicaoComponent implements OnInit {
-  public idUsuario!: number;
   public usuarioForm!: FormGroup;
 
   constructor(
+    public dialogRef: MatDialogRef<any>,
+    @Inject(MAT_DIALOG_DATA) public dados: any,
     private formBuilder: FormBuilder,
     private usuarioService: UsuarioService,
     private utilService: UtilService
   ) {}
 
   ngOnInit(): void {
-    this.buscarUsuario();
-  }
-
-  buscarUsuario() {
-    this.usuarioService.buscarPorId(this.idUsuario).subscribe((rs) => {
-      console.log('BUSCA USUARIO POR ID', rs);
-      //this.initForm(rs.data);
-    });
+    this.initForm();
+    this.buscarUsuario(this.dados.idUsuario);
   }
 
   initForm() {
     this.usuarioForm = this.formBuilder.group({
+      id: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
-      senha: new FormControl('', [Validators.required]),
+      senha: new FormControl(''),
       tipo: new FormControl('', [Validators.required]),
+    });
+  }
+
+  buscarUsuario(id: number) {
+    this.usuarioService.buscarPorId(id).subscribe((rs: any) => {
+      this.preencherForm(rs.data[0]);
+      console.log('rs', rs);
+    });
+  }
+
+  preencherForm(data: any) {
+    this.usuarioForm.patchValue({
+      id: data.id,
+      email: data.email,
+      senha: data.senha,
+      tipo: data.tipo.toLowerCase(),
     });
   }
 
   atualizar() {
     if (this.usuarioForm.valid) {
       const usuario: UsuarioVO = {
+        id: this.usuarioForm.get('id')?.value,
         email: this.usuarioForm.get('email')?.value,
         senha: this.usuarioForm.get('senha')?.value,
         tipo: this.usuarioForm.get('tipo')?.value,
       };
 
       if (usuario.id != null) {
-        this.usuarioService
-          .cadastrar(usuario)
-          .subscribe((rs) => console.log('EDICAO USUARIO', rs));
+        this.usuarioService.cadastrar(usuario).subscribe((rs) => {
+          location.reload();
+        });
       } else {
         const message = 'USUARIO NÃO ENCONTRADO';
         const action = 'OK';
@@ -65,5 +79,9 @@ export class EdicaoComponent implements OnInit {
       const action = 'OK';
       this.utilService.openSnackBar(message, action);
     }
+  }
+
+  closeModal() {
+    this.dialogRef.close();
   }
 }

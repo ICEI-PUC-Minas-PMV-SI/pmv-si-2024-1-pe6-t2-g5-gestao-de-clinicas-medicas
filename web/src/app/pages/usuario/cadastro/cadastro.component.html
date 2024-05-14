@@ -1,2 +1,44 @@
-<p>cadastro works!</p>
-<button (click)="salvar()">salvar usuario</button>
+<div class="body" style="position: relative;">
+  <div class="flex-between">
+    <div>
+      <h1 class="title">Novo Usuário</h1>
+    </div>
+
+    <div>
+      <img src="../../../../assets/icon/x-square.svg" alt="botão fechar" (click)="closeModal()" class="close-button">
+    </div>
+  </div>
+
+  <div class="form-button">
+    <div [formGroup]="usuarioForm" class="fields">
+      <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" placeholder="Digite o e-mail" class="inputs" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+        <mat-label>Senha</mat-label>
+        <input matInput formControlName="senha" placeholder="Digite a senha" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+        <mat-label>Tipo</mat-label>
+        <mat-select formControlName="tipo" placeholder="Selecione o tipo">
+          <mat-option value="medico">
+            Médico
+          </mat-option>
+          <mat-option value="funcionario">
+            Funcionário
+          </mat-option>
+          <mat-option value="paciente">
+            Paciente
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="buttons">
+      <button (click)="salvar()" class="button save-button">Salvar</button>
+    </div>
+  </div>
+</div>
