@@ -1,5 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { EspecialidadeEnum } from 'src/app/model/enum/Especialidade.enum';
 import { MedicoVO } from 'src/app/model/vo/MedicoVO';
 
 @Injectable({
@@ -40,5 +41,18 @@ export class MedicoService {
 
   excluir(id: number) {
     return this.http.delete(`${this.API}/${id}`);
+  }
+
+  getEspecialidades(): string[] {
+    return [
+      EspecialidadeEnum.CLINICO_GERAL,
+      EspecialidadeEnum.CARDIOLOGIA,
+      EspecialidadeEnum.ORTOPEDIA,
+      EspecialidadeEnum.PEDIATRIA,
+      EspecialidadeEnum.OFTALMOLOGIA,
+      EspecialidadeEnum.GINECOLOGIA,
+      EspecialidadeEnum.PSIQUIATRIA,
+      EspecialidadeEnum.NEUROLOGIA,
+    ];
   }
 }

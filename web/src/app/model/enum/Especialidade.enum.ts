@@ -1,5 +1,10 @@
 export enum EspecialidadeEnum {
-  CARDIOLOGIA = 'CARDIOLOGIA',
-  ORTOPEDIA = 'ORTOPEDIA',
-  CLINICO_GERAL = 'CLINICO GERAL',
+  CLINICO_GERAL = 'Clínico Geral',
+  CARDIOLOGIA = 'Cardiologia',
+  ORTOPEDIA = 'Ortopedia',
+  PEDIATRIA = 'Pediatria',
+  OFTALMOLOGIA = 'Oftalmologia',
+  GINECOLOGIA = 'Ginecologia',
+  PSIQUIATRIA = 'PsIquiatria',
+  NEUROLOGIA = 'Neurologia',
 }

@@ -33,3 +33,18 @@ td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
   color: #000000;
 }
 
+.mat-select-value {
+  color: #000000;
+}
+
+.mat-select-panel {
+  background: #ffffff;
+}
+
+.mat-option {
+  color: #007954;
+}
+
+.mat-option.mat-active {
+  color: #007954;
+}

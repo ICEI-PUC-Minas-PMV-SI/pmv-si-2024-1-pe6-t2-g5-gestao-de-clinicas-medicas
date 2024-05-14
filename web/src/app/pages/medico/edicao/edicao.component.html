@@ -15,11 +15,11 @@
 
     <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
       <mat-label>Especialidade</mat-label>
-      <input
-        matInput
-        formControlName="especialidade"
-        placeholder="Digite a especialidade"
-      />
+      <mat-select formControlName="especialidade">
+        <mat-option *ngFor="let espec of especialidades" [value]="espec" placeholder="Selecione a especialidade">
+          {{espec}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>

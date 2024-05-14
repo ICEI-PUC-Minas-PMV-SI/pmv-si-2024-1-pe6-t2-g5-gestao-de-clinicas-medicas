@@ -17,6 +17,7 @@ import { UtilService } from './../../../common/util.service';
 })
 export class CadastroComponent implements OnInit {
   public medicoForm!: FormGroup;
+  public especialidades: string[] = [];
 
   constructor(
     public dialogRef: MatDialogRef<any>,
@@ -28,6 +29,7 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    this.getEspecialidades();
   }
 
   initForm() {
@@ -39,6 +41,10 @@ export class CadastroComponent implements OnInit {
       crm: new FormControl('', [Validators.required]),
       especialidade: new FormControl('', [Validators.required]),
     });
+  }
+
+  getEspecialidades() {
+    this.especialidades = this.medicoService.getEspecialidades();
   }
 
   salvar() {

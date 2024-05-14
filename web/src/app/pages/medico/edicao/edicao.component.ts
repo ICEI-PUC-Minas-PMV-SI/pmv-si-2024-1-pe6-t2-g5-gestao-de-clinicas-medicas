@@ -17,6 +17,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class EdicaoComponent implements OnInit {
   public medicoForm!: FormGroup;
+  public especialidades: string[] = [];
 
   constructor(
     public dialogRef: MatDialogRef<any>,
@@ -29,12 +30,7 @@ export class EdicaoComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.buscarMedico(this.data.idMedico);
-  }
-
-  buscarMedico(id: number) {
-    this.medicoService.buscarPorId(id).subscribe((rs: any) => {
-      this.preencherForm(rs.data[0]);
-    });
+    this.getEspecialidades();
   }
 
   initForm() {
@@ -49,6 +45,12 @@ export class EdicaoComponent implements OnInit {
     });
   }
 
+  buscarMedico(id: number) {
+    this.medicoService.buscarPorId(id).subscribe((rs: any) => {
+      this.preencherForm(rs.data[0]);
+    });
+  }
+
   preencherForm(data: any) {
     this.medicoForm.patchValue({
       id: data.id,
@@ -56,6 +58,10 @@ export class EdicaoComponent implements OnInit {
       crm: data.crm,
       especialidade: data.especialidade,
     });
+  }
+
+  getEspecialidades() {
+    this.especialidades = this.medicoService.getEspecialidades();
   }
 
   atualizar() {
