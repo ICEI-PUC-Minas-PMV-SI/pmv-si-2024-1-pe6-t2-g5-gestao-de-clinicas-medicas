@@ -43,7 +43,7 @@ export class PacienteComponent implements OnInit {
 
   openModalCadastro() {
     this.dialog.open(CadastroComponent, {
-      width: '50%',
+      width: '60%',
       height: '70%',
     });
   }
