@@ -35,9 +35,13 @@
         <mat-label>Data de Nascimento</mat-label>
         <input
           matInput
+          [matDatepicker]="dp1"
+          placeholder="Selecione a data de nascimento"
           formControlName="dataNascimento"
-          placeholder="Digite a data de nascimento"
         />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+        <mat-datepicker #dp1></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field

@@ -1,7 +1,7 @@
 export interface PacienteVO {
   id?: number;
   nome: string;
-  data_nascimento: Date;
+  data_nascimento: string;
   cpf: string;
   telefone: string;
   logradouro: string;

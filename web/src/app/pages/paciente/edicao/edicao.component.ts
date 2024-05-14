@@ -20,7 +20,7 @@ export class EdicaoComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public dados: any,
     private formBuilder: FormBuilder,
     private pacienteService: PacienteService,
     private utilService: UtilService
@@ -28,7 +28,7 @@ export class EdicaoComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.buscarPaciente(this.data.idPaciente);
+    this.buscarPaciente(this.dados.idPaciente);
   }
 
   buscarPaciente(id: number) {
@@ -39,6 +39,7 @@ export class EdicaoComponent implements OnInit {
 
   initForm() {
     this.pacienteForm = this.formBuilder.group({
+      id: new FormControl('', [Validators.required]),
       nome: new FormControl('', [
         Validators.required,
         Validators.maxLength(45),
@@ -57,28 +58,33 @@ export class EdicaoComponent implements OnInit {
     });
   }
 
-  preencherForm(data: any) {
+  preencherForm(dados: any) {
     this.pacienteForm.patchValue({
-      id: data.id,
-      nome: data.nome,
-      cpf: data.cpf,
-      dataNascimento: data.dataNascimento,
-      telefone: data.telefone,
-      logradouro: data.logradouro,
-      numero: data.numero,
-      bairro: data.bairro,
-      cidade: data.cidade,
-      // uf: data.uf,
+      id: dados.id,
+      nome: dados.nome,
+      cpf: dados.cpf,
+      dataNascimento: new Date(dados.data_nascimento + 'T00:00'),
+      telefone: dados.telefone,
+      logradouro: dados.logradouro,
+      numero: dados.numero,
+      bairro: dados.bairro,
+      cidade: dados.cidade,
+      // uf: dados.uf,
     });
   }
 
   atualizar() {
     if (this.pacienteForm.valid) {
+      const dataNascimento: Date =
+        this.pacienteForm.get('dataNascimento')?.value;
+      const dataNascimentoFormatada: string =
+        this.utilService.formataDataPadraoBanco(dataNascimento);
+
       const paciente: PacienteVO = {
         id: this.pacienteForm.get('id')?.value,
         nome: this.pacienteForm.get('nome')?.value,
         cpf: this.pacienteForm.get('cpf')?.value,
-        data_nascimento: this.pacienteForm.get('dataNascimento')?.value,
+        data_nascimento: dataNascimentoFormatada,
         telefone: this.pacienteForm.get('telefone')?.value,
         logradouro: this.pacienteForm.get('logradouro')?.value,
         numero: this.pacienteForm.get('numero')?.value,

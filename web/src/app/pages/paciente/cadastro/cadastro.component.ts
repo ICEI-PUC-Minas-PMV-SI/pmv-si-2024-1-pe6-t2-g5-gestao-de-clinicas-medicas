@@ -1,11 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { PacienteVO } from 'src/app/model/vo/PacienteVO';
 import { PacienteService } from '../paciente.service';
 import { UtilService } from './../../../common/util.service';
@@ -20,7 +20,6 @@ export class CadastroComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<any>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
     private formBuilder: FormBuilder,
     private pacienteService: PacienteService,
     private utilService: UtilService
@@ -31,9 +30,6 @@ export class CadastroComponent implements OnInit {
   }
 
   initForm() {
-    let data: any = new Date();
-    data = `${data.getFullYear()}-${data.getMonth()}-${data.getDay()}`;
-
     this.pacienteForm = this.formBuilder.group({
       nome: new FormControl('', [
         Validators.required,
@@ -55,10 +51,15 @@ export class CadastroComponent implements OnInit {
 
   salvar() {
     if (this.pacienteForm.valid) {
+      const dataNascimento: Date =
+        this.pacienteForm.get('dataNascimento')?.value;
+      const dataNascimentoFormatada: string =
+        this.utilService.formataDataPadraoBanco(dataNascimento);
+
       const paciente: PacienteVO = {
         nome: this.pacienteForm.get('nome')?.value,
         cpf: this.pacienteForm.get('cpf')?.value,
-        data_nascimento: this.pacienteForm.get('dataNascimento')?.value,
+        data_nascimento: dataNascimentoFormatada,
         telefone: this.pacienteForm.get('telefone')?.value,
         logradouro: this.pacienteForm.get('logradouro')?.value,
         numero: this.pacienteForm.get('numero')?.value,
@@ -67,10 +68,9 @@ export class CadastroComponent implements OnInit {
         // uf: this.pacienteForm.get('uf')?.value,
       };
 
-      console.log('PACIENTE', paciente);
-      this.pacienteService
-        .cadastrar(paciente)
-        .subscribe((rs) => console.log('CADASTRO PACIENTE', rs));
+      this.pacienteService.cadastrar(paciente).subscribe((rs) => {
+        location.reload();
+      });
     } else {
       const message = 'PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR';
       const action = 'OK';

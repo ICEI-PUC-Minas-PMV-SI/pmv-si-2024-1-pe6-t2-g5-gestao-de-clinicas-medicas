@@ -13,4 +13,8 @@ export class UtilService {
       verticalPosition: 'top',
     });
   }
+
+  formataDataPadraoBanco(data: Date): string {
+    return `${data.getFullYear()}-${data.getMonth() + 1}-${data.getDate()}`;
+  }
 }
