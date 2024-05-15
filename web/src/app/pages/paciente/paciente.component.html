@@ -1,12 +1,8 @@
 <div class="body">
-  <div class="flex-center">
-    <div class="back-button">
-      <img src="assets/icon/back.svg" (click)="linkTo('home')" />
-    </div>
-    <div>
-      <h1>Pacientes</h1>
-    </div>
+  <div>
+    <img class="back-button" src="assets/icon/back.svg" (click)="linkTo('home')" />
   </div>
+  <h1 class="title">Pacientes</h1>
 
   <div class="flex-between">
     <div>
@@ -17,7 +13,7 @@
     </div>
     <div class="flex-center">
       <div>
-        <button (click)="openModalCadastro()">Novo Paciente</button>
+        <button class="button-new" (click)="openModalCadastro()">Novo Paciente</button>
       </div>
     </div>
   </div>

@@ -1,13 +1,8 @@
-<button (click)="form()">VISUALIZAR FORM</button>
-
 <div [formGroup]="clinicaForm">
-  <div class="two-header">
-    <div class="back-button">
-      <img src="assets/icon/back.svg" (click)="linkTo('home')" />
+    <div>
+      <img class="back-button" src="assets/icon/back.svg" (click)="linkTo('home')" />
     </div>
     <h1 class="title">Dados da clínica</h1>
-    <div></div>
-  </div>
   <div class="main-box">
     <div class="fields">
       <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
@@ -58,3 +53,5 @@
     </div>
   </div>
 </div>
+
+<button style="margin-top: 5em;" (click)="form()">VISUALIZAR FORM</button>

@@ -10,6 +10,7 @@
   justify-content: space-around;
   padding: 10px;
   color: white;
+  box-shadow: 5px 5px 14px 3px rgba(0, 0, 0, 0.2);
 }
 
 img {
@@ -17,7 +18,7 @@ img {
 }
 
 mat-label {
-  color: white;
+  color: #fff;
 }
 
 input {
@@ -53,5 +54,6 @@ a {
   opacity: 0.8;
     &:hover {
       opacity: 1;
+      cursor: pointer;
     }
 }
