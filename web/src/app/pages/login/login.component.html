@@ -1,5 +1,6 @@
 <div class="box">
-  <h1>Login</h1>
+  <img src="../../../assets/logo/logo.svg" alt="">
+  <!-- <h1>Login</h1> -->
   <div [formGroup]="loginForm">
     <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
       <mat-label>E-mail</mat-label>
@@ -11,5 +12,16 @@
       <input matInput formControlName="senha" placeholder="Digite a senha" />
     </mat-form-field>
   </div>
-  <button (click)="autenticarUsuario()">Entrar</button>
+  <div>
+    <button (click)="autenticarUsuario()">Acessar</button>
+  </div>
+
+  <div class="links">
+    <a href="#">
+      Esqueci minha senha
+    </a>
+    <p>
+      Primeiro acesso? <a href="#">Cadastrar</a>
+    </p>
+  </div>
 </div>
