@@ -21,7 +21,13 @@ body { margin: 0; font-family: 'Roboto', sans-serif }
 }
 
 .mat-select-placeholder {
-  color: rgb(196, 196, 196);
+  color: rgb(170, 170, 170);
+}
+
+input {
+  &::placeholder {
+    color: rgb(170, 170, 170) !important;
+  }
 }
 
 .mat-button.mat-primary.mat-button-disabled, .mat-button.mat-accent.mat-button-disabled, .mat-button.mat-warn.mat-button-disabled, .mat-button.mat-button-disabled.mat-button-disabled, .mat-icon-button.mat-primary.mat-button-disabled, .mat-icon-button.mat-accent.mat-button-disabled, .mat-icon-button.mat-warn.mat-button-disabled, .mat-icon-button.mat-button-disabled.mat-button-disabled, .mat-stroked-button.mat-primary.mat-button-disabled, .mat-stroked-button.mat-accent.mat-button-disabled, .mat-stroked-button.mat-warn.mat-button-disabled, .mat-stroked-button.mat-button-disabled.mat-button-disabled {
