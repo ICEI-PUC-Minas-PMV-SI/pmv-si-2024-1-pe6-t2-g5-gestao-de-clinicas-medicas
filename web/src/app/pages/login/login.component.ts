@@ -44,4 +44,8 @@ export class LoginComponent implements OnInit {
       this.utilService.openSnackBar(message, action);
     }
   }
+
+  linkTo(path: string) {
+    this.router.navigateByUrl(path);
+  }
 }

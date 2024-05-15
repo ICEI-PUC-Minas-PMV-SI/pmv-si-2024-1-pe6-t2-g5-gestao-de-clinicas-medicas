@@ -12,6 +12,10 @@ const routes: Routes = [
     path: '',
     component: LoginComponent,
   },
+  {
+    path: 'redefinir-senha',
+    component: RedefinicaoSenhaComponent,
+  },
 ];
 
 @NgModule({

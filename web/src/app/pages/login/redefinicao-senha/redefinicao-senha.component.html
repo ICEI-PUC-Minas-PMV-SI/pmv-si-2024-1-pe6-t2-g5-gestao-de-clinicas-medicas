@@ -1,1 +1,17 @@
-<p>redefinicao-senha works!</p>
+<div class="box">
+  <img src="../../../assets/logo/logo.svg" alt="">
+  <div [formGroup]="recuperarSenhaForm">
+    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+      <mat-label>Senha Atual</mat-label>
+      <input matInput formControlName="senhaAtual" placeholder="Digite a senha atual" />
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+      <mat-label>Nova Senha</mat-label>
+      <input matInput formControlName="senhaNova" placeholder="Digite a nova senha" />
+    </mat-form-field>
+  </div>
+  <div>
+    <button (click)="salvarSenha()">Salvar</button>
+  </div>
+</div>
