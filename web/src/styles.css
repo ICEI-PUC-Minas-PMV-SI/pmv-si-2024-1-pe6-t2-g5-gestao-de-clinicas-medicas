@@ -68,3 +68,11 @@ td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
 .mat-select-arrow {
   color: #007954;
 }
+
+.mat-paginator {
+  background: #ffffff;
+}
+
+.mat-paginator, .mat-paginator-page-size .mat-select-trigger {
+  color: #000000;
+}

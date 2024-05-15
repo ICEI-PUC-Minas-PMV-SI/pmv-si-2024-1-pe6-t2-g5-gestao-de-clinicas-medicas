@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ProntuarioService } from './prontuario.service';
 import { MatDialog } from '@angular/material/dialog';
 import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-prontuario',
@@ -20,6 +22,9 @@ export class ProntuarioComponent implements OnInit {
   ];
   dataSource = new MatTableDataSource<ProntuarioTable>();
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   constructor(
     private prontuarioService: ProntuarioService,
     private router: Router,
@@ -33,12 +38,18 @@ export class ProntuarioComponent implements OnInit {
   buscarProntuarios() {
     this.prontuarioService.buscarTodos().subscribe((rs: any) => {
       this.dataSource = new MatTableDataSource<ProntuarioTable>(rs.data);
-      console.log('DATA SOURCE', this.dataSource);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 
-  filtrarProntuarios(value: string) {
-    // console.log('INPUT PESQUISA', value);
+  filtrarProntuarios(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   openModalVisualizacao(idProntuario: number) {

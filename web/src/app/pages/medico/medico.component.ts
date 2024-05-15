@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { MedicoService } from './medico.service';
 import { EdicaoComponent } from './edicao/edicao.component';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-medico',
@@ -14,6 +16,9 @@ import { EdicaoComponent } from './edicao/edicao.component';
 export class MedicoComponent implements OnInit {
   displayedColumns: string[] = ['nome', 'especialidade', 'crm', 'acao'];
   dataSource = new MatTableDataSource<MedicoTable>();
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private medicoService: MedicoService,
@@ -28,6 +33,8 @@ export class MedicoComponent implements OnInit {
   buscarMedicos() {
     this.medicoService.buscarTodos().subscribe((rs: any) => {
       this.dataSource = new MatTableDataSource<MedicoTable>(rs.data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 
@@ -37,8 +44,13 @@ export class MedicoComponent implements OnInit {
     });
   }
 
-  filtrarMedicos(value: string) {
-    // console.log('INPUT PESQUISA', value);
+  filtrarMedicos(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   openModalCadastro() {

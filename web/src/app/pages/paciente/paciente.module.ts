@@ -11,6 +11,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { EdicaoComponent } from './edicao/edicao.component';
 import { PacienteComponent } from './paciente.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 const routes: Routes = [
   {
@@ -32,6 +34,8 @@ const routes: Routes = [
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [MatDatepickerModule, MatNativeDateModule],
 })

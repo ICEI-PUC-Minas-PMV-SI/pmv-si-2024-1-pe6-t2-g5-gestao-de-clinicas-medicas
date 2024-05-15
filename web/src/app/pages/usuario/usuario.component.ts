@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { EdicaoComponent } from './edicao/edicao.component';
 import { UsuarioService } from './usuario.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-usuario',
@@ -14,6 +16,9 @@ import { UsuarioService } from './usuario.service';
 export class UsuarioComponent implements OnInit {
   displayedColumns: string[] = ['email', 'tipo', 'acao'];
   dataSource = new MatTableDataSource<UsuarioTable>();
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private usuarioService: UsuarioService,
@@ -28,6 +33,8 @@ export class UsuarioComponent implements OnInit {
   buscarUsuarios() {
     this.usuarioService.buscarTodos().subscribe((rs: any) => {
       this.dataSource = new MatTableDataSource<UsuarioTable>(rs.data);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 
@@ -37,8 +44,13 @@ export class UsuarioComponent implements OnInit {
     });
   }
 
-  filtrarUsuarios(value: string) {
-    // console.log('INPUT PESQUISA', value);
+  filtrarUsuarios(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   openModalCadastro() {
