@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-redefinicao-senha',
@@ -14,7 +15,7 @@ import {
 export class RedefinicaoSenhaComponent implements OnInit {
   public recuperarSenhaForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -27,5 +28,7 @@ export class RedefinicaoSenhaComponent implements OnInit {
     });
   }
 
-  salvarSenha() {}
+  salvarSenha() {
+    this.router.navigateByUrl('');
+  }
 }

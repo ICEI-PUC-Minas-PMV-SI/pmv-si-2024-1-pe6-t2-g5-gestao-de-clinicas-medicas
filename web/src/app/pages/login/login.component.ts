@@ -5,8 +5,10 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UtilService } from 'src/app/common/util.service';
+import { CadastroComponent } from '../usuario/cadastro/cadastro.component';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private utilService: UtilService
+    private utilService: UtilService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -43,6 +46,13 @@ export class LoginComponent implements OnInit {
       const action = 'OK';
       this.utilService.openSnackBar(message, action);
     }
+  }
+
+  openModalCadastroUsuario() {
+    this.dialog.open(CadastroComponent, {
+      width: '50%',
+      height: '50%',
+    });
   }
 
   linkTo(path: string) {
