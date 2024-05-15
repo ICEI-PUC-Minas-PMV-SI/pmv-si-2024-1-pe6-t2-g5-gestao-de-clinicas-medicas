@@ -5,14 +5,14 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
+      import('./pages/login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'home',
+    loadChildren: () =>
       import('./pages/pagina-inicial/pagina-inicial.module').then(
         (m) => m.PaginaInicialModule
       ),
-  },
-  {
-    path: 'login',
-    loadChildren: () =>
-      import('./pages/login/login.module').then((m) => m.LoginModule),
   },
   {
     path: 'dashboard',

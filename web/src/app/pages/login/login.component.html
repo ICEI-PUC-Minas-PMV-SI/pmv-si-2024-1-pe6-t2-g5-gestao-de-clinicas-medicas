@@ -1,1 +1,15 @@
-<p>login works!</p>
+<div class="box">
+  <h1>Login</h1>
+  <div [formGroup]="loginForm">
+    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+      <mat-label>E-mail</mat-label>
+      <input matInput formControlName="email" placeholder="Digite o e-mail" />
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+      <mat-label>Senha</mat-label>
+      <input matInput formControlName="senha" placeholder="Digite a senha" />
+    </mat-form-field>
+  </div>
+  <button (click)="autenticarUsuario()">Entrar</button>
+</div>

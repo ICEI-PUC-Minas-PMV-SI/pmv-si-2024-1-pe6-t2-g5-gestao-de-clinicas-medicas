@@ -1,7 +1,7 @@
 <div class="body">
   <div class="flex-center">
     <div class="back-button">
-      <img src="assets/icon/back.svg" (click)="linkTo('')" />
+      <img src="assets/icon/back.svg" (click)="linkTo('home')" />
     </div>
     <div>
       <h1>Pacientes</h1>
@@ -10,11 +10,7 @@
 
   <div class="flex-between">
     <div>
-      <input
-        type="text"
-        placeholder="Digite aqui para pesquisar"
-        #inputPesquisa
-      />
+      <input type="text" placeholder="Digite aqui para pesquisar" #inputPesquisa />
       <button (click)="filtrarMedicos(inputPesquisa.value)">Pesquisar</button>
     </div>
     <div class="flex-center">

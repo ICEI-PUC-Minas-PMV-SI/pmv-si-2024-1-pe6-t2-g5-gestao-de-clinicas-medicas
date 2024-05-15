@@ -12,6 +12,6 @@ export class SidenavComponent implements OnInit {
   ngOnInit(): void {}
 
   linkToHome() {
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('home');
   }
 }
