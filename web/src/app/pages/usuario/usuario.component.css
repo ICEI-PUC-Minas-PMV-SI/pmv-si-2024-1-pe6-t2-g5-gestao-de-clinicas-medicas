@@ -29,6 +29,10 @@
   }
 }
 
+:host ::ng-deep .mat-form-field-flex {
+  width: 20em;
+}
+
 .title {
   font-size: 2.5em;
   font-weight: 500;

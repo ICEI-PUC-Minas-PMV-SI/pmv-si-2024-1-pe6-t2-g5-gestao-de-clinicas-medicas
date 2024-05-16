@@ -44,6 +44,9 @@
   }
 }
 
+:host ::ng-deep .mat-form-field-flex {
+  width: 20em;
+}
 
 .mat-column-nome {
   width: 50%;

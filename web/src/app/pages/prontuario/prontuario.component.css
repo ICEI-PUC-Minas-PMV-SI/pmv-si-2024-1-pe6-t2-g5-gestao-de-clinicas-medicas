@@ -43,6 +43,11 @@
   }
 }
 
+:host ::ng-deep .mat-form-field-flex {
+  width: 20em;
+}
+
+
 .mat-column-paciente {
   width: 25%;
 }
