@@ -18,8 +18,8 @@
 
       <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
         <mat-label>Especialidade</mat-label>
-        <mat-select formControlName="especialidade">
-          <mat-option *ngFor="let espec of especialidades" [value]="espec" placeholder="Selecione a especialidade">
+        <mat-select formControlName="especialidade" placeholder="Selecione a especialidade">
+          <mat-option *ngFor="let espec of especialidades" [value]="espec">
             {{espec}}
           </mat-option>
         </mat-select>
@@ -27,7 +27,7 @@
 
       <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
         <mat-label>CRM</mat-label>
-        <input matInput formControlName="crm" placeholder="Digite o crm" />
+        <input matInput formControlName="crm" placeholder="Digite o CRM" />
       </mat-form-field>
     </div>
 
