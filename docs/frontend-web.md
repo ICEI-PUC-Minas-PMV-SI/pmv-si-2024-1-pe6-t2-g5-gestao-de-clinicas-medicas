@@ -92,3 +92,50 @@ Página de Relatórios e Estatísticas - Apresenta relatórios dos dados gerenci
 * Médidas padrão para Tablet: min-width: 768px, max-width: 992px
 * Médidas padrão para Computadores e Televisores: min-width: 992px
   
+## Implantação
+
+Para implantar a aplicação em um ambiente de produção, é necessário:
+
+Requisitos de Hardware e Software:
+Hardware:
+* Um servidor com capacidade adequada de processamento e memória. Um provedor de nuvem que ofereça escalabilidade.
+
+Software:
+* Sistema operacional compatível, como Linux (por exemplo, Ubuntu, CentOS).
+* Servidor web, como Nginx ou Apache, para servir o frontend.
+* Banco de dados MySQL preferencialmente em um servidor separado para melhor desempenho.
+
+Plataforma de Hospedagem:
+Provedor de Nuvem:
+* AWS (Amazon Web Services), Google Cloud Platform, Microsoft Azure oferecem opções de hospedagem flexíveis e escaláveis.
+  
+Configuração do Ambiente de Implantação:
+Instalação de Dependências:
+
+* No servidor, instale o Python e as bibliotecas necessárias para executar o backend Flask.
+* Instale o servidor web (Nginx ou Apache) e configure-o para servir os arquivos estáticos do frontend.
+  
+Variáveis de Ambiente:
+
+* Configure as variáveis de ambiente necessárias, como chaves de API, configurações de banco de dados, etc.
+* Utilize arquivos de configuração separados para ambientes de desenvolvimento e produção.
+
+Deploy da Aplicação:
+Obtenha o Código:
+
+* Clone o repositório da aplicação do GitHub para o servidor.
+
+Instalação de Dependências Python:
+* Utilize o gerenciador de pacotes Python (pip) para instalar as dependências listadas no arquivo requirements.txt do backend.
+  
+Compilação e Build do Frontend:
+
+* No ambiente de desenvolvimento, o Angular CLI é usado para compilar o código TypeScript em JavaScript. Isso geralmente é feito usando o comando ng build --prod. Os arquivos estáticos gerados devem ser servidos pelo servidor web.
+
+Configuração do Banco de Dados:
+
+* Configure o banco de dados MySQL, criando o esquema e as tabelas necessárias.
+
+Configuração do Servidor Web:
+
+* Configure o servidor web (Nginx ou Apache) para rotear as solicitações para o backend Flask e servir os arquivos estáticos do frontend.
