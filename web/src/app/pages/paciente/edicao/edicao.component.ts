@@ -9,6 +9,7 @@ import { UtilService } from 'src/app/common/util/util.service';
 import { PacienteVO } from 'src/app/model/vo/PacienteVO';
 import { PacienteService } from '../paciente.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { GenericValidator } from 'src/app/common/util/generic-validator';
 
 @Component({
   selector: 'app-edicao',
@@ -44,7 +45,11 @@ export class EdicaoComponent implements OnInit {
         Validators.required,
         Validators.maxLength(45),
       ]),
-      cpf: new FormControl('', [Validators.required, Validators.maxLength(11)]),
+      cpf: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(11),
+        GenericValidator.validaCpf(),
+      ]),
       dataNascimento: new FormControl('', [Validators.required]),
       telefone: new FormControl('', [
         Validators.required,

@@ -12,17 +12,17 @@
   <div class="form-button">
     <div [formGroup]="usuarioForm" class="fields">
       <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-        <mat-label>E-mail</mat-label>
+        <mat-label>*E-mail</mat-label>
         <input matInput formControlName="email" placeholder="Digite o e-mail" class="inputs" />
       </mat-form-field>
 
       <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-        <mat-label>Senha</mat-label>
+        <mat-label>*Senha</mat-label>
         <input matInput formControlName="senha" placeholder="Digite a senha" />
       </mat-form-field>
 
       <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-        <mat-label>Tipo</mat-label>
+        <mat-label>*Tipo</mat-label>
         <mat-select formControlName="tipo" placeholder="Selecione o tipo">
           <mat-option value="medico">
             Médico

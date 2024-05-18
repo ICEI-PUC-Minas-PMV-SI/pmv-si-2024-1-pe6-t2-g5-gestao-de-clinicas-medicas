@@ -10,7 +10,7 @@
   <div class="form-button">
     <div [formGroup]="consultaForm" class="fields">
       <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-        <mat-label>Paciente</mat-label>
+        <mat-label>*Paciente</mat-label>
         <mat-select formControlName="paciente" placeholder="Selecione o paciente">
           <mat-option *ngFor="let paciente of pacientes" [value]="paciente.id">
             {{paciente.nome}}
@@ -19,7 +19,7 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-        <mat-label>Médico</mat-label>
+        <mat-label>*Médico</mat-label>
         <mat-select formControlName="medico" placeholder="Selecione o médico">
           <mat-option *ngFor="let medico of medicos" [value]="medico.id">
             {{medico.nome}}
@@ -28,7 +28,7 @@
       </mat-form-field>
 
       <mat-form-field class="field" appearance="outline" floatLabel="always" hideRequiredMarker>
-        <mat-label>Data</mat-label>
+        <mat-label>*Data</mat-label>
         <input matInput [matDatepicker]="dp1" placeholder="Selecione a data da consulta" formControlName="data" />
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
@@ -36,17 +36,17 @@
       </mat-form-field>
 
       <mat-form-field class="field" appearance="outline" floatLabel="always" hideRequiredMarker>
-        <mat-label>Horário Início</mat-label>
+        <mat-label>*Horário Início</mat-label>
         <input matInput formControlName="horarioInicio" placeholder="Digite o horário início" />
       </mat-form-field>
 
       <mat-form-field class="field" appearance="outline" floatLabel="always" hideRequiredMarker>
-        <mat-label>Horário Fim</mat-label>
+        <mat-label>*Horário Fim</mat-label>
         <input matInput formControlName="horarioFim" placeholder="Digite o horário fim" />
       </mat-form-field>
 
       <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-        <mat-label>Status</mat-label>
+        <mat-label>*Status</mat-label>
         <mat-select formControlName="status" placeholder="Selecione o status">
           <mat-option value="CONCLUIDO">
             Concluída

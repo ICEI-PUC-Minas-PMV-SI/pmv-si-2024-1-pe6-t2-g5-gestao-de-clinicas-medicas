@@ -9,6 +9,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { PacienteVO } from 'src/app/model/vo/PacienteVO';
 import { PacienteService } from '../paciente.service';
 import { UtilService } from '../../../common/util/util.service';
+import { GenericValidator } from 'src/app/common/util/generic-validator';
 
 @Component({
   selector: 'app-cadastro',
@@ -35,7 +36,11 @@ export class CadastroComponent implements OnInit {
         Validators.required,
         Validators.maxLength(45),
       ]),
-      cpf: new FormControl('', [Validators.required, Validators.maxLength(11)]),
+      cpf: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(11),
+        GenericValidator.validaCpf(),
+      ]),
       dataNascimento: new FormControl('', [Validators.required]),
       telefone: new FormControl('', [
         Validators.required,

@@ -21,11 +21,11 @@ export class PaginaInicialComponent implements OnInit {
 
   private criaCards() {
     this.cards = [
-      {
-        icon: 'assets/icon/cards/dashboard.svg',
-        title: 'Dashboards',
-        url: 'dashboard',
-      },
+      // {
+      //   icon: 'assets/icon/cards/dashboard.svg',
+      //   title: 'Dashboards',
+      //   url: 'dashboard',
+      // },
       {
         icon: 'assets/icon/cards/clinica.svg',
         title: 'Clínica',
@@ -56,11 +56,11 @@ export class PaginaInicialComponent implements OnInit {
         title: 'Gerenciar Usuários',
         url: 'usuario',
       },
-      {
-        icon: 'assets/icon/cards/relatorio.svg',
-        title: 'Relatórios',
-        url: 'relatorio',
-      },
+      // {
+      //   icon: 'assets/icon/cards/relatorio.svg',
+      //   title: 'Relatórios',
+      //   url: 'relatorio',
+      // },
     ];
   }
 }

@@ -14,13 +14,13 @@ const routes: Routes = [
         (m) => m.PaginaInicialModule
       ),
   },
-  {
-    path: 'dashboard',
-    loadChildren: () =>
-      import('./pages/dashboard/dashboard.module').then(
-        (m) => m.DashboardModule
-      ),
-  },
+  // {
+  //   path: 'dashboard',
+  //   loadChildren: () =>
+  //     import('./pages/dashboard/dashboard.module').then(
+  //       (m) => m.DashboardModule
+  //     ),
+  // },
   {
     path: 'clinica',
     loadChildren: () =>
@@ -58,13 +58,13 @@ const routes: Routes = [
         (m) => m.ProntuarioModule
       ),
   },
-  {
-    path: 'relatorio',
-    loadChildren: () =>
-      import('./pages/relatorio/relatorio.module').then(
-        (m) => m.RelatorioModule
-      ),
-  },
+  // {
+  //   path: 'relatorio',
+  //   loadChildren: () =>
+  //     import('./pages/relatorio/relatorio.module').then(
+  //       (m) => m.RelatorioModule
+  //     ),
+  // },
 ];
 
 @NgModule({

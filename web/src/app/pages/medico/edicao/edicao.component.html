@@ -9,12 +9,12 @@
   </div>
   <div [formGroup]="medicoForm">
     <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-      <mat-label>Nome</mat-label>
+      <mat-label>*Nome</mat-label>
       <input matInput formControlName="nome" placeholder="Digite o nome" />
     </mat-form-field>
 
     <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-      <mat-label>Especialidade</mat-label>
+      <mat-label>*Especialidade</mat-label>
       <mat-select formControlName="especialidade">
         <mat-option *ngFor="let espec of especialidades" [value]="espec" placeholder="Selecione a especialidade">
           {{espec}}
@@ -23,7 +23,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-      <mat-label>CRM</mat-label>
+      <mat-label>*CRM</mat-label>
       <input matInput formControlName="crm" placeholder="Digite o crm" />
     </mat-form-field>
   </div>
