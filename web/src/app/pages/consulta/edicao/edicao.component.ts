@@ -10,7 +10,7 @@ import { ConsultaVO } from 'src/app/model/vo/ConsultaVO';
 import { MedicoService } from '../../medico/medico.service';
 import { PacienteService } from '../../paciente/paciente.service';
 import { ConsultaService } from '../consulta.service';
-import { UtilService } from './../../../common/util.service';
+import { UtilService } from '../../../common/util/util.service';
 
 @Component({
   selector: 'app-edicao',

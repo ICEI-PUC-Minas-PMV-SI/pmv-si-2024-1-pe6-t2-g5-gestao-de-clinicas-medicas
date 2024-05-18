@@ -9,7 +9,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { ConsultaVO } from 'src/app/model/vo/ConsultaVO';
 import { PacienteService } from '../../paciente/paciente.service';
 import { ConsultaService } from '../consulta.service';
-import { UtilService } from './../../../common/util.service';
+import { UtilService } from '../../../common/util/util.service';
 import { MedicoService } from '../../medico/medico.service';
 
 @Component({

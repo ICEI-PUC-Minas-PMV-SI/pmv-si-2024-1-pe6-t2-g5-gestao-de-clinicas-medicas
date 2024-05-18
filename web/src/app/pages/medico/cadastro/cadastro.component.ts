@@ -8,7 +8,7 @@ import {
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MedicoVO } from 'src/app/model/vo/MedicoVO';
 import { MedicoService } from '../medico.service';
-import { UtilService } from './../../../common/util.service';
+import { UtilService } from '../../../common/util/util.service';
 
 @Component({
   selector: 'app-cadastro',

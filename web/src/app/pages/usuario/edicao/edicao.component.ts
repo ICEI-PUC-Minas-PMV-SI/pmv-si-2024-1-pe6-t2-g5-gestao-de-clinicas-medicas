@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { UtilService } from 'src/app/common/util.service';
+import { UtilService } from 'src/app/common/util/util.service';
 import { UsuarioService } from '../usuario.service';
 import { UsuarioVO } from 'src/app/model/vo/UsuarioVO';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
