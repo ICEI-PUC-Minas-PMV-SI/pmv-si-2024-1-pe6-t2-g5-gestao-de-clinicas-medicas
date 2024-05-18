@@ -56,7 +56,6 @@ export class VisualizacaoComponent implements OnInit {
     this.prontuarioService
       .buscarPorId(this.dados.idProntuario)
       .subscribe((rs: any) => {
-        console.log('RS', rs.data);
         this.preencherForm(rs.data[0]);
       });
   }

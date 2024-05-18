@@ -37,6 +37,7 @@ export class ProntuarioComponent implements OnInit {
 
   buscarProntuarios() {
     this.prontuarioService.buscarTodos().subscribe((rs: any) => {
+      console.log('RS', rs);
       this.dataSource = new MatTableDataSource<ProntuarioTable>(rs.data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

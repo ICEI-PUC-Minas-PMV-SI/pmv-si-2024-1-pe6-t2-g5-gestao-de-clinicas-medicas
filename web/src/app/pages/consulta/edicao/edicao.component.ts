@@ -83,7 +83,6 @@ export class EdicaoComponent implements OnInit {
   }
 
   preencherForm(dados: any) {
-    console.log('DADOS', dados);
     this.consultaForm.patchValue({
       id: dados.id,
       medico: this.getObjectMedico(dados.idmedico).id,

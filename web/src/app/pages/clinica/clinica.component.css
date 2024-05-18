@@ -82,11 +82,12 @@
 .button {
     border: none;
     border-radius: 10px;
-    width: 4em;
+    width: 8em;
     padding: 1em 1em;
     text-align: center;
     text-decoration: none;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .save-button {
