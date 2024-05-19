@@ -144,7 +144,7 @@ Foi utilizado o E2E como tipo de teste para a aplicação.
 ### Requisitos Funcionais:
 
 |ID    | Descrição do Requisito                                                                | Prioridade | Condição |
-|------|---------------------------------------------------------------------------------------|----|
+|------|---------------------------------------------------------------------------------------|----|-------------------------------|
 |RF-001| Web - Login usuários                                                                  | ALTA | Concluído |
 |RF-002| Web - Logout usuários                                                                 | ALTA | Concluído |
 |RF-003| Web - Cadastrar/Consultar/Alterar dados da clínica/consultórios                       | ALTA | Parcialmente Concluído |
@@ -162,7 +162,7 @@ Foi utilizado o E2E como tipo de teste para a aplicação.
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito                                            |Prioridade | Condição |
-|-------|-------------------------------------------------------------------|------|
+|-------|-------------------------------------------------------------------|------|-----------------|
 |RNF-001| A aplicação deve ter boa usabilidade                              | ALTA | Concluído |
 |RNF-002| A aplicação deve ser multiplataforma                              | ALTA | Parcialmente Concluído |
 |RNF-003| A aplicação deve ter confiabilidade                               | MÉDIA | Concluído |
