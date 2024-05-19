@@ -79,22 +79,28 @@ Buscamos para o desenvolvimento da ConsulMed um estilo visual clean, moderno e a
 
 
 ### Tipografia:
-* Roboto Flex - Uma fonte sans-serif moderna e profissional, que oferece excelente legibilidade tanto em telas quanto em impressos.
+
+Roboto Flex - Uma fonte sans-serif moderna e profissional, que oferece excelente legibilidade tanto em telas quanto em impressos.
 
 ### Ícones:
-* Material Design Icons - Ícones simples, modernos e consistentes, que representam as funcionalidades do sistema de forma clara e intuitiva. 
+
+Material Design Icons - Ícones simples, modernos e consistentes, que representam as funcionalidades do sistema de forma clara e intuitiva. 
 
 ### Padronização das telas: 
 
-* Layout: As telas do sistema seguirão um layout consistente, com elementos dispostos de forma organizada e intuitiva, facilitando a navegação dos usuários.
-* Hierarquia visual: A hierarquia visual será definida através do uso de cores, tamanhos de fonte e espaçamentos, guiando o olhar do usuário para os elementos mais importantes da tela.
-* Elementos reutilizáveis: Módulos e componentes reutilizáveis serão utilizados para garantir a consistência da interface em todas as telas do sistema. 
+Layout: As telas do sistema seguirão um layout consistente, com elementos dispostos de forma organizada e intuitiva, facilitando a navegação dos usuários.
+
+Hierarquia visual: A hierarquia visual será definida através do uso de cores, tamanhos de fonte e espaçamentos, guiando o olhar do usuário para os elementos mais importantes da tela.
+
+Elementos reutilizáveis: Módulos e componentes reutilizáveis serão utilizados para garantir a consistência da interface em todas as telas do sistema. 
 
 ### Layout Responsivo
 
-* Médidas padrão para SmartPhones: max-width: 768px
-* Médidas padrão para Tablet: min-width: 768px, max-width: 992px
-* Médidas padrão para Computadores e Televisores: min-width: 992px
+Médidas padrão para SmartPhones: max-width: 768px
+
+Médidas padrão para Tablet: min-width: 768px, max-width: 992px
+
+Médidas padrão para Computadores e Televisores: min-width: 992px
   
 ## Implantação
 
