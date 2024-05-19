@@ -40,16 +40,6 @@ Página de Relatórios e Estatísticas - Apresenta relatórios dos dados gerenci
 
 ## Wireframes
 
-![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/4354172c-aed1-406d-a411-8c88ee56aa9d)
-![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/4bd9e388-26fa-411e-b55b-a37efb583945)
-![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/410bc885-d6fb-4b5c-85da-40e1f14f72ba)
-![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/240977f8-3a2f-439d-a004-c3947966db05)
-![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/41b061cb-89b3-4247-80cc-29d55eb0cc8b)
-![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/8a477da0-7054-465f-b5ea-d873773c7dad)
-![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/de65311a-8032-403e-ac47-c341a8dec8c9)
-![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/ec6139c0-9297-4fbb-b836-9f22349ca2cc)
-![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/6aef3a69-f840-454c-a5b1-b4ddf3012dbe)
-![image](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/76ae47ae-4a72-4099-9d2f-ac35c47c9000)
 
 ## Design Visual
 
