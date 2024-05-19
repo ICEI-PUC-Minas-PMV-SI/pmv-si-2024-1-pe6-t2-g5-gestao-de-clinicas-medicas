@@ -6,7 +6,8 @@ import { ConsultaVO } from 'src/app/model/vo/ConsultaVO';
   providedIn: 'root',
 })
 export class ConsultaService {
-  private readonly API = 'http://localhost:8080/consultas';
+  private readonly API =
+    'http://ec2-18-214-226-89.compute-1.amazonaws.com/consultas';
 
   constructor(private http: HttpClient) {}
 

@@ -6,7 +6,8 @@ import { ClinicaVO } from 'src/app/model/vo/ClinicaVO';
   providedIn: 'root',
 })
 export class ClinicaService {
-  private readonly API = 'http://localhost:8080/clinica';
+  private readonly API =
+    'http://ec2-18-214-226-89.compute-1.amazonaws.com/clinica';
 
   constructor(private http: HttpClient) {}
 

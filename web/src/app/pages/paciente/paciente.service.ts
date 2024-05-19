@@ -6,7 +6,8 @@ import { PacienteVO } from 'src/app/model/vo/PacienteVO';
   providedIn: 'root',
 })
 export class PacienteService {
-  private readonly API = 'http://localhost:8080/pacientes';
+  private readonly API =
+    'http://ec2-18-214-226-89.compute-1.amazonaws.com/pacientes';
 
   constructor(private http: HttpClient) {}
 

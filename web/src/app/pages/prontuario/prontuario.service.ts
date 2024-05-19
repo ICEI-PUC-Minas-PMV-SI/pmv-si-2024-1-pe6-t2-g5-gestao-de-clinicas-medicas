@@ -6,7 +6,8 @@ import { ProntuarioVO } from 'src/app/model/vo/ProntuarioVO';
   providedIn: 'root',
 })
 export class ProntuarioService {
-  private readonly API = 'http://localhost:8080/prontuarios';
+  private readonly API =
+    'http://ec2-18-214-226-89.compute-1.amazonaws.com/prontuarios';
 
   constructor(private http: HttpClient) {}
 

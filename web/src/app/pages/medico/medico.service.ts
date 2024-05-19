@@ -7,7 +7,8 @@ import { MedicoVO } from 'src/app/model/vo/MedicoVO';
   providedIn: 'root',
 })
 export class MedicoService {
-  private readonly API = 'http://localhost:8080/medicos';
+  private readonly API =
+    'http://ec2-18-214-226-89.compute-1.amazonaws.com/medicos';
   public tokenAPI: any;
 
   constructor(private http: HttpClient) {}
