@@ -41,20 +41,23 @@ Página de Relatórios e Estatísticas - Apresenta relatórios dos dados gerenci
 ## Wireframes
 
 ![Login](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/login.png)
+
 ![Home](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/inicioadm.png)
+
 ![Dashboards](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/dashboards.png)
+
 ![Clínica](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/clinica.png)
+
 ![Usuários](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/usuarios.png)
-![Modal novo usuário](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/modalusuario.png)
+
 ![Médicos](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/medicos.png)
-![Modal novo médico](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/modalmedico.png)
-![Modal nova especialidade](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/modalespecialidade.png)
+
 ![Pacientes](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/pacientes.png)
-![Modal novo paciente](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/modalpaciente.png)
+
 ![Consunltas](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/consultas.png)
-![Modal nova consulta](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/modalconsulta.png)
+
 ![Prontuários adm](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/prontuariosadm.png)
-![Modal visualização prontuário](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/visuprontuario.png)
+
 ![Relatórios](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/relatorios.png)
 
 
@@ -62,38 +65,30 @@ Página de Relatórios e Estatísticas - Apresenta relatórios dos dados gerenci
 
 ![Design](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/estilo.png)
 
-### Colors:
+Buscamos para o desenvolvimento da ConsulMed um estilo visual clean, moderno e acolhedor, elaborado para transmitir profissionalismo, organização e confiabilidade. 
+
+### Cores:
 * #007954
 * #FFFFFF
-* #000000
-* #00815A
-* #666666
-* #F1F1F1
-* #505050
 * #282828
+
 * #BADDC0 60%
 * #FFD6D6 60%
+* #F1F1F1
+* #505050
 
-### Font:
-* Roboto Flex
 
-### Icons:
-* notification
-* perfil
-* bar-chart-line-fill 1
-* hospital-fill 1
-* clipboard2-check-fill 1
-* file-earmark-text-fill 1
-* people-fill 1
-* person-vcard 1
-* person-fill-add 1
-* arrow-left-circle 1
-* pencil-fill 1
-* trash3-fill 1
-* search 1
-* calendar 2
-* caret-down-fill 1
-* eye 1
+### Tipografia:
+* Roboto Flex - Uma fonte sans-serif moderna e profissional, que oferece excelente legibilidade tanto em telas quanto em impressos.
+
+### Ícones:
+* Material Design Icons - Ícones simples, modernos e consistentes, que representam as funcionalidades do sistema de forma clara e intuitiva. 
+
+### Padronização das telas: 
+
+* Layout: As telas do sistema seguirão um layout consistente, com elementos dispostos de forma organizada e intuitiva, facilitando a navegação dos usuários.
+* Hierarquia visual: A hierarquia visual será definida através do uso de cores, tamanhos de fonte e espaçamentos, guiando o olhar do usuário para os elementos mais importantes da tela.
+* Elementos reutilizáveis: Módulos e componentes reutilizáveis serão utilizados para garantir a consistência da interface em todas as telas do sistema. 
 
 ### Layout Responsivo
 
