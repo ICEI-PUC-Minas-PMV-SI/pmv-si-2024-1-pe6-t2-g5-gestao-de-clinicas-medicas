@@ -168,3 +168,11 @@ Foi utilizado o E2E como tipo de teste para a aplicação.
 |RNF-003| A aplicação deve ter confiabilidade                               | MÉDIA | Concluído |
 |RNF-004| A aplicação deve ser responsiva para rodar em dispositivos móveis | BAIXA | Concluído |
 |RNF-005| A aplicação deve processar requisições do usuário em no máximo 3s | BAIXA | Concluído |
+
+### Teste de carga da aplicação 
+
+Ferramentas utilizadas: 
+
+* Apache JMeter
+![Captura de tela 2024-05-19 174602](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/assets/80932176/8398a352-a791-45d4-b73d-fd9e9ea7ff76)
+
