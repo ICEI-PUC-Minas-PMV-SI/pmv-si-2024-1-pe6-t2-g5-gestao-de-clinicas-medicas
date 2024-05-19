@@ -35,7 +35,7 @@ export class VisualizacaoComponent implements OnInit {
       numero: new FormControl({ value: '', disabled: true }),
       bairro: new FormControl({ value: '', disabled: true }),
       cidade: new FormControl({ value: '', disabled: true }),
-      uf: new FormControl({ value: '', disabled: true }),
+      // uf: new FormControl({ value: '', disabled: true }),
     });
 
     this.prontuarioForm = this.formBuilder.group({
@@ -62,22 +62,22 @@ export class VisualizacaoComponent implements OnInit {
 
   preencherForm(dados: any) {
     this.pacienteForm.patchValue({
-      id: dados.id,
+      id: dados.idpaciente,
       nome: dados.nome,
       cpf: dados.cpf,
-      dataNascimento: dados.data_nascimento,
+      dataNascimento: new Date(dados.data_nascimento + 'T00:00'),
       telefone: dados.telefone,
       logradouro: dados.logradouro,
       numero: dados.numero,
       bairro: dados.bairro,
       cidade: dados.cidade,
-      uf: dados.uf,
+      // uf: dados.uf,
     });
 
     this.prontuarioForm.patchValue({
       id: dados.id,
       data: new Date(dados.data_criacao),
-      medico: dados.medico,
+      medico: dados.nome_medico,
       especialidade: dados.especialidade,
       historicoMedico: dados.historico_medico,
       diagnostico: dados.diagnostico,

@@ -13,6 +13,7 @@ import { EdicaoComponent } from './edicao/edicao.component';
 import { PacienteComponent } from './paciente.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { NgxMaskModule } from 'ngx-mask';
 
 const routes: Routes = [
   {
@@ -36,6 +37,7 @@ const routes: Routes = [
     MatNativeDateModule,
     MatPaginatorModule,
     MatSortModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [MatDatepickerModule, MatNativeDateModule],
 })

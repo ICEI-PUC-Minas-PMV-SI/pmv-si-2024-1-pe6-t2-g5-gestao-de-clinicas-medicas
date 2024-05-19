@@ -22,17 +22,20 @@
 
         <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
           <mat-label>CPF</mat-label>
-          <input matInput formControlName="cpf" class="inputs" />
+          <input matInput formControlName="cpf" class="inputs" mask="000.000.000-00" />
         </mat-form-field>
 
         <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-          <mat-label>Data de Nascimento</mat-label>
-          <input matInput formControlName="dataNascimento" class="inputs" />
+          <mat-label>*Data de Nascimento</mat-label>
+          <input matInput [matDatepicker]="dp1" formControlName="dataNascimento" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+          <mat-datepicker #dp1></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
           <mat-label>Telefone</mat-label>
-          <input matInput formControlName="telefone" class="inputs" />
+          <input matInput formControlName="telefone" class="inputs" mask="(00)00000-0000" />
         </mat-form-field>
 
         <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
@@ -55,10 +58,10 @@
           <input matInput formControlName="cidade" class="inputs" />
         </mat-form-field>
 
-        <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+        <!-- <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
           <mat-label>UF</mat-label>
           <input matInput formControlName="uf" class="inputs" />
-        </mat-form-field>
+        </mat-form-field> -->
       </div>
     </div>
 
@@ -70,9 +73,9 @@
         <div [formGroup]="prontuarioForm" class="fields">
           <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
             <mat-label>Data</mat-label>
-            <input matInput [matDatepicker]="dp1" formControlName="data" class="inputs" />
-            <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
-            <mat-datepicker #dp1></mat-datepicker>
+            <input matInput [matDatepicker]="dp2" formControlName="data" class="inputs" />
+            <mat-datepicker-toggle matSuffix [for]="dp2"></mat-datepicker-toggle>
+            <mat-datepicker #dp2></mat-datepicker>
           </mat-form-field>
 
           <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>

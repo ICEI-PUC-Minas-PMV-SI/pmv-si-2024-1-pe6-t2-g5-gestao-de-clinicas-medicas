@@ -38,7 +38,7 @@ export class CadastroComponent implements OnInit {
       ]),
       cpf: new FormControl('', [
         Validators.required,
-        Validators.maxLength(11),
+        Validators.maxLength(14),
         GenericValidator.validaCpf(),
       ]),
       dataNascimento: new FormControl('', [Validators.required]),

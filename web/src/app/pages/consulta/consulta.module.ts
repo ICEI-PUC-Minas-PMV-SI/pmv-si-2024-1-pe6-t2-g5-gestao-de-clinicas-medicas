@@ -6,14 +6,15 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { RouterModule, Routes } from '@angular/router';
+import { NgxMaskModule } from 'ngx-mask';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ConsultaComponent } from './consulta.component';
 import { EdicaoComponent } from './edicao/edicao.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
 
 const routes: Routes = [
   {
@@ -37,6 +38,7 @@ const routes: Routes = [
     MatSelectModule,
     MatPaginatorModule,
     MatSortModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [MatDatepickerModule, MatNativeDateModule],
 })
