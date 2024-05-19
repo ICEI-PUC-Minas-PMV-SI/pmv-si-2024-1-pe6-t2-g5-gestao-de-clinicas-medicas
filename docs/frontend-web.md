@@ -60,7 +60,7 @@ Página de Relatórios e Estatísticas - Apresenta relatórios dos dados gerenci
 
 ## Design Visual
 
-![Design](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/style.png)
+![Design](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/estilo.png)
 
 ### Colors:
 * #007954
