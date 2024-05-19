@@ -5,7 +5,7 @@ O projeto consiste em uma aplicação web para gestão de consultas médicas em 
 ## Tecnologias Utilizadas
 
 ### Tecnologias: 
-* API -  Flask (Python)  
+* API -  Lumen (PHP)  
 * WEB - Angular (Java), Typescript, Bootstrap 
 
 ### Bibliotecas: 
@@ -26,17 +26,17 @@ O projeto consiste em uma aplicação web para gestão de consultas médicas em 
 
 A arquitetura da aplicação web segue o padrão de arquitetura cliente-servidor. No cliente, o front-end é desenvolvido em Angular, utilizando TypeScript e Bootstrap para a criação de componentes de interface de usuário. O front-end interage com o servidor por meio de requisições HTTP para acessar e manipular dados do back-end.
 
-O servidor, implementado com Flask em Python, oferece uma API RESTful para comunicação entre o front-end e o banco de dados. Ele gerencia as requisições dos clientes, processa operações solicitadas e retorna os dados correspondentes. O servidor se comunica com o banco de dados MySQL para recuperar e armazenar informações sobre consultas, pacientes, médicos e outras entidades.
+O servidor, implementado com Lumen em PHP, oferece uma API RESTful para comunicação entre o front-end e o banco de dados. Ele gerencia as requisições dos clientes, processa operações solicitadas e retorna os dados correspondentes. O servidor se comunica com o banco de dados MySQL para recuperar e armazenar informações sobre consultas, pacientes, médicos e outras entidades.
 
 ## Projeto da Interface Web
 
-O projeto foi desenvolvido com foco na usabilidade, eficiência e experiência do usuário. O design visual da aplicação é limpo, moderno e profissional, com uma paleta de cores predominantemente verde e branco, proporcionando uma sensação de tranquilidade associada ao ambiente médico. O contraste com preto e cinza é usado para destacar informações importantes e elementos de navegação. Layout das Páginas As páginas da aplicação foram organizadas de forma lógica e intuitiva, facilitando a navegação e o acesso às funcionalidades principais. 
+O projeto foi desenvolvido com foco na usabilidade, eficiência e experiência do usuário. O design visual da aplicação é limpo, moderno e profissional, com uma paleta de cores predominantemente verde e branco, proporcionando uma sensação de tranquilidade associada ao ambiente médico. O contraste com preto e cinza é usado para destacar informações importantes e elementos de navegação. As páginas da aplicação foram organizadas de forma lógica e intuitiva, facilitando a navegação e o acesso às funcionalidades principais. 
 
 Página de Login - Permite que os usuários façam login na aplicação utilizando suas credenciais. Página Principal - Apresenta um resumo das próximas consultas agendadas e fornece acesso rápido às funcionalidades mais utilizadas.
 Página de Agendamento de Consultas - Permite que os usuários agendem novas consultas selecionando o médico, dados e horários desejados.
 Página de Perfil do Paciente - Exibe informações fornecidas sobre o paciente, como histórico médico, consultas agendadas e medicamentos prescritos.
 Página de Registro de Prontuários - Permite que os profissionais de saúde registrem informações fornecidas sobre o atendimento e tratamento de um paciente.
-Página de Relatórios e Estatísticas - Apresenta relatórios dos dados gerenciais das clinicas.
+Página de Relatórios e Estatísticas - Apresenta relatórios dos dados gerenciais da clinica.
 
 ## Wireframes
 
@@ -101,7 +101,7 @@ Hardware:
 * Um servidor com capacidade adequada de processamento e memória. Um provedor de nuvem que ofereça escalabilidade.
 
 Software:
-* Sistema operacional compatível, como Linux (por exemplo, Ubuntu, CentOS).
+* Sistema operacional compatível, como Linux , Ubuntu, CentOS, etc.
 * Servidor web, como Nginx ou Apache, para servir o frontend.
 * Banco de dados MySQL preferencialmente em um servidor separado para melhor desempenho.
 
@@ -112,7 +112,7 @@ Provedor de Nuvem:
 Configuração do Ambiente de Implantação:
 Instalação de Dependências:
 
-* No servidor, instale o Python e as bibliotecas necessárias para executar o backend Flask.
+* No servidor, instale o PHP e as bibliotecas necessárias para executar o backend Lumen.
 * Instale o servidor web (Nginx ou Apache) e configure-o para servir os arquivos estáticos do frontend.
   
 Variáveis de Ambiente:
@@ -125,9 +125,6 @@ Obtenha o Código:
 
 * Clone o repositório da aplicação do GitHub para o servidor.
 
-Instalação de Dependências Python:
-* Utilize o gerenciador de pacotes Python (pip) para instalar as dependências listadas no arquivo requirements.txt do backend.
-  
 Compilação e Build do Frontend:
 
 * No ambiente de desenvolvimento, o Angular CLI é usado para compilar o código TypeScript em JavaScript. Isso geralmente é feito usando o comando ng build --prod. Os arquivos estáticos gerados devem ser servidos pelo servidor web.
