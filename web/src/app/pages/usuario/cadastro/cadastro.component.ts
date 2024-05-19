@@ -31,7 +31,7 @@ export class CadastroComponent implements OnInit {
 
   initForm() {
     this.usuarioForm = this.formBuilder.group({
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       senha: new FormControl('', [Validators.required]),
       tipo: new FormControl('', [Validators.required]),
     });
@@ -49,9 +49,15 @@ export class CadastroComponent implements OnInit {
         location.reload();
       });
     } else {
-      const message = 'PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR';
-      const action = 'OK';
-      this.utilService.openSnackBar(message, action);
+      if (this.usuarioForm.controls['email'].errors) {
+        const message = 'E-MAIL INVÁLIDO';
+        const action = 'OK';
+        this.utilService.openSnackBar(message, action);
+      } else {
+        const message = 'PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR';
+        const action = 'OK';
+        this.utilService.openSnackBar(message, action);
+      }
     }
   }
 

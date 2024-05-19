@@ -34,8 +34,8 @@ export class EdicaoComponent implements OnInit {
   initForm() {
     this.usuarioForm = this.formBuilder.group({
       id: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      senha: new FormControl(''),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      senha: new FormControl('', [Validators.required]),
       tipo: new FormControl('', [Validators.required]),
     });
   }
@@ -65,7 +65,7 @@ export class EdicaoComponent implements OnInit {
       };
 
       if (usuario.id != null) {
-        this.usuarioService.cadastrar(usuario).subscribe((rs) => {
+        this.usuarioService.atualizar(usuario.id, usuario).subscribe((rs) => {
           location.reload();
         });
       } else {
@@ -74,9 +74,15 @@ export class EdicaoComponent implements OnInit {
         this.utilService.openSnackBar(message, action);
       }
     } else {
-      const message = 'PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR';
-      const action = 'OK';
-      this.utilService.openSnackBar(message, action);
+      if (this.usuarioForm.controls['email'].errors) {
+        const message = 'E-MAIL INVÁLIDO';
+        const action = 'OK';
+        this.utilService.openSnackBar(message, action);
+      } else {
+        const message = 'PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR';
+        const action = 'OK';
+        this.utilService.openSnackBar(message, action);
+      }
     }
   }
 

@@ -5,6 +5,6 @@ export enum EspecialidadeEnum {
   PEDIATRIA = 'Pediatria',
   OFTALMOLOGIA = 'Oftalmologia',
   GINECOLOGIA = 'Ginecologia',
-  PSIQUIATRIA = 'PsIquiatria',
+  PSIQUIATRIA = 'Psiquiatria',
   NEUROLOGIA = 'Neurologia',
 }

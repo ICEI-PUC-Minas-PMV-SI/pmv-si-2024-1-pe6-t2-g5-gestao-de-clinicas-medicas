@@ -110,9 +110,19 @@ export class EdicaoComponent implements OnInit {
         this.utilService.openSnackBar(message, action);
       }
     } else {
-      const message = 'PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR';
-      const action = 'OK';
-      this.utilService.openSnackBar(message, action);
+      if (this.pacienteForm.controls['cpf'].errors) {
+        const message = 'CPF INVÁLIDO';
+        const action = 'OK';
+        this.utilService.openSnackBar(message, action);
+      } else if (this.pacienteForm.controls['telefone'].errors) {
+        const message = 'TELEFONE INVÁLIDO';
+        const action = 'OK';
+        this.utilService.openSnackBar(message, action);
+      } else {
+        const message = 'PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR';
+        const action = 'OK';
+        this.utilService.openSnackBar(message, action);
+      }
     }
   }
 
