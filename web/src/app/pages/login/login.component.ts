@@ -8,7 +8,7 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UtilService } from 'src/app/common/util/util.service';
-import { CadastroComponent } from '../usuario/cadastro/cadastro.component';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private utilService: UtilService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -37,15 +38,23 @@ export class LoginComponent implements OnInit {
   }
 
   autenticarUsuario() {
-    const email = this.loginForm.get('email')?.value;
-    const senha = this.loginForm.get('senha')?.value;
-    if (email == 'admin' && senha == 'admin') {
-      this.router.navigateByUrl('home');
-    } else {
-      const message = 'Email ou senha inválido';
-      const action = 'OK';
-      this.utilService.openSnackBar(message, action);
-    }
+    const user = {
+      email: this.loginForm.get('email')?.value,
+      password: this.loginForm.get('senha')?.value,
+    };
+    this.loginService.login(user).subscribe((rs: any) => {
+      if (rs && rs.message === 'autenticado') {
+        sessionStorage.setItem('token', rs.token);
+        this.router.navigateByUrl('home');
+        const message = 'Login autenticado';
+        const action = 'OK';
+        this.utilService.openSnackBar(message, action);
+      } else {
+        const message = 'Email ou senha inválido';
+        const action = 'OK';
+        this.utilService.openSnackBar(message, action);
+      }
+    });
   }
 
   linkTo(path: string) {
