@@ -96,45 +96,332 @@ Medidas padrão para Tablet: min-width: 768px, max-width: 992px;
 Medidas padrão para Computadores e Televisores: min-width: 992px. 
 
 ### Interações do Usuário
-[Descreva as interações do usuário na interface, como animações, transições entre páginas e outras interações.]
+
+Animações e transições: 
+
+Objetivos: 
+
+* Tornar a interface mais fluida e responsiva; 
+* Ajudar os usuários a entender melhor as mudanças na interface; 
+* Melhorar a experiência geral do usuário. 
+
+Tipos de Animações: 
+
+1. Transições de Página:
+
+* Deslizamento (Slide): Transições suaves entre páginas, onde a nova página desliza para dentro enquanto a página atual desliza para fora. 
+
+Animações de Elementos:
+
+*Botões e Ícones: Efeitos de toque, o tamanho dos botões será levemente aumentado ao ser pressionado. 
+
+*Campos de Formulário: Campos de formulários ao receber foco ou mostrar uma animação de erro se a validação falhar. 
+
+2. Feedback Visual 
+
+Objetivos: 
+
+* Fornecer aos usuários uma indicação de que suas ações foram reconhecidas; 
+* Melhorar a interação com a interface. 
+* Exemplos de Feedback Visual: 
+
+Botões: 
+
+* Destaque (aumento) ao ser pressionado. 
+* Pequenas animações de pulsação ao passar o mouse. 
+
+Formulários: 
+
+* Destaque ao redor dos campos ativos. 
+* Mensagens de validação instantânea ao inserir dados incorretos. 
+
+ 3. Animações de Carregamento 
+
+Objetivos: 
+
+* Informar os usuários que uma ação está em andamento. 
+* Reduzir a percepção de tempo de espera. 
+
+Exemplos de Animações de Carregamento: 
+
+* Spinner: Um ícone de carregamento circular que gira enquanto dados estão sendo carregados. 
+
+De forma geral, incorporar animações, transições suaves e interações responsivas na interface da aplicação melhora significativamente a experiência do usuário. Utilizando técnicas de CSS e JavaScript, é possível criar uma interface não apenas funcional, mas também agradável e intuitiva.
 
 ## Fluxo de Dados
 
-[Diagrama ou descrição do fluxo de dados na aplicação.]
+O fluxo de dados consiste na troca de dados entre a Aplicação Mobile e os usuários, de modo permitir o agendamento de consultas e visualização de prontuários. 
+
+![Fluxo de dados](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/fluxograma1M.jpg))
+
+Na figura abaixo, está descrita o fluxo de funcionalidades que o paciente poderá efetuar.
+
+FIGURA 2
+
+Registro/Login do Usuário: O usuário acessa o sistema e se registra usando informações pessoais básicas (e-mail e senha). Após o registro, ele pode fazer login no sistema. 
+
+Página Principal: Após o login, o usuário é direcionado para a página principal, onde pode ver as opções da aplicação (consultas e prontuários). 
+
+Consultas: Na respectiva tela, o usuário consegue visualizar e filtrar as consultas por médico, status ou data, também sendo possível o agendamento de uma nova consulta, onde irá fornecer detalhes como especialidade médica desejada, médico, data e hora preferenciais. Essas informações são enviadas ao servidor do sistema. Após o envio dos detalhes da consulta, o servidor verifica a disponibilidade do médico e confirma a marcação da consulta. O usuário recebe uma notificação confirmando o agendamento. 
+
+Prontuários: O usuário pode acessar seus prontuários médicos anteriores, que são armazenados de forma segura no servidor. Ele pode visualizar informações como diagnósticos anteriores, prescrições médicas e resultados de exames. 
+
+Notificações: O aplicativo pode enviar notificações para lembrar o usuário de suas consultas agendadas. 
 
 ## Requisitos Funcionais
 
-[Liste os principais requisitos funcionais da aplicação.]
+|ID    | Descrição do Requisito                                                                | Prioridade |
+|------|---------------------------------------------------------------------------------------|----|
+|RF-001|Autenticar usuários |Alta|                                                           |RF-002|Gerenciar dados pessoais|Alta| 
+|RF-003|Gerenciar consultas  |Alta|   
+|RF-004|Visualizar prontuário médico |Alta|   
+|RF-005|Redefinir senha | Média|   
+|RF-006|Notificar sobre consultas | Baixa|   
 
 ## Requisitos Não Funcionais
 
-[Liste os principais requisitos não funcionais da aplicação, como desempenho, segurança, escalabilidade, etc.]
-
+|ID    | Descrição do Requisito                                                                | Prioridade |
+|------|---------------------------------------------------------------------------------------|----|
+|RNF-001|A interface do usuário deve ser intuitiva e fácil de usar, com navegação clara e design responsivo. | Alta|   
+|RNF-002|Os usuários devem ter controle sobre seus dados pessoais, incluindo a capacidade de visualizar e editar informações. |Alta|   
+|RNF-003|A aplicação deve processar requisições do usuário em no máximo 3s |Baixa|   
 
 ## Considerações de Segurança
 
-[Discuta as considerações de segurança relevantes para a aplicação distribuída, como autenticação, autorização, proteção contra ataques, etc.]
+Autenticação e autorização: 
+
+* Autenticação: Utilizamos um método de autenticação criado pelos nossos desenvolvedores, no qual é enviado um token pelo usuário sempre que forem realizadas solicitações na API para evitar acesso indevido por usuários não autenticados à rotas sensíveis. Esse token é validado e possui tempo de expiração. 
+
+* Senhas: Armazenamos senhas de forma segura usando técnicas de hashing para proteger contra ataques de força bruta. 
+
+Proteção contra alguns ataques: 
+
+* SQL Injection: Utilizamos consultas parametrizadas com ORM (Object-Relational Mapping) para evitar ataques de injeção de SQL. 
+
+* Cross-Site Request Forgery (CSRF): Implementamos o uso de tokens em todas as requisições a serem feitas na API para prevenir esse tipo de ataque. 
+
+* HTTPS: Utilizamos conexões HTTPS seguras para criptografar dados transmitidos entre o cliente e o servidor, evitando interceptações por atacantes. 
+
+* Configuramos firewalls e filtros de tráfego para detectar e bloquear tráfego malicioso de origem desconhecida ou com padrões suspeitos no servidor. 
+
+* XSS: Utilizamos framework que oferece proteção automática contra XSS, como AngularJS no front-end que conta com medidas de segurança embutidas para dificultar essas ações. 
 
 ## Implantação
 
-[Instruções para implantar a aplicação distribuída em um ambiente de produção.]
+1. Para a implantação da aplicação Mobile, foram realizadas as configurações necessárias e utilizados: 
 
-1. Defina os requisitos de hardware e software necessários para implantar a aplicação em um ambiente de produção.
-2. Escolha uma plataforma de hospedagem adequada, como um provedor de nuvem ou um servidor dedicado.
-3. Configure o ambiente de implantação, incluindo a instalação de dependências e configuração de variáveis de ambiente.
-4. Faça o deploy da aplicação no ambiente escolhido, seguindo as instruções específicas da plataforma de hospedagem.
-5. Realize testes para garantir que a aplicação esteja funcionando corretamente no ambiente de produção.
+2. Servidor com hospedagem na AWS; sistema operacional compatível com Apache, MySQL e Windows; 
+
+3. Banco de dados desenvolvido em MySQL; 
+
+4. API desenvolvida com PHP Lumen para intermediar o fluxo de dados entre o aplicativo e o Banco de dados; 
+
+5. O software Expo para desenvolvimento da aplicação mobile, a ser disponibilizado em Loja de aplicativo; Sendo os códigos salvos no Github; 
+ 
 
 ## Testes
 
-[Descreva a estratégia de teste, incluindo os tipos de teste a serem realizados (unitários, integração, carga, etc.) e as ferramentas a serem utilizadas.]
+Foram elaborados os seguintes casos de teste para a aplicação mobile: 
 
-1. Crie casos de teste para cobrir todos os requisitos funcionais e não funcionais da aplicação.
-2. Implemente testes unitários para testar unidades individuais de código, como funções e classes.
-3. Realize testes de integração para verificar a interação correta entre os componentes da aplicação.
-4. Execute testes de carga para avaliar o desempenho da aplicação sob carga significativa.
-5. Utilize ferramentas de teste adequadas, como frameworks de teste e ferramentas de automação de teste, para agilizar o processo de teste.
+**Caso de teste: 1**
+Resumo: Login de Paciente – Dados corretos 
+Requisito: RF-001 
+Prioridade: Alta 
+Pré-condição: Estar cadastrado no sistema, dados de login corretos 
+
+Passos:  
+
+1. Acessar o app; 
+2. Preencher com os dados de email e senha; 
+3. Clique no botão “Acessar”. 
+
+Resultado Esperado: Exibir modal com a mensagem “Login realizado com sucesso !” e redirecionamento para Página Inicial. 
+
+
+**Caso de teste: 2**
+Resumo: Login de Paciente – Dados incorretos 
+Requisito: RF-001 
+Prioridade: Alta 
+Pré-condição: Usuário sem cadastro 
+
+1. Acessar o app ConsulMed; 
+2. Preencher com os dados de email e senha; 
+3. Clique no botão “Acessar”. 
+
+Resultado Esperado: Exibir modal com a mensagem “ Dados incorretos. Tente novamente!”   
+ 
+
+**Caso de teste: 3**
+Resumo: Login de Paciente – Usuário não cadastrado 
+Requisito: RF-001 
+Prioridade: Alta 
+Pré-condição: Usuário não cadastrado 
+
+Passos:  
+1. Acessar o app ConsulMed; 
+2. Preencher com os dados de email e senha; 
+3. Clique no botão “Acessar”. 
+
+Resultado Esperado: Exibir modal com a mensagem “Clique em cadastrar e preencha com seus dados” 
+
+ 
+**Caso de teste: 4**
+Resumo:  Gerenciar dados pessoais – Edição 
+Requisito: RF-002 
+Prioridade: Alta 
+Pré-condição: Usuário já cadastrado 
+
+Passos:
+ 
+1. Acessar o app; 
+2. Preencher com os dados de email e senha corretos; 
+3. Clique no ícone de usuário “Dados Pessoais”. 
+4. Abre uma modal com os dados cadastrados para edição; 
+5. Clicar no botão “Editar” 
+6. Digitar a alterações nos dados; 
+7. Clicar no botão “Salvar” 
+ 
+Resultado Esperado: Exibir modal com a mensagem “Dados Pessoais alterados!” e redirecionamento para Página Inicial 
+ 
+
+Caso de teste: 5 
+Resumo:  Gerenciar dados pessoais - Cadastro 
+Requisito: RF-002 
+Prioridade: Alta 
+Pré-condição: Novo usuário/Primeiro acesso 
+
+Passos:  
+
+1. Acessar o app; 
+2. Clicar no texto “Primeiro acesso”; 
+3. Preencher com os dados de email e senha; 
+4. Clicar no botão “Salvar”, será redirecionado para Página de Login; 
+5. Digitar email e senha corretos; 
+6. Clicar no botão “Acessar” 
+7. Abre uma modal com os dados de cadastro de paciente para edição; 
+8. Clicar em “Editar”; 
+9. Digitar dados para alteração; 
+10. Clicar no botão “Salvar”; 
+ 
+Resultado Esperado: Exibir modal com a mensagem “Dados Pessoais alterados!” e redirecionamento para Página Inicial 
+
+
+**Caso de teste: 6**
+Resumo:  Gerenciar consultas  –  cadastro 
+Requisito: RF-003 
+Prioridade: Alta 
+Pré-condição: Cadastro no Sistema e Login 
+
+Passos:  
+1. Acessar o app; 
+2. Login; 
+3. Página inicial clicar em consultas; 
+4. Abrir Página de Consultas; 
+5. Clicar no ícone “ + “ 
+6. Abrir modal com nome e CPF do paciente, opção de escolha de especialidade médica, nome do Médico, data da consulta, horário de início; 
+7. Clicar no botão “Salvar”. 
+
+Resultado Esperado: Exibir modal com a mensagem “Consulta agendada” e redirecionamento para Página de Consultas. 
+ 
+
+**Caso de teste: 7**
+Resumo:  Gerenciar consultas  –  edição 
+Requisito: RF-003 
+Prioridade: Alta 
+Pré-condição: Cadastro no Sistema e Login 
+
+Passos:  
+1. Acessar o app; 
+2. Página inicial clicar em consultas; 
+3. Abrir Página de Consultas; 
+4. Na listagem de consultas, clicar no ícone do lápis, ao lado da consulta; 
+5. Abrir modal com dados da consulta para edição; 
+6. Clicar no botão “Salvar”; 
+
+Resultado Esperado: Exibir modal com a mensagem “Consulta alterada agendada” e redirecionamento para Página de Consultas e alteração dos dados na listagem de consultas. 
+ 
+
+**Caso de teste: 8**
+Resumo:  Gerenciar consultas  –  excluir  
+Requisito: RF-003 
+Prioridade: Alta 
+Pré-condição: Cadastro no Sistema e Login 
+
+Passos:  
+1. Acessar o app; 
+2. Login; 
+3. Página inicial clicar em consultas; 
+4. Abrir Página de Consultas; 
+6. Na listagem de consultas, clicar no ícone da lixeira, ao lado da consulta; 
+7. Abrir modal mostrando dados da consulta e solicitando a confirmação da exclusão da consulta; 
+8. Clicar no botão “Excluir”; 
+ 
+Resultado Esperado: Exibir modal com a mensagem “Consulta excluída” e redirecionamento para Página de Consultas e alteração dos dados na listagem de consultas. 
+ 
+
+**Caso de teste: 9** 
+Resumo:  Visualizar consultas 
+Requisito: RF-004 
+Prioridade: Alta 
+Pré-condição: Cadastro no Sistema e Login 
+
+Passos:  
+1. Acessar o app; 
+2. Login; 
+3. Página inicial clicar em “Prontuário”; 
+4. Abrir Página de prontuário; 
+5. Na listagem de prontuário, clicar no ícone ao lado da consulta; 
+6. Abrir modal mostrando dados do prontuário; 
+7. Clicar no botão “x”; 
+
+Resultado Esperado: Exibir modal com o prontuário selecionado e permitir fechar o modal do prontuário e retornar para página de prontuários. 
+ 
+
+**Caso de teste: 10**
+Resumo: Login de Paciente – Esqueceu a senha 
+Requisito: RF-005 
+Prioridade: Média 
+Pré-condição: Usuário cadastrado 
+
+Passos:  
+1. Acessar o app ConsulMed; 
+2. Clique no texto “Esqueci minha senha” ; 
+3. Preencha com o email; 
+4. Clique no botão “Enviar”; 
+5. Digite a nova senha; 
+6. Repita a nova senha; 
+7. Clique em “Redefinir” 
+8.Clique no texto “Voltar para tela de login” 
+
+Resultado Esperado: Exibir modal com a mensagem “Troca de senha efetuada com sucesso!”  
+
+
+**Caso de teste: 11** 
+Resumo:  Notificação de  consultas  
+Requisito: RF-006 
+Prioridade: Baixa 
+Pré-condição: Cadastro no Sistema e Login 
+
+Passos:  
+1.Acessar o app; 
+2.Login; 
+3. Página Inicial, ícone "sino" no canto superior direito com alteração na cor. 
+
+Resultado Esperado: Exibir notificação de consulta caso tenha alguma agendada com as informações da mesma. 
+
 
 # Referências
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
+ALITA, Joyce (2023). Protótipos vs. Wireframes em projetos UX. Disponível em: https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/ Acesso em: 10 de maio de 2024. 
+
+CASSIC (2023). Padrões de codificação. Disponível em: https://www.devmedia.com.br/padroes-de-codificacao/16529 Acesso em: 10 de maio de 2024. 
+
+DINIZ, Bárbara (2023). Notação BPMN: como aplicar para modelar processos? Entenda etapas. Disponível em: https://www.sydle.com/br/blog/notacao-bpmn-5ef510823130175de40cc4c2/ Acesso em: 7 de maio de 2024. 
+
+Redator Rock Content (2019). Wireframes: quais os tipos e as principais ferramentas de criação. Disponível em: https://rockcontent.com/br/blog/wireframes/ Acesso em: 13 de maio de 2024. 
+
+RIBEIRO, Daniel (2019). Fluxograma online. Disponível em: https://www.techtudo.com.br/listas/2019/03/fluxograma-online-seis-sites-para-fazer-grafico-sem-instalar-nada.ghtml Acesso em: 7 de maio de 2024. 
+
+RUGGIERIO, Ruggero (2016). Análise sobre a ISO 9126 – NBR 13596. Disponível em: https://www.tiespecialistas.com.br/analise-sobre-iso-9126-nbr-13596/ Acesso em: 10 de maio de 2024. 
+
+TADEU, Matheus (2019). Consumindo API REST com autenticação JWT no React Native. Disponível em: https://medium.com/reactbrasil/consumindo-api-rest-com-autentica%C3%A7%C3%A3o-jwt-no-react-native-eec62b852ff3 Acesso em: 10 de maio de 2024. 
