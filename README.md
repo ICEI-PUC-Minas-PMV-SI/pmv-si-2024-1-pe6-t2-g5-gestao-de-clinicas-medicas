@@ -15,12 +15,12 @@ Será desenvolvido um sistema de gestão de clínicas médicas tendo como objeti
 * João Pedro Pinto Matozinhos
 * Neymmar Padilha Palma
 * Rafael de Souza
-* Vinicius Damasceno Souza
+* Vinícius Damasceno Souza
 * William Xavier de Barros
 
 ## Orientador
 
-* Josiane da Costa Vieira Rezende
+* Pedro Pongelup Lopes
 
 # Planejamento
 
