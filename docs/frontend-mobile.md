@@ -97,7 +97,7 @@ Medidas padrão para Computadores e Televisores: min-width: 992px.
 
 ### Interações do Usuário
 
-Animações e transições: 
+1. Animações e transições: 
 
 Objetivos: 
 
@@ -105,19 +105,19 @@ Objetivos:
 * Ajudar os usuários a entender melhor as mudanças na interface; 
 * Melhorar a experiência geral do usuário. 
 
-Tipos de Animações: 
+2.Tipos de Animações: 
 
-1. Transições de Página:
+Transições de Página:
 
 * Deslizamento (Slide): Transições suaves entre páginas, onde a nova página desliza para dentro enquanto a página atual desliza para fora. 
 
 Animações de Elementos:
 
-*Botões e Ícones: Efeitos de toque, o tamanho dos botões será levemente aumentado ao ser pressionado. 
+* Botões e Ícones: Efeitos de toque, o tamanho dos botões será levemente aumentado ao ser pressionado. 
 
-*Campos de Formulário: Campos de formulários ao receber foco ou mostrar uma animação de erro se a validação falhar. 
+* Campos de Formulário: Campos de formulários ao receber foco ou mostrar uma animação de erro se a validação falhar. 
 
-2. Feedback Visual 
+3. Feedback Visual 
 
 Objetivos: 
 
@@ -135,7 +135,7 @@ Formulários:
 * Destaque ao redor dos campos ativos. 
 * Mensagens de validação instantânea ao inserir dados incorretos. 
 
- 3. Animações de Carregamento 
+4. Animações de Carregamento 
 
 Objetivos: 
 
@@ -152,11 +152,9 @@ De forma geral, incorporar animações, transições suaves e interações respo
 
 O fluxo de dados consiste na troca de dados entre a Aplicação Mobile e os usuários, de modo permitir o agendamento de consultas e visualização de prontuários. 
 
-![Fluxo de dados](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/fluxograma1M.jpg))
-
 Na figura abaixo, está descrita o fluxo de funcionalidades que o paciente poderá efetuar.
 
-FIGURA 2
+![Fluxo de dados](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/fluxograma3.jpg)
 
 Registro/Login do Usuário: O usuário acessa o sistema e se registra usando informações pessoais básicas (e-mail e senha). Após o registro, ele pode fazer login no sistema. 
 
@@ -223,11 +221,11 @@ Proteção contra alguns ataques:
 
 Foram elaborados os seguintes casos de teste para a aplicação mobile: 
 
-**Caso de teste: 1**
-Resumo: Login de Paciente – Dados corretos 
-Requisito: RF-001 
-Prioridade: Alta 
-Pré-condição: Estar cadastrado no sistema, dados de login corretos 
+**Caso de teste: 1** <br>
+Resumo: Login de Paciente – Dados corretos <br>
+Requisito: RF-001 <br>
+Prioridade: Alta <br>
+Pré-condição: Estar cadastrado no sistema, dados de login corretos <br>
 
 Passos:  
 
@@ -237,25 +235,27 @@ Passos:
 
 Resultado Esperado: Exibir modal com a mensagem “Login realizado com sucesso !” e redirecionamento para Página Inicial. 
 
+----
 
-**Caso de teste: 2**
-Resumo: Login de Paciente – Dados incorretos 
-Requisito: RF-001 
-Prioridade: Alta 
-Pré-condição: Usuário sem cadastro 
+**Caso de teste: 2** <br>
+Resumo: Login de Paciente – Dados incorretos <br>
+Requisito: RF-001 <br>
+Prioridade: Alta <br>
+Pré-condição: Usuário sem cadastro <br>
 
 1. Acessar o app ConsulMed; 
 2. Preencher com os dados de email e senha; 
 3. Clique no botão “Acessar”. 
 
 Resultado Esperado: Exibir modal com a mensagem “ Dados incorretos. Tente novamente!”   
- 
 
-**Caso de teste: 3**
-Resumo: Login de Paciente – Usuário não cadastrado 
-Requisito: RF-001 
-Prioridade: Alta 
-Pré-condição: Usuário não cadastrado 
+----
+
+**Caso de teste: 3** <br>
+Resumo: Login de Paciente – Usuário não cadastrado  <br>
+Requisito: RF-001  <br>
+Prioridade: Alta  <br>
+Pré-condição: Usuário não cadastrado  <br>
 
 Passos:  
 1. Acessar o app ConsulMed; 
@@ -264,12 +264,13 @@ Passos:
 
 Resultado Esperado: Exibir modal com a mensagem “Clique em cadastrar e preencha com seus dados” 
 
+----
  
-**Caso de teste: 4**
-Resumo:  Gerenciar dados pessoais – Edição 
-Requisito: RF-002 
-Prioridade: Alta 
-Pré-condição: Usuário já cadastrado 
+**Caso de teste: 4**  <br>
+Resumo:  Gerenciar dados pessoais – Edição  <br>
+Requisito: RF-002  <br>
+Prioridade: Alta  <br>
+Pré-condição: Usuário já cadastrado  <br>
 
 Passos:
  
@@ -283,12 +284,13 @@ Passos:
  
 Resultado Esperado: Exibir modal com a mensagem “Dados Pessoais alterados!” e redirecionamento para Página Inicial 
  
+----
 
-Caso de teste: 5 
-Resumo:  Gerenciar dados pessoais - Cadastro 
-Requisito: RF-002 
-Prioridade: Alta 
-Pré-condição: Novo usuário/Primeiro acesso 
+**Caso de teste: 5**  <br>
+Resumo:  Gerenciar dados pessoais - Cadastro  <br>
+Requisito: RF-002  <br>
+Prioridade: Alta  <br>
+Pré-condição: Novo usuário/Primeiro acesso  <br>
 
 Passos:  
 
@@ -305,12 +307,13 @@ Passos:
  
 Resultado Esperado: Exibir modal com a mensagem “Dados Pessoais alterados!” e redirecionamento para Página Inicial 
 
+-----
 
-**Caso de teste: 6**
-Resumo:  Gerenciar consultas  –  cadastro 
-Requisito: RF-003 
-Prioridade: Alta 
-Pré-condição: Cadastro no Sistema e Login 
+**Caso de teste: 6**  <br>
+Resumo:  Gerenciar consultas  –  cadastro  <br>
+Requisito: RF-003  <br>
+Prioridade: Alta  <br>
+Pré-condição: Cadastro no Sistema e Login  <br>
 
 Passos:  
 1. Acessar o app; 
@@ -322,13 +325,14 @@ Passos:
 7. Clicar no botão “Salvar”. 
 
 Resultado Esperado: Exibir modal com a mensagem “Consulta agendada” e redirecionamento para Página de Consultas. 
- 
 
-**Caso de teste: 7**
-Resumo:  Gerenciar consultas  –  edição 
-Requisito: RF-003 
-Prioridade: Alta 
-Pré-condição: Cadastro no Sistema e Login 
+ -----
+
+**Caso de teste: 7**  <br>
+Resumo:  Gerenciar consultas  –  edição  <br>
+Requisito: RF-003  <br>
+Prioridade: Alta  <br>
+Pré-condição: Cadastro no Sistema e Login  <br>
 
 Passos:  
 1. Acessar o app; 
@@ -339,13 +343,14 @@ Passos:
 6. Clicar no botão “Salvar”; 
 
 Resultado Esperado: Exibir modal com a mensagem “Consulta alterada agendada” e redirecionamento para Página de Consultas e alteração dos dados na listagem de consultas. 
- 
 
-**Caso de teste: 8**
-Resumo:  Gerenciar consultas  –  excluir  
-Requisito: RF-003 
-Prioridade: Alta 
-Pré-condição: Cadastro no Sistema e Login 
+-----
+
+**Caso de teste: 8**  <br>
+Resumo:  Gerenciar consultas  –  excluir  <br>
+Requisito: RF-003  <br>
+Prioridade: Alta   <br>
+Pré-condição: Cadastro no Sistema e Login  <br>
 
 Passos:  
 1. Acessar o app; 
@@ -357,13 +362,14 @@ Passos:
 8. Clicar no botão “Excluir”; 
  
 Resultado Esperado: Exibir modal com a mensagem “Consulta excluída” e redirecionamento para Página de Consultas e alteração dos dados na listagem de consultas. 
- 
 
-**Caso de teste: 9** 
-Resumo:  Visualizar consultas 
-Requisito: RF-004 
-Prioridade: Alta 
-Pré-condição: Cadastro no Sistema e Login 
+-----
+
+**Caso de teste: 9**  <br>
+Resumo:  Visualizar consultas  <br>
+Requisito: RF-004  <br>
+Prioridade: Alta  <br>
+Pré-condição: Cadastro no Sistema e Login  <br>
 
 Passos:  
 1. Acessar o app; 
@@ -375,13 +381,14 @@ Passos:
 7. Clicar no botão “x”; 
 
 Resultado Esperado: Exibir modal com o prontuário selecionado e permitir fechar o modal do prontuário e retornar para página de prontuários. 
- 
 
-**Caso de teste: 10**
-Resumo: Login de Paciente – Esqueceu a senha 
-Requisito: RF-005 
-Prioridade: Média 
-Pré-condição: Usuário cadastrado 
+ -----------
+
+**Caso de teste: 10**  <br>
+Resumo: Login de Paciente – Esqueceu a senha  <br>
+Requisito: RF-005  <br>
+Prioridade: Média  <br>
+Pré-condição: Usuário cadastrado  <br>
 
 Passos:  
 1. Acessar o app ConsulMed; 
@@ -395,12 +402,13 @@ Passos:
 
 Resultado Esperado: Exibir modal com a mensagem “Troca de senha efetuada com sucesso!”  
 
+------
 
-**Caso de teste: 11** 
-Resumo:  Notificação de  consultas  
-Requisito: RF-006 
-Prioridade: Baixa 
-Pré-condição: Cadastro no Sistema e Login 
+**Caso de teste: 11**  <br>
+Resumo:  Notificação de  consultas   <br>
+Requisito: RF-006  <br>
+Prioridade: Baixa  <br>
+Pré-condição: Cadastro no Sistema e Login  <br>
 
 Passos:  
 1.Acessar o app; 
@@ -408,6 +416,8 @@ Passos:
 3. Página Inicial, ícone "sino" no canto superior direito com alteração na cor. 
 
 Resultado Esperado: Exibir notificação de consulta caso tenha alguma agendada com as informações da mesma. 
+
+
 
 
 # Referências
