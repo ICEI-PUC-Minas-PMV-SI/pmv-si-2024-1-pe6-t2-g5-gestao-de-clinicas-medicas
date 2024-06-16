@@ -42,9 +42,9 @@ Para a Aplicação Mobile optou-se por focar em funcionalidades para os paciente
 4. Visualização de prontuário; 
 5. Redefinição de senha. 
 
-O Banco de dados será composto por 08 tabelas, sendo elas: paciente, medico, horarios, consultas, usuario, acess_token, prontuarios, clinica que possibilitam o armazenamento dos dados da aplicação. O fluxograma descreve a interação entre os processos da aplicação para atendimento aos pacientes da clínica.
+O Banco de dados será composto por 08 tabelas, sendo elas: paciente, medico, horarios, consultas, usuario, acess_token, prontuarios, clinica que possibilitam o armazenamento dos dados da aplicação.
 
-****[Incluir imagem do fluxograma]****
+![Fluxograma](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/fluxograma1M.jpg)
 
 ## Projeto da Interface
 
