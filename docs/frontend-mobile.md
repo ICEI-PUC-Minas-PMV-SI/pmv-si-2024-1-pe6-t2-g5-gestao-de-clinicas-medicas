@@ -70,9 +70,9 @@ Buscamos para o desenvolvimento da ConsulMed um estilo visual clean, moderno e a
 - #007954 
 - #FFFFFF 
 - #282828 
-- #BADDC0 60% 
 - #F1F1F1 
-- #505050 
+- #505050
+- #D1D1D1
 
 #### Tipografia: 
 
