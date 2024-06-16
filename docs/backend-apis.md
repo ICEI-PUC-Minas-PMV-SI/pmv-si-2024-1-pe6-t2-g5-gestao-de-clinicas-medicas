@@ -37,7 +37,7 @@ Na figura abaixa mostra-se a organização do funcionamento dos compomentes do s
 
 O Diagrama de Entendidade Relacionamento na figura abaixo, mostra a estrutura do banco de dados a ser utilizado pela API e pelo sistema ConsulMed.
 
-![Diagrama Entidade Relacionamento ](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/diagrama_entidade_relacionamento.jpg)
+![Diagrama Entidade Relacionamento ](https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2024-1-pe6-t2-g5-gestao-de-clinicas-medicas/blob/main/docs/img/diagrama-er.jpg)
 
 ## Fluxo de Dados
 
