@@ -164,9 +164,9 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     padding: 8, // Reduzir o padding vertical
-    marginVertical: 10, // Reduzir o espaço vertical entre os cards
+    marginVertical: 10, 
     borderRadius: 10,
-    width: '100%', // Aumentar a largura dos cards
+    width: '100%',
     alignSelf: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },

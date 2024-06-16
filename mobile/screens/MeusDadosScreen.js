@@ -16,7 +16,7 @@ const MeusDadosScreen = ({ route, navigation }) => {
     })
       .then(response => response.json())
       .then(data => {
-        setCliente(data.data[0]); // Assume que o servidor retorna um objeto cliente
+        setCliente(data.data[0]); 
       })
       .catch(error => {
         console.error('Erro ao obter dados do cliente:', error);

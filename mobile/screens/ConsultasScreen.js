@@ -26,7 +26,7 @@ const ConsultasScreen = ({ route, navigation }) => {
   }, [token]);
 
   const handleEditConsulta = (consulta) => {
-    setConsultaAtual({ ...consulta }); // Faça uma cópia do objeto consulta
+    setConsultaAtual({ ...consulta }); 
     setModalVisible(true);
   };
 
@@ -105,27 +105,27 @@ const ConsultasScreen = ({ route, navigation }) => {
                 <Text style={styles.fieldName}>Data:</Text>
                 <TextInput
                   style={styles.fieldValue}
-                  value={consultaAtual.data} // Certifique-se de que é uma string
+                  value={consultaAtual.data} 
                   onChangeText={text => handleChangeText('data', text)}
                 />
                 <Text style={styles.fieldName}>Horário de Início:</Text>
                 <TextInput
                   style={styles.fieldValue}
-                  value={consultaAtual.horario_inicio} // Certifique-se de que é uma string
+                  value={consultaAtual.horario_inicio} 
                   onChangeText={text => handleChangeText('horario_inicio', text)}
                   placeholder="HH:MM"
                 />
                 <Text style={styles.fieldName}>Horário de Fim:</Text>
                 <TextInput
                   style={styles.fieldValue}
-                  value={consultaAtual.horario_fim} // Certifique-se de que é uma string
+                  value={consultaAtual.horario_fim}
                   onChangeText={text => handleChangeText('horario_fim', text)}
                   placeholder="HH:MM"
                 />
                 <Text style={styles.fieldName}>Status:</Text>
                 <TextInput
                   style={styles.fieldValue}
-                  value={consultaAtual.status} // Certifique-se de que é uma string
+                  value={consultaAtual.status}
                   onChangeText={text => handleChangeText('status', text)}
                 />
                 <TouchableOpacity style={styles.button} onPress={handleSaveChanges}>

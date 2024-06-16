@@ -64,8 +64,8 @@ const AgendamentoScreen = ({ route, navigation }) => {
 
     const consultaData = {
       idmedico: 5,
-      idpaciente: 1, // Substitua pelo ID do paciente real
-      data: '2024-06-30', // Substitua pela data real
+      idpaciente: 1,
+      data: '2024-06-30', 
       horario_inicio: selectedHorario.horario_inicio,
       horario_fim: selectedHorario.horario_fim,
       posicao: '5',
