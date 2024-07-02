@@ -19,7 +19,6 @@ class HorariosController extends Controller
     {
         // Valida os dados recebidos do request
         $dados = Validator::make($request->all(), [
-            'dia' => 'required|string|max:255',
             'horario_inicio' => 'required|date_format:H:i',
             'horario_fim' => 'required|date_format:H:i|after:horario_inicio',
             'idmedico' => 'required|integer'
@@ -36,6 +35,7 @@ class HorariosController extends Controller
         $horario->horario_inicio = $request->input('horario_inicio');
         $horario->horario_fim = $request->input('horario_fim');
         $horario->idmedico = $request->input('idmedico');
+        $horario->disponivel = 'SIM';
     
         // Salva o novo horário no banco de dados
         $horario->save();
@@ -46,10 +46,10 @@ class HorariosController extends Controller
     public function atualizaHorario(Request $request, $id)
     {
         $dados = Validator::make($request->all(), [
-            'dia' => 'required|string|max:255',
             'horario_inicio' => 'required|date_format:H:i',
             'horario_fim' => 'required|date_format:H:i|after:horario_inicio',
-            'idmedico' => 'required|integer'
+            'idmedico' => 'required|integer',
+            'disponivel' => 'required|string|max:255'
         ]);
 
         if ($dados->fails()) {
@@ -68,6 +68,7 @@ class HorariosController extends Controller
         $horario->horario_inicio = $request->input('horario_inicio');
         $horario->horario_fim = $request->input('horario_fim');
         $horario->idmedico = $request->input('idmedico');
+        $horario->disponivel = $request->input('disponivel');
 
         $horario->save();
 
@@ -86,9 +87,13 @@ class HorariosController extends Controller
 
         return response()->json(['message' => 'Horário excluído com sucesso'], 200);
     }
-    public function retornaHorarios(Request $request)
+    public function retornaHorarios($id = null)
     {
-        $horarios = Horarios::all();
+        if ($id) {
+            $horarios = Horarios::where('idmedico', $id)->get();
+        } else {
+            $horarios = Horarios::all();
+        }
 
         return response()->json(['data' => $horarios], 200);
     }

@@ -38,10 +38,13 @@ class Authenticate
     public function handle($request, Closure $next, $guard = null)
     {   
         // verifica token valido e ativo nos cookies do usuario
-        $token = $request->header('token');
+        // $token = $request->header('token');
+        
+        //pegando token
+        $token = $request->header('Authorization');
+        $token = explode(" ", $token);
+        $token = $token[1];
 
-
-        $token = $request->hasCookie('token');
 
         $validade = Carbon::now()->subHours(3);
     

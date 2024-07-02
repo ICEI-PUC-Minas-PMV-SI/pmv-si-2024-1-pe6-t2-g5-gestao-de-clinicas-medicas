@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, StatusBar, ScrollView, Modal, TextInput, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import RNPickerSelect from 'react-native-picker-select';
 
 const ConsultasScreen = ({ route, navigation }) => {
   const [consultas, setConsultas] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [consultaAtual, setConsultaAtual] = useState(null);
+  const [editable, setEditable] = useState(false); // Estado para controlar se a consulta é editável
   const { token } = route.params;
+  const { id } = route.params;
 
   useEffect(() => {
-    fetch('http://18.214.226.89/consultas/paciente/10', {
+    fetch(`http://18.214.226.89/consultas/paciente/${id}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -18,37 +21,47 @@ const ConsultasScreen = ({ route, navigation }) => {
     })
       .then(response => response.json())
       .then(data => {
-        setConsultas(data.data); // Assume que o servidor retorna uma lista de consultas
+        setConsultas(data.data);
       })
       .catch(error => {
         console.error('Erro ao obter consultas:', error);
       });
-  }, [token]);
+  }, [token, id]);
 
   const handleEditConsulta = (consulta) => {
-    setConsultaAtual({ ...consulta }); 
+    // Verifica se a consulta pode ser editada (status não é 'Finalizado' ou 'Cancelado')
+    const isEditable = consulta.status !== 'FINALIZADO' && consulta.status !== 'CANCELADO';
+    setEditable(isEditable);
+    setConsultaAtual({ ...consulta });
     setModalVisible(true);
   };
 
   const handleSaveChanges = () => {
+    
     consultaAtual.posicao = '1';
-
+    const formattedConsulta = {
+      ...consultaAtual,
+      horario_inicio: formatTime(consultaAtual.horario_inicio),
+      horario_fim: formatTime(consultaAtual.horario_fim),
+    };
+    console.log(formattedConsulta)
     fetch(`http://18.214.226.89/consultas/${consultaAtual.id}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(consultaAtual),
+      body: JSON.stringify(formattedConsulta),
     })
       .then(response => response.json())
       .then(data => {
         if (data.errors) {
+          console.log(data.errors)
           Alert.alert('Erro ao atualizar a consulta:', JSON.stringify(data.errors));
         } else {
           Alert.alert('Sucesso', 'Consulta atualizada com sucesso.');
           setModalVisible(false);
-          // Atualizar a lista de consultas
+          
           const updatedConsultas = consultas.map(consulta =>
             consulta.id === consultaAtual.id ? consultaAtual : consulta
           );
@@ -60,6 +73,22 @@ const ConsultasScreen = ({ route, navigation }) => {
       });
   };
 
+  const handleStatusChange = (value) => {
+    
+    if (value === 'Cancelado') {
+      Alert.alert(
+        'Confirmar Cancelamento',
+        'Tem certeza que deseja cancelar esta consulta?',
+        [
+          { text: 'Sair', style: 'cancel' },
+          { text: 'Confirmar', onPress: () => handleChangeText('status', value) }
+        ]
+      );
+    } else {
+      handleChangeText('status', value);
+    }
+  };
+
   const handleChangeText = (key, value) => {
     setConsultaAtual(prevConsulta => ({
       ...prevConsulta,
@@ -67,6 +96,22 @@ const ConsultasScreen = ({ route, navigation }) => {
     }));
   };
 
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+    return new Date(dateString).toLocaleDateString('pt-BR', options);
+  };
+
+  const formatDate2 = (dateString) => {
+    const valores = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString('pt-BR', valores);
+  };
+
+  const formatTime = (time) => {
+    const [hours, minutes] = time.split(':');
+    const formattedHours = hours.padStart(2, '0');
+    const formattedMinutes = minutes.padStart(2, '0');
+    return `${formattedHours}:${formattedMinutes}`;
+  };
   return (
     <View style={styles.container}>
       <Image source={require('../assets/logo 2.png')} style={styles.logo} />
@@ -74,22 +119,17 @@ const ConsultasScreen = ({ route, navigation }) => {
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         {consultas.map((consulta, index) => (
           <TouchableOpacity key={index} style={styles.consultaContainer} onPress={() => handleEditConsulta(consulta)}>
-            <Text style={styles.consultaText}>Data: {consulta.data}</Text>
-            <Text style={styles.consultaText}>Hora: {consulta.horario_inicio} - {consulta.horario_fim}</Text>
+            <Text style={styles.consultaText}>Data: {formatDate(consulta.data)}</Text>
+            <Text style={styles.consultaText}>Hora: {consulta.horario_inicio.slice(0, 5)} - {consulta.horario_fim.slice(0, 5)}</Text>
             <Text style={styles.consultaText}>Status: {consulta.status}</Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
       <View style={styles.navigation}>
-        <TouchableOpacity onPress={() => navigation.navigate('Consultas', { token })}>
-          <Ionicons name="list" size={32} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Agendamento', { token })}>
-          <Ionicons name="calendar-outline" size={32} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('MeusDados', { token })}>
-          <Ionicons name="person-outline" size={32} color="white" />
-        </TouchableOpacity>
+        <NavigationItem icon="list" text="Prontuários" onPress={() => navigation.navigate('Consultas', { token, id })} />
+        <NavigationItem icon="medical" text="Consultas" onPress={() => navigation.navigate('MinhasConsultas', { token, id })} />
+        <NavigationItem icon="calendar-outline" text="Agendamento" onPress={() => navigation.navigate('Agendamento', { token, id })} />
+        <NavigationItem icon="person-outline" text="Meus Dados" onPress={() => navigation.navigate('MeusDados', { token, id })} />
       </View>
       <Modal
         animationType="slide"
@@ -105,8 +145,8 @@ const ConsultasScreen = ({ route, navigation }) => {
                 <Text style={styles.fieldName}>Data:</Text>
                 <TextInput
                   style={styles.fieldValue}
-                  value={consultaAtual.data} 
-                  onChangeText={text => handleChangeText('data', text)}
+                  value={formatDate2(consultaAtual.data)} 
+                  editable={false}
                 />
                 <Text style={styles.fieldName}>Horário de Início:</Text>
                 <TextInput
@@ -114,25 +154,32 @@ const ConsultasScreen = ({ route, navigation }) => {
                   value={consultaAtual.horario_inicio} 
                   onChangeText={text => handleChangeText('horario_inicio', text)}
                   placeholder="HH:MM"
+                  editable={editable}
                 />
                 <Text style={styles.fieldName}>Horário de Fim:</Text>
                 <TextInput
                   style={styles.fieldValue}
-                  value={consultaAtual.horario_fim}
+                  value={consultaAtual.horario_fim} 
                   onChangeText={text => handleChangeText('horario_fim', text)}
                   placeholder="HH:MM"
+                  editable={editable}
                 />
                 <Text style={styles.fieldName}>Status:</Text>
-                <TextInput
-                  style={styles.fieldValue}
+                <RNPickerSelect
+                  placeholder={{}}
+                  items={[
+                    { label: 'Aguardando Consulta', value: 'Aguardando Consulta' },
+                    { label: 'Cancelar', value: 'Cancelado' },
+                  ]}
                   value={consultaAtual.status}
-                  onChangeText={text => handleChangeText('status', text)}
+                  onValueChange={(value) => handleStatusChange(value)}
+                  disabled={!editable}
                 />
                 <TouchableOpacity style={styles.button} onPress={handleSaveChanges}>
                   <Text style={styles.buttonText}>Salvar Alterações</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={() => setModalVisible(false)}>
-                  <Text style={styles.buttonText}>Cancelar</Text>
+                  <Text style={styles.buttonText}>Sair</Text>
                 </TouchableOpacity>
               </>
             )}
@@ -142,6 +189,13 @@ const ConsultasScreen = ({ route, navigation }) => {
     </View>
   );
 };
+
+const NavigationItem = ({ icon, text, onPress }) => (
+  <TouchableOpacity style={styles.navigationItem} onPress={onPress}>
+    <Ionicons name={icon} size={32} color="white" />
+    <Text style={styles.navigationItemText}>{text}</Text>
+  </TouchableOpacity>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -172,18 +226,19 @@ const styles = StyleSheet.create({
   scrollViewContainer: {
     flexGrow: 1,
     alignItems: 'center',
-    width: '90%',
-  },
-  consultaContainer: {
-    backgroundColor: 'white',
-    padding: 10,
-    borderRadius: 5,
-    marginBottom: 15,
     width: '100%',
   },
+  consultaContainer: {
+    backgroundColor: '#f1f1f1',
+    width: '80%',
+    borderRadius: 10,
+    padding: 20,
+    marginBottom: 15,
+  },
   consultaText: {
-    color: '#007954',
     fontSize: 15,
+    marginVertical: 5,
+    color: '#007954',
   },
   modalContainer: {
     flex: 1,
@@ -194,7 +249,7 @@ const styles = StyleSheet.create({
   modalView: {
     width: '80%',
     backgroundColor: 'white',
-    borderRadius: 5,
+    borderRadius: 10,
     padding: 20,
     alignItems: 'center',
   },
@@ -226,6 +281,13 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontWeight: 'bold',
+  },
+  navigationItem: {
+    alignItems: 'center',
+  },
+  navigationItemText: {
+    color: 'white',
+    marginTop: 5,
   },
 });
 

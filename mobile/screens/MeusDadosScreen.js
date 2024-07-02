@@ -5,9 +5,11 @@ import { Ionicons } from '@expo/vector-icons';
 const MeusDadosScreen = ({ route, navigation }) => {
   const [cliente, setCliente] = useState(null);
   const { token } = route.params;
+  const { id } = route.params;
+
 
   useEffect(() => {
-    fetch('http://18.214.226.89/pacientes/id/10', {
+    fetch(`http://18.214.226.89/pacientes/id/${id}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -16,29 +18,45 @@ const MeusDadosScreen = ({ route, navigation }) => {
     })
       .then(response => response.json())
       .then(data => {
-        setCliente(data.data[0]); 
+        const fetchedCliente = data.data[0];
+        fetchedCliente.data_nascimento = formatDate(fetchedCliente.data_nascimento);
+        setCliente(fetchedCliente);
       })
       .catch(error => {
         console.error('Erro ao obter dados do cliente:', error);
       });
-  }, [token]);
+  }, [token, id]);
 
+  const formatDate = (dateString) => {
+    const [year, month, day] = dateString.split('-');
+    return `${day}/${month}/${year}`;
+  };
+  
+  const parseDate = (dateString) => {
+    const [day, month, year] = dateString.split('/');
+    return `${year}-${month}-${day}`;
+  };
+  
   const handleSaveChanges = () => {
+    const clienteToSave = {
+      ...cliente,
+      data_nascimento: parseDate(cliente.data_nascimento)
+    };
+
     fetch(`http://18.214.226.89/pacientes/${cliente.id}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(cliente),
+      body: JSON.stringify(clienteToSave),
     })
       .then(response => response.json())
       .then(data => {
         if (data.errors) {
-            Alert.alert('Erro ao atualizar os dados:', data.errors);
-
+          Alert.alert('Erro ao atualizar os dados:', data.errors);
         } else {
-            Alert.alert('Sucesso', 'Dados atualizados com sucesso.');
+          Alert.alert('Sucesso', 'Dados atualizados com sucesso.');
         }
       })
       .catch(error => {
@@ -56,9 +74,6 @@ const MeusDadosScreen = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       <Image source={require('../assets/logo 2.png')} style={styles.logo} />
-      <TouchableOpacity style={styles.consultasButton} onPress={() => navigation.navigate('MinhasConsultas', { token })}>
-        <Text style={styles.consultasButtonText}>Minhas Consultas</Text>
-      </TouchableOpacity>
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         {cliente && (
           <>
@@ -134,19 +149,21 @@ const MeusDadosScreen = ({ route, navigation }) => {
         )}
       </ScrollView>
       <View style={styles.navigation}>
-        <TouchableOpacity onPress={() => navigation.navigate('Consultas', { token })}>
-          <Ionicons name="list" size={32} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Agendamento', { token })}>
-          <Ionicons name="calendar-outline" size={32} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('MeusDados', { token })}>
-          <Ionicons name="person-outline" size={32} color="white" />
-        </TouchableOpacity>
+        <NavigationItem icon="list" text="Prontuários" onPress={() => navigation.navigate('Consultas', { token, id })} />
+        <NavigationItem icon="medical" text="Consultas" onPress={() => navigation.navigate('MinhasConsultas', { token, id })} />
+        <NavigationItem icon="calendar-outline" text="Agendamento" onPress={() => navigation.navigate('Agendamento', { token, id })} />
+        <NavigationItem icon="person-outline" text="Meus Dados" onPress={() => navigation.navigate('MeusDados', { token, id })} />
       </View>
     </View>
   );
 };
+
+const NavigationItem = ({ icon, text, onPress }) => (
+  <TouchableOpacity style={styles.navigationItem} onPress={onPress}>
+    <Ionicons name={icon} size={32} color="white" />
+    <Text style={styles.navigationItemText}>{text}</Text>
+  </TouchableOpacity>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -161,7 +178,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     width: '100%',
     marginTop: 20,
-    paddingBottom:10,
+    paddingBottom: 10,
   },
   logo: {
     width: 150,
@@ -222,6 +239,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '90%',
+  },
+  navigationItem: {
+    alignItems: 'center',
+  },
+  navigationItemText: {
+    color: 'white',
+    marginTop: 5,
   },
 });
 

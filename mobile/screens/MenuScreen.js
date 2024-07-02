@@ -4,33 +4,48 @@ import { Ionicons } from '@expo/vector-icons';
 
 
 const ConsultasScreen = ({ route, navigation }) => {
+  // Declaração dos estados necessários
   const [prontuarios, setProntuarios] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedProntuario, setSelectedProntuario] = useState(null);
   const { token } = route.params;
-
+  const { id } = route.params; 
+  // Efeito para carregar os prontuários ao montar o componente
   useEffect(() => {
-    console.log("token", token)
-    fetch('http://18.214.226.89/prontuarios/paciente/2', {
+    fetch(`http://18.214.226.89/prontuarios/paciente/${id}`, {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     })
       .then(response => response.json())
       .then(data => {
+        console.log(id)
         setProntuarios(data.data);
       })
       .catch(error => {
         console.error('Erro ao obter prontuários:', error);
       });
-  }, [token]);
+  }, [token, id]); 
 
-  const handleConsultaPress = (item) => {
+  const handleProntuarioPress = (item) => {
     setSelectedProntuario(item);
     setModalVisible(true);
   };
+
+
+  const formatarData = (data) => {
+    const dataFormatada = new Date(data);
+    const dia = dataFormatada.getDate().toString().padStart(2, '0');
+    const mes = (dataFormatada.getMonth() + 1).toString().padStart(2, '0');
+    const ano = dataFormatada.getFullYear();
+    const horas = dataFormatada.getHours().toString().padStart(2, '0');
+    const minutos = dataFormatada.getMinutes().toString().padStart(2, '0');
+
+    return `${dia}/${mes}/${ano} ${horas}:${minutos}`;
+  };
+
 
   const renderModalContent = () => {
     return (
@@ -68,7 +83,7 @@ const ConsultasScreen = ({ route, navigation }) => {
               <Text style={styles.modalInfoBold}>Observações:</Text> {selectedProntuario.observacoes || 'Nenhuma observação.'}
             </Text>
             <Text style={styles.modalInfoText}>
-              <Text style={styles.modalInfoBold}>Autenticação:</Text> {selectedProntuario.has || 'Nenhuma observação.'}
+              <Text style={styles.modalInfoBold}>Autenticação:</Text> {selectedProntuario.hash_medico || 'Nenhuma observação.'}
             </Text>
             <TouchableOpacity
               style={styles.modalCloseButton}
@@ -82,11 +97,6 @@ const ConsultasScreen = ({ route, navigation }) => {
     );
   };
 
-  const formatarData = (data) => {
-    const dataFormatada = new Date(data);
-    return `${dataFormatada.getDate()}/${dataFormatada.getMonth() + 1}/${dataFormatada.getFullYear()}`;
-  };
-
   return (
     <View style={styles.container}>
       <Image source={require('../assets/logo 2.png')} style={styles.logo} />
@@ -97,18 +107,20 @@ const ConsultasScreen = ({ route, navigation }) => {
         <FlatList
           data={prontuarios}
           renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => handleConsultaPress(item)}>
+            <TouchableOpacity onPress={() => handleProntuarioPress(item)}>
               <View style={styles.card}>
-                <Text>Data: {item.data}</Text>
-                <Text>Médico: {item.nome_medico}</Text>
-                <Text>Especialidade: {item.especialidade}</Text>
-                <Text>Status: {item.status}</Text>
+                <Text style={styles.cardText}>Data: {formatarData(item.data)}</Text>
+                <Text style={styles.cardText}>Médico: {item.nome_medico}</Text>
+                <Text style={styles.cardText}>Especialidade: {item.especialidade}</Text>
+                <Text style={styles.cardText}>Status: {item.status}</Text>
               </View>
             </TouchableOpacity>
           )}
           keyExtractor={item => item.id.toString()}
+          contentContainerStyle={{ paddingBottom: 20 }}
         />
       )}
+
       <Modal
         animationType="slide"
         transparent={true}
@@ -119,29 +131,31 @@ const ConsultasScreen = ({ route, navigation }) => {
           {renderModalContent()}
         </View>
       </Modal>
+      {/* Barra de navegação inferior */}
       <View style={styles.navigation}>
-        <TouchableOpacity onPress={() => navigation.navigate('Consultas', { token })}>
-          <Ionicons name="list" size={32} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Agendamento', { token })}>
-          <Ionicons name="calendar-outline" size={32} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('MeusDados', { token })}>
-          <Ionicons name="person-outline" size={32} color="white" />
-        </TouchableOpacity>
+        <NavigationItem icon="list" text="Prontuários" onPress={() => navigation.navigate('Consultas', { token, id })} />
+        <NavigationItem icon="medical" text="Consultas" onPress={() => navigation.navigate('MinhasConsultas', { token, id })} />
+        <NavigationItem icon="calendar-outline" text="Agendamento" onPress={() => navigation.navigate('Agendamento', { token, id })} />
+        <NavigationItem icon="person-outline" text="Meus Dados" onPress={() => navigation.navigate('MeusDados', { token, id })} />
       </View>
     </View>
   );
 };
 
+const NavigationItem = ({ icon, text, onPress }) => (
+  <TouchableOpacity style={styles.navigationItem} onPress={onPress}>
+    <Ionicons name={icon} size={32} color="white" />
+    <Text style={styles.navigationItemText}>{text}</Text>
+  </TouchableOpacity>
+);
+
+// Estilos para o componente
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#007954',
     alignItems: 'center',
-    justifyContent: 'center',
     paddingTop: StatusBar.currentHeight,
-
   },
   logo: {
     width: 150,
@@ -152,8 +166,9 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 25,
-    margin: 20,
+    marginVertical: 10,
     color: 'white',
+    fontWeight: 'bold',
   },
   noProntuariosText: {
     fontSize: 18,
@@ -163,10 +178,10 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: '#fff',
-    padding: 8, // Reduzir o padding vertical
-    marginVertical: 10, 
+    padding: 12,
+    marginVertical: 8,
     borderRadius: 10,
-    width: '100%',
+    width: '90%',
     alignSelf: 'center',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -174,12 +189,16 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2,
   },
+  cardText: {
+    fontSize: 16,
+    marginBottom: 6,
+  },
   navigation: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '100%',
     marginTop: 20,
-    marginBottom: 10,
+    paddingBottom: 10,
   },
   modalContainer: {
     flex: 1,
@@ -210,13 +229,22 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignSelf: 'center',
     backgroundColor: '#007954',
-    padding: 10,
+    padding: 12,
     borderRadius: 5,
   },
   modalCloseButtonText: {
     color: '#fff',
     fontWeight: 'bold',
+    textAlign: 'center',
   },
+  navigationItem: {
+    alignItems: 'center',
+  },
+  navigationItemText: {
+    color: 'white',
+    marginTop: 5,
+  },
+  
 });
 
 export default ConsultasScreen;

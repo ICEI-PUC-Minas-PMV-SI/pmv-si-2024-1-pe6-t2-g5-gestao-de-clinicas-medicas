@@ -71,15 +71,17 @@ $app->configure('app');
 | route or middleware that'll be assigned to some specific routes.
 |
 */
-
+$app->middleware([
+    App\Http\Middleware\CorsMiddleware::class,
+]);
 // $app->middleware([
 //     App\Http\Middleware\ExampleMiddleware::class
 // ]);
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
+    'cors' => App\Http\Middleware\CorsMiddleware::class,
 ]);
-
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers

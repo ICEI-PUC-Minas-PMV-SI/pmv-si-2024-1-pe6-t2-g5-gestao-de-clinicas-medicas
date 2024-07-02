@@ -19,7 +19,7 @@ function LoginScreen({ navigation }) {
     const credenciais = {
       email,
       password,
-      tipo: 'FUNCIONARIO', // Credencial fixa
+      tipo: 'FUNCIONARIO', 
     };
 
     fetch('http://18.214.226.89/login', {
@@ -34,7 +34,7 @@ function LoginScreen({ navigation }) {
         console.log('Resposta da API:', data);
         if (data.token) {
           
-          navigation.navigate('Consultas', { token: data.token });
+          navigation.navigate('Consultas', { token: data.token, id:data.id });
         }else{
           Alert.alert('Credenciais Inválidas', 'Por favor, verifique suas credenciais e tente novamente.');
         }
@@ -68,12 +68,12 @@ function LoginScreen({ navigation }) {
       >
         <Text style={styles.buttonText}>Acessar</Text>
       </TouchableOpacity>
-      <Text style={[styles.link, styles.link2]} onPress={() => { /* lógica para esquecer a senha */ }}>
+      <Text style={[styles.link, styles.link2]} onPress={() => { /* lógica */ }}>
         Esqueci minha senha
       </Text>
       <View style={styles.firstAccessContainer}>
         <Text style={styles.firstAccessText}>Primeiro acesso? </Text>
-        <Text style={styles.link} onPress={() => { /* lógica para cadastrar */ }}>
+        <Text style={styles.link} onPress={() => { /* lógica */ }}>
           Cadastrar
         </Text>
       </View>

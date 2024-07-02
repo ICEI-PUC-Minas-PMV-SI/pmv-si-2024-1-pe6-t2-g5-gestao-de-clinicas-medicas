@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 
 
-class PacientesController extends Controller
+class ConsultasController extends Controller
 {
     /**
      * Create a new controller instance.

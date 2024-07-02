@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 
 
-class ProntuariossController extends Controller
+class ProntuariosController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -62,7 +62,9 @@ class ProntuariossController extends Controller
         return response()->json(['message' => 'Prontuário excluído com sucesso'], 200);
     }
     public function atualizaProntuario(Request $request, $id)
-    {
+    {   
+        $hash_medico = hash_hmac('sha1', json_encode($request->all()), env('APP_KEY'));
+
         $dados = Validator::make($request->all(), [
             'id_consulta' => 'required|integer',
             'data_criacao' => 'required|date',
@@ -71,8 +73,7 @@ class ProntuariossController extends Controller
             'exames' => 'nullable|string',
             'prescricoes' => 'nullable|string',
             'tratamentos' => 'nullable|string',
-            'observacoes' => 'nullable|string',
-            'hash_medico' => 'required|string|max:255'
+            'observacoes' => 'nullable|string'
         ]);
 
         if ($dados->fails()) {
@@ -93,7 +94,7 @@ class ProntuariossController extends Controller
         $prontuario->prescricoes = $request->input('prescricoes');
         $prontuario->tratamentos = $request->input('tratamentos');
         $prontuario->observacoes = $request->input('observacoes');
-        $prontuario->hash_medico = $request->input('hash_medico');
+        $prontuario->hash_medico = $hash_medico;
 
         $prontuario->save();
 
@@ -104,18 +105,58 @@ class ProntuariossController extends Controller
         $query = Prontuarios::query();
 
         if ($id) {
-            $query->where('id', $id);
+            $query->where('prontuarios.id', $id)
+            ->join('consultas', 'prontuarios.id_consulta', '=', 'consultas.id')
+            ->join('medicos', 'consultas.idmedico', '=', 'medicos.id')
+            ->join('pacientes', 'consultas.idpaciente', '=', 'pacientes.id')
+            ->select(
+                'prontuarios.*',
+                'consultas.*',
+                'medicos.*',
+                'pacientes.*',
+                'medicos.nome as nome_medico'
+            );
         }
 
         if ($idmedico) {
-            $query->where('idmedico', $idmedico);
+            $query->where('idmedico', $idmedico)
+                  ->join('consultas', 'prontuarios.id_consulta', '=', 'consultas.id')
+                  ->join('medicos', 'consultas.idmedico', '=', 'medicos.id')
+                  ->join('pacientes', 'consultas.idpaciente', '=', 'pacientes.id')
+                  ->select(
+                    'prontuarios.*',
+                    'consultas.*',
+                    'medicos.*',
+                    'pacientes.*',
+                    'medicos.nome as nome_medico'
+                );
         }
 
         if ($idpaciente) {
-            $query->where('idpaciente', $idpaciente);
+            $query->where('idpaciente', $idpaciente)
+                  ->join('consultas', 'prontuarios.id_consulta', '=', 'consultas.id')
+                  ->join('medicos', 'consultas.idmedico', '=', 'medicos.id')
+                  ->join('pacientes', 'consultas.idpaciente', '=', 'pacientes.id')
+                  ->select(
+                    'prontuarios.*',
+                    'consultas.*',
+                    'medicos.*',
+                    'pacientes.*',
+                    'medicos.nome as nome_medico'
+                    );
         }
 
-        $prontuarios = $query->get();
+        $query = Prontuarios::join('consultas', 'prontuarios.id_consulta', '=', 'consultas.id')
+                ->join('medicos', 'consultas.idmedico', '=', 'medicos.id')
+                ->join('pacientes', 'consultas.idpaciente', '=', 'pacientes.id')
+                ->select(
+                    'prontuarios.*',
+                    'consultas.*',
+                    'medicos.*',
+                    'pacientes.*',
+                    'medicos.nome as nome_medico'
+                );
+    $prontuarios = $query->get();
 
         if ($prontuarios->isEmpty()) {
             return response()->json(['message' => 'Nenhum prontuário encontrado'], 404);

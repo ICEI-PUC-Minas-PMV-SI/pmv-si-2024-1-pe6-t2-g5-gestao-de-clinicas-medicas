@@ -25,7 +25,7 @@ class loginController extends Controller
         $password = hash_hmac('sha256', $request->input('password'), env('hmac'));
         
         $user = User::where('email', $email)->first();
-    
+
         if ($user && $user->senha === $password) {
 
             //gerar token para envio ao cliente
@@ -39,12 +39,8 @@ class loginController extends Controller
             $acess->id_usuario = $user->id;
             $acess->save();
 
-            $response = new Response(['message' => 'email autenticado'], 200);
-          
-            $cookie = new Cookie('token', $token, $minutes = 0, $path = '/', $domain = null, $secure = true, $httpOnly = true);
-
-            $response->withCookie($cookie);
-
+            $response = new Response(['message' => 'autenticado', 'token' => $token, 'id'=> $user->id ], 200);
+                      
             return $response;
 
         } else {
@@ -56,7 +52,7 @@ class loginController extends Controller
 
     public function register(Request $request){
 
-        $email = $request->input('user');
+        $email = $request->input('email');
 
         $senha = hash_hmac('sha256', $request->input('password'), env('hmac'));
         

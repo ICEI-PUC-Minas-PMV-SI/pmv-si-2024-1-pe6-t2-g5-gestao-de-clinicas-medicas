@@ -8,7 +8,7 @@ $router->post('/login', 'loginController@login');
 $router->post('/register', 'loginController@register');
 
 
-$router->group(['middleware' => 'auth'], function () use ($router) {
+$router->group(['middleware' => ['auth']], function () use ($router) {
 
     $router->group(['prefix' => 'medicos'], function () use ($router){
         $router->get('/', 'MedicosController@retornaMedicos');
@@ -18,8 +18,7 @@ $router->group(['middleware' => 'auth'], function () use ($router) {
         $router->get('/crm/{crm}', 'MedicosController@retornaMedicos');
         $router->delete('/{id}', 'MedicosController@excluirMedico');    
         $router->put('/{id}', 'MedicosController@atualizaMedicos');
-        $router->post('/{id}', 'MedicosController@cadastraMedicos');
-
+        $router->post('/', 'MedicosController@cadastraMedicos');
     });
 
     $router->group(['prefix' => 'pacientes'], function () use ($router){
@@ -28,13 +27,13 @@ $router->group(['middleware' => 'auth'], function () use ($router) {
         $router->delete('/{id}', 'PacientesController@excluiPaciente');
         $router->get('/id/{id}', 'PacientesController@retornaPacientes');
         $router->get('/cpf/{cpf}', 'PacientesController@retornaPacientes');
-        $router->get('/pacientes', 'PacientesController@retornaPacientes');
+        $router->get('/', 'PacientesController@retornaPacientes');
     });
 
     $router->group(['prefix' => 'consultas'], function () use ($router){
         $router->post('/', 'ConsultasController@cadastraConsulta');
         $router->put('/{id}', 'ConsultasController@atualizaConsulta');
-        $router->delete('/{id}', 'ConsultasController@deletaConsulta');
+        $router->delete('/{id}', 'ConsultasController@excluiConsulta');
         $router->get('/', 'ConsultasController@retornaConsultas');
         $router->get('/id/{id}', 'ConsultasController@retornaConsultas');
         $router->get('/medico/{idmedico}', 'ConsultasController@retornaConsultas');
@@ -42,10 +41,11 @@ $router->group(['middleware' => 'auth'], function () use ($router) {
         $router->get('/data/{data}', 'ConsultasController@retornaConsultas');
     });
 
-    $router->group(['prefix' => 'horarios'], function () use ($router){
+    $router->group(['prefix' => 'horarios'], function () use ($router) {
         $router->post('/', 'HorariosController@cadastraHorario');
         $router->put('/{id}', 'HorariosController@atualizaHorario');
-        $router->get('/', 'HorariosController@retornaHorarios');
+        $router->get('/', 'HorariosController@retornaHorarios'); 
+        $router->get('/{id}', 'HorariosController@retornaHorarios'); 
         $router->delete('/{id}', 'HorariosController@deletaHorario');
     });
 
@@ -65,6 +65,12 @@ $router->group(['middleware' => 'auth'], function () use ($router) {
         $router->get('/id/{id}', 'UsuariosController@retornaUsuarios');
         $router->delete('/{id}', 'UsuariosController@excluiUsuario');
         $router->get('/', 'UsuariosController@retornaUsuarios');
+    });
+    $router->group(['prefix' => 'clinica'], function () use ($router){
+        $router->post('/', 'ClinicaController@cadastraClinica');
+        $router->put('/{id}', 'ClinicaController@atualizaClinica');
+        $router->get('/', 'ClinicaController@retornaClinicas');
+        $router->delete('/{id}', 'ClinicaController@deletaClinica');
     });
 
 });

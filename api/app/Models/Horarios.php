@@ -9,5 +9,5 @@ class Horarios extends Model
     protected $table = 'horarios';
     protected $primaryKey = 'id';
     public $timestamps = false; 
-    protected $fillable = ['dia', 'horario_inicio', 'horario_fim', 'idmedico'];
+    protected $fillable = ['dia', 'horario_inicio', 'horario_fim', 'idmedico','disponivel'];
 }
