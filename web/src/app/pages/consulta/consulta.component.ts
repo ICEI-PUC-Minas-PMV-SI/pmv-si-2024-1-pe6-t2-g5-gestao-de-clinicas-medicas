@@ -20,7 +20,7 @@ export class ConsultaComponent implements OnInit {
     'medico',
     'especialidade',
     'paciente',
-    'status',
+    // 'status',
     'acao',
   ];
   dataSource = new MatTableDataSource<ConsultaTable>();
@@ -89,5 +89,5 @@ export interface ConsultaTable {
   medico: string;
   especialidade: string;
   paciente: string;
-  status: string;
+  // status: string;
 }

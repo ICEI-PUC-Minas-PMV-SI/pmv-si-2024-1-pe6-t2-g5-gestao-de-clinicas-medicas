@@ -9,5 +9,5 @@ export interface ConsultaVO {
   horario_inicio: string;
   horario_fim: string;
   posicao: string;
-  status: StatusConsultaEnum;
+  // status: StatusConsultaEnum;
 }

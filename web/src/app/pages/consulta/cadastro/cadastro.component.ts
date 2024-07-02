@@ -45,7 +45,7 @@ export class CadastroComponent implements OnInit {
       horarioInicio: new FormControl('', [Validators.required]),
       horarioFim: new FormControl('', [Validators.required]),
       // posicao: new FormControl('', [Validators.required]),
-      status: new FormControl('', [Validators.required]),
+      // status: new FormControl('', [Validators.required]),
     });
   }
 
@@ -78,7 +78,7 @@ export class CadastroComponent implements OnInit {
         horario_inicio: horarioInicio,
         horario_fim: horarioFim,
         posicao: '1',
-        status: this.consultaForm.get('status')?.value,
+        // status: this.consultaForm.get('status')?.value,
       };
 
       this.consultaService.cadastrar(consulta).subscribe((rs) => {

@@ -48,7 +48,7 @@ export class EdicaoComponent implements OnInit {
       horarioInicio: new FormControl('', [Validators.required]),
       horarioFim: new FormControl('', [Validators.required]),
       posicao: new FormControl('', [Validators.required]),
-      status: new FormControl('', [Validators.required]),
+      // status: new FormControl('', [Validators.required]),
     });
   }
 
@@ -92,7 +92,7 @@ export class EdicaoComponent implements OnInit {
       horarioInicio: dados.horario_inicio,
       horarioFim: dados.horario_fim,
       posicao: dados.posicao,
-      status: dados.status,
+      // status: dados.status,
     });
   }
 
@@ -122,7 +122,7 @@ export class EdicaoComponent implements OnInit {
         horario_inicio: horarioInicio,
         horario_fim: horarioFim,
         posicao: this.consultaForm.get('posicao')?.value.toString(),
-        status: this.consultaForm.get('status')?.value,
+        // status: this.consultaForm.get('status')?.value,
       };
 
       if (consulta.id != null) {
